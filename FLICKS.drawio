@@ -1,9 +1,29 @@
-<mxfile host="app.diagrams.net" modified="2024-05-26T13:04:24.593Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:127.0) Gecko/20100101 Firefox/127.0" version="24.4.7" etag="0ppBhoP1kRQyjznpTBKn" type="github">
+<mxfile host="app.diagrams.net" modified="2024-05-26T13:15:14.053Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:127.0) Gecko/20100101 Firefox/127.0" etag="kK6jhiqgymxUUZ8OKr82" version="24.4.7" type="github">
   <diagram name="Page-1" id="BBRLmEO37WGfpNJw9e1L">
-    <mxGraphModel>
+    <mxGraphModel dx="389" dy="251" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="raJYyTkhliqYFXlJdWqI-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="raJYyTkhliqYFXlJdWqI-2" target="raJYyTkhliqYFXlJdWqI-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="raJYyTkhliqYFXlJdWqI-2" value="START!" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="raJYyTkhliqYFXlJdWqI-3" value="FLICKS: A Movie Ticket Booking System" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="280" y="10" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="raJYyTkhliqYFXlJdWqI-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="raJYyTkhliqYFXlJdWqI-4" target="raJYyTkhliqYFXlJdWqI-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="530.0000000000001" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="raJYyTkhliqYFXlJdWqI-4" value="LANDING PAGE" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="raJYyTkhliqYFXlJdWqI-8" value="&lt;div&gt;Will contain the following:&lt;/div&gt;&lt;div&gt;Navigation bar&lt;/div&gt;&lt;div&gt;C1-C4 Now Showing&lt;/div&gt;&lt;div&gt;4 Next Pictures&lt;/div&gt;&lt;div&gt;4 Coming Soon&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="530" y="155" width="140" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
