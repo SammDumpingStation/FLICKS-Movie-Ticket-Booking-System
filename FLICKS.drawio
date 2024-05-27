@@ -1,28 +1,264 @@
-<mxfile host="app.diagrams.net" modified="2024-05-26T13:15:14.053Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:127.0) Gecko/20100101 Firefox/127.0" etag="kK6jhiqgymxUUZ8OKr82" version="24.4.7" type="github">
+<mxfile host="app.diagrams.net" modified="2024-05-27T12:27:55.456Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:127.0) Gecko/20100101 Firefox/127.0" etag="dzZ4F3mUr0JwbGBvzIKX" version="24.4.8" type="github">
   <diagram name="Page-1" id="BBRLmEO37WGfpNJw9e1L">
-    <mxGraphModel dx="389" dy="251" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1717" dy="536" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="raJYyTkhliqYFXlJdWqI-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="raJYyTkhliqYFXlJdWqI-2" target="raJYyTkhliqYFXlJdWqI-4">
+        <mxCell id="raJYyTkhliqYFXlJdWqI-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="raJYyTkhliqYFXlJdWqI-2" target="raJYyTkhliqYFXlJdWqI-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="raJYyTkhliqYFXlJdWqI-2" value="START!" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="raJYyTkhliqYFXlJdWqI-2" value="START!" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="330" y="50" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="raJYyTkhliqYFXlJdWqI-3" value="FLICKS: A Movie Ticket Booking System" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="raJYyTkhliqYFXlJdWqI-3" value="FLICKS: A Movie Ticket Booking System" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="280" y="10" width="220" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="raJYyTkhliqYFXlJdWqI-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="raJYyTkhliqYFXlJdWqI-4" target="raJYyTkhliqYFXlJdWqI-8">
+        <mxCell id="raJYyTkhliqYFXlJdWqI-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=12 12;" parent="1" source="raJYyTkhliqYFXlJdWqI-4" target="raJYyTkhliqYFXlJdWqI-8" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="530.0000000000001" y="170" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="raJYyTkhliqYFXlJdWqI-4" value="LANDING PAGE" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="JSnklxa-YHap8r1EnBcj-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="raJYyTkhliqYFXlJdWqI-4" target="JSnklxa-YHap8r1EnBcj-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="260" />
+              <mxPoint y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="raJYyTkhliqYFXlJdWqI-4" target="JSnklxa-YHap8r1EnBcj-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="260" />
+              <mxPoint x="520" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="raJYyTkhliqYFXlJdWqI-4" value="LANDING PAGE" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="330" y="140" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="raJYyTkhliqYFXlJdWqI-8" value="&lt;div&gt;Will contain the following:&lt;/div&gt;&lt;div&gt;Navigation bar&lt;/div&gt;&lt;div&gt;C1-C4 Now Showing&lt;/div&gt;&lt;div&gt;4 Next Pictures&lt;/div&gt;&lt;div&gt;4 Coming Soon&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="530" y="155" width="140" height="30" as="geometry" />
+        <mxCell id="JSnklxa-YHap8r1EnBcj-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" edge="1" parent="1" source="raJYyTkhliqYFXlJdWqI-8" target="JSnklxa-YHap8r1EnBcj-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="raJYyTkhliqYFXlJdWqI-8" value="&lt;div&gt;Will contain the following:&lt;/div&gt;&lt;div&gt;Navigation bar&lt;br&gt;&lt;/div&gt;&lt;div&gt;Reserve Now! Text&lt;br&gt;&lt;/div&gt;&lt;div&gt;C1-C4 Now Showing&lt;/div&gt;&lt;div&gt;4 Next Pictures&lt;/div&gt;&lt;div&gt;4 Coming Soon&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="530" y="122.5" width="140" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-1" target="JSnklxa-YHap8r1EnBcj-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-1" target="JSnklxa-YHap8r1EnBcj-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-1" target="JSnklxa-YHap8r1EnBcj-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-1" target="JSnklxa-YHap8r1EnBcj-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-84" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-1" target="JSnklxa-YHap8r1EnBcj-83">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-1" value="User has many options to choose from such as:" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-60" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-5" value="In Nav we have:&lt;br&gt;&lt;div&gt;The FLICKS Logo,&lt;/div&gt;&lt;div&gt;The search button,&lt;/div&gt;&lt;div&gt;&quot;Are you a FLICKS Memeber? Log in to get discounts&quot;&lt;/div&gt;&lt;div&gt;Log-in sign up&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="750" y="122.5" width="140" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-62" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-7" target="JSnklxa-YHap8r1EnBcj-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-63" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-7" target="JSnklxa-YHap8r1EnBcj-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-64" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-7" target="JSnklxa-YHap8r1EnBcj-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-7" target="JSnklxa-YHap8r1EnBcj-65">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-7" value="A page will prompt if he/she is logging in as a customer or admin" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-10" value="If user doesn&#39;t click on log in" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="217.5" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-11" value="If user clicks log in" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="425" y="217.5" width="65" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-13" target="JSnklxa-YHap8r1EnBcj-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-13" value="&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;Reserve A ticket seat&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;(Located in the big banner)&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-610" y="460" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-15" target="JSnklxa-YHap8r1EnBcj-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-15" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;Reserve a ticket seat &lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;-Will be located in the actual movie picture when hovered&lt;br&gt;&lt;/div&gt;&lt;div&gt;- 2 prompts are available to the user (1. Reserve Now! 2. See Seats)&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-200" y="460" width="150" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-51" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-17" target="JSnklxa-YHap8r1EnBcj-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-17" value="See Next Picture and Coming Soon" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-53" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-20" target="JSnklxa-YHap8r1EnBcj-52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-20" value="Become A member to get discounts!" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="260" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-23" target="JSnklxa-YHap8r1EnBcj-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-23" value="Will let you choose on what movie from C1-C4 you want to reserve from" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-602.5" y="600" width="135" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-26" value="When Clicked" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-535" y="535" width="85" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-27" target="JSnklxa-YHap8r1EnBcj-31">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-270" y="880" />
+              <mxPoint x="-500" y="880" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-27" target="JSnklxa-YHap8r1EnBcj-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-27" value="Movie Reserving Details&lt;br&gt;Will show:&lt;br&gt;&lt;div align=&quot;left&quot;&gt;- Price&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- Overall Time of the show&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- Rated what?&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- Small Synopsis&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- showing time schedule&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- banner of the movie, &lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;-how many tickets needed&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- total price for the ticket&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-360" y="711" width="180" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-29" value="When Reserve Seats is Clicked" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-320" y="600" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-31" target="JSnklxa-YHap8r1EnBcj-27">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-570" y="930" />
+              <mxPoint x="-570" y="788" />
+              <mxPoint x="-360" y="788" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-31" value="Will Show the Trailer of the said movie" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-560" y="900" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-33" value="When the movie picture is Clicked" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-472" y="840" width="95" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-35" target="JSnklxa-YHap8r1EnBcj-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-35" value="&lt;div align=&quot;left&quot;&gt;- Let user choose seating arrangement (This will depend on how many tickets they choose)&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- See current seating Arrangement&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- &quot;Proceed&quot; Button&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-330" y="930" width="120" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-37" value="&quot;Proceed&quot; button clicked" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-260" y="880" width="95" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-41" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-38" target="JSnklxa-YHap8r1EnBcj-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-38" value="Choose Payment option:&lt;br&gt;&lt;div align=&quot;left&quot;&gt;- Over-the-counter (over the counter is only option)&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- not available: &lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;gcash&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;credit/debit cards&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-130" y="950" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-40" target="JSnklxa-YHap8r1EnBcj-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-40" value="Summary of the reserved ticket" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="970" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-42" target="JSnklxa-YHap8r1EnBcj-13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="920" />
+              <mxPoint y="920" />
+              <mxPoint y="430" />
+              <mxPoint x="-460" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-42" value="&lt;div align=&quot;left&quot;&gt;- We will give the user a unique number to identify.&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- Let user pick if reserve again a ticket or go back home&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="970" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-44" value="if okay" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="230" y="970" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.018;entryY=0.393;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-42" target="raJYyTkhliqYFXlJdWqI-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="880" />
+              <mxPoint x="80" y="880" />
+              <mxPoint x="80" y="164" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-46" value="if user goes back to landing page" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="850" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-48" value="if user goes back to reserve another set of tickets" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="920" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-50" value="Show Details and trailer, when it is released and such" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-55" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-52" target="JSnklxa-YHap8r1EnBcj-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-52" value="Register Page" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="260" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-54" target="JSnklxa-YHap8r1EnBcj-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-54" value="&lt;div&gt;If everything goes well then go to&amp;nbsp;&lt;/div&gt;&lt;div&gt;log in page&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-68" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-61" target="JSnklxa-YHap8r1EnBcj-67">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-61" value="Login Admin" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="660" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-76" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-65" target="JSnklxa-YHap8r1EnBcj-75">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-65" value="Login User" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="660" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-67" target="JSnklxa-YHap8r1EnBcj-80">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1280" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;dashPattern=8 8;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-67" target="JSnklxa-YHap8r1EnBcj-86">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1070" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-67" value="Landing page of admin" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="860" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-78" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="JSnklxa-YHap8r1EnBcj-75" target="JSnklxa-YHap8r1EnBcj-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-75" value="Landing Page with user name on it with discounts on each movie" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="860" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-77" value="if all goes well" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="790" y="340" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-80" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-83" value="Users can also add comments below the page" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-165" y="202.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JSnklxa-YHap8r1EnBcj-86" value="&lt;div&gt;Will contain of the following:&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- Navbar&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- Recently Reserved Seat&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- Ongoing Movie Timeline on each C1-C4&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- See User complaints/comments&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- Manage Reserve Seats &lt;br&gt;&lt;/div&gt;&lt;div&gt;(With their corresponding unique Identifier)&lt;/div&gt;&lt;div&gt;(Also add in if the seat is paid or not paid (maybe in color code))&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="10" width="150" height="190" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
