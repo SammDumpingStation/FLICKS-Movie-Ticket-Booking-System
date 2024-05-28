@@ -1,0 +1,102 @@
+-- Create the movie table
+CREATE TABLE movie (
+    movie_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    movie_title VARCHAR(255) NOT NULL,
+    movie_description TEXT,
+    movie_poster_url VARCHAR(100),
+    movie_rated VARCHAR(10),
+    movie_display VARCHAR(50),
+    movie_length VARCHAR(50),
+    movie_rating DECIMAL(3, 2),
+    movie_screen VARCHAR(50),
+    movie_time_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create the customer table
+CREATE TABLE customer (
+    customer_id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_name VARCHAR(255) NOT NULL,
+    customer_email VARCHAR(255) UNIQUE NOT NULL,
+    customer_phone_number VARCHAR(20),
+    customer_status ENUM('registered', 'guest') NOT NULL
+);
+
+-- Create the ticket table
+CREATE TABLE ticket (
+    ticket_id INT PRIMARY KEY AUTO_INCREMENT,
+    ticket_cost DECIMAL(10, 2),
+    ticket_quantity INT,
+    ticket_total_cost DECIMAL(10, 2),
+    ticket_seats_chosen VARCHAR(255),
+    ticket_time_selected VARCHAR(50),
+    movie_id BIGINT,
+    customer_id INT,
+    ticket_purchase_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (movie_id) REFERENCES movie(movie_id),
+    FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+);
+
+-- Create the showtimes table
+CREATE TABLE showtimes (
+    showtime_id INT PRIMARY KEY AUTO_INCREMENT,
+    show_time TIME,
+    movie_id BIGINT,
+    FOREIGN KEY (movie_id) REFERENCES movie(movie_id)
+);
+
+-- Create the payment table
+CREATE TABLE payment (
+    payment_id INT PRIMARY KEY AUTO_INCREMENT,
+    payment_method VARCHAR(50),
+    payment_status ENUM('paid', 'unpaid', 'pending', 'failed'),
+    ticket_id INT,
+    customer_id INT,
+    payment_paid_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (ticket_id) REFERENCES ticket(ticket_id),
+    FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+);
+
+-- Create the movie_activities table
+CREATE TABLE movie_activities (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    operation_type ENUM('INSERT', 'DELETE', 'UPDATE'),
+    old_values TEXT,
+    new_values TEXT,
+    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create the customer_activities table
+CREATE TABLE customer_activities (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    operation_type ENUM('INSERT', 'DELETE', 'UPDATE'),
+    old_values TEXT,
+    new_values TEXT,
+    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create the ticket_activities table
+CREATE TABLE ticket_activities (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    operation_type ENUM('INSERT', 'DELETE', 'UPDATE'),
+    old_values TEXT,
+    new_values TEXT,
+    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create the showtimes_activities table
+CREATE TABLE showtimes_activities (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    operation_type ENUM('INSERT', 'DELETE', 'UPDATE'),
+    old_values TEXT,
+    new_values TEXT,
+    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create the payment_activities table
+CREATE TABLE payment_activities (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    operation_type ENUM('INSERT', 'DELETE', 'UPDATE'),
+    old_values TEXT,
+    new_values TEXT,
+    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
