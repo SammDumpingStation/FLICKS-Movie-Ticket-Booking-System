@@ -1,0 +1,57 @@
+.navbar {
+  background-color: var(--);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  background-color: var(--secondary-black);
+}
+
+.navbar > * {
+  flex-basis: 100%;
+}
+
+.logo-div {
+  gap: 0.5rem;
+}
+
+.logo-label {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1rem;
+}
+
+.search-div, .login-div {
+  gap: 1rem;
+}
+
+.search-bar {
+  background-color: var(--tertiary-black);
+  padding: 12px 24px;
+  border-radius: 0.5rem;
+  width: 460px;
+}
+
+.search-input {
+  width: 100%;
+  caret-color: var(--primary-white);
+}
+
+.search-input:focus-visible {
+  outline: none;
+}
+
+.search-button {
+  padding: 10px;
+  border-radius: 0.5rem;
+}
+
+.login-div {
+  justify-content: end;
+}
+
+.login-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}

@@ -5,6 +5,7 @@
   --primary-white: #ECECEC;
   --primary-grey: #9B9B9B;
   --secondary-grey: #383838;
+  --primary-green: #14A27F;
 }
 
 *, *::before, *::after {
@@ -15,16 +16,33 @@
   margin: 0;
   padding: 0;
   font: inherit;
+  color: inherit;
 }
 
 html {
-  font-family: 'Poppins', 'Montserrat', 'Arial', sans-serif;
+  font-family: 'Poppins', 'Inter', 'Montserrat', 'Arial', sans-serif;
 }
 
 body {
   background-color: var(--primary-black);
   color: var(--primary-white);
-  padding-top: 9.25rem;
-  padding-inline: 9.375rem;
+  padding: 9.375rem;
+  position: relative;
+}
+
+button {
+  background-color: var(--primary-green);
+  border: none;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  color: var(--primary-grey);
+}
+
+.flex {
+  display: flex;
+  align-items: center;
 }
 
