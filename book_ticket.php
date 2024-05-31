@@ -22,10 +22,38 @@
       <div class="poster-container">
         <img src="/public/images/Furiosa.jpg" alt="">
       </div>
-      <div class="movie-details">
+
+      <div class="movie-details flex">
         <h1 class="title">Furiosa: A Mad Max Saga</h1>
         <div class="below-title">
           <h1 class="price">$400</h1>
+          <div class="setion">
+            <h2 class="sec-head">Select Time Slot</h2>
+            <h3 class="sec-desc">Select the time slot you wish to watch.</h3>
+            <button>12:30 P.M.</button>
+            <button>3:30 P.M.</button>
+            <button>6:30 P.M.</button>
+          </div>
+
+          <div class="tickets">
+            <h2 class="sec-head">Select Tickets</h2>
+            <h3 class="sec-desc">Select the number of tickets you wish to buy.</h3>
+
+            <div class="quant-div">
+              <h4 class="sect-title">Quantity</h4>
+
+              <div class="quantity-div">
+                <h6 class="operators minus">-</h6>
+                <input type="number" class="quantity" name="" id="">
+                <h6 class="operators plus">+</h6>
+              </div>
+            </div>
+
+            <div class="total-div">
+              <h4 class="sect-title">Total Cost</h4>
+              <p class="total">$3200 + $40 (Booking fee) = <span class="total-plus-fee">$3240</span></p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

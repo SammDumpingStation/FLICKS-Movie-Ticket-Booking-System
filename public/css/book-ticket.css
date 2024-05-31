@@ -23,3 +23,42 @@ main {
   max-width: 356px;
   max-height: 528px;
 }
+.current-contents {
+  gap: 2.625rem;
+  border: 1px solid red;
+}
+
+.movie-details {
+  flex-direction: column;
+}
+
+.title, .price {
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.below-title {
+  margin-left: 1.5rem;
+}
+
+.price {
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+}
+
+.timeslot {
+  margin-bottom: 48px;
+}
+
+.sec-head {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.sec-desc {
+  font-style: italic;
+  color: var(--primary-grey);
+  margin-left: 32px;
+  margin-bottom: 24px;
+}
+
