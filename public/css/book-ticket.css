@@ -1,0 +1,25 @@
+main {
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.selection-group {
+  width: 100%;
+}
+
+.selection {
+  padding-block: 16px;
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.current {
+  background-color: var(--primary-green);
+  border-top-left-radius: 8px;
+  font-weight: 600;
+}
+
+.poster-container {
+  max-width: 356px;
+  max-height: 528px;
+}

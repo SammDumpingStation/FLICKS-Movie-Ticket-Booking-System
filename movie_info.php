@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <?php include_once './includes/css-links.php'?>
-  <link rel="stylesheet" href="/public/css/movie_info.css">
+  <?php include_once './includes/css_links.php'?>
+  <link rel="stylesheet" href="/public/css/movie-info.css">
   <title>Document</title>
 </head>
 <body>
@@ -48,7 +48,7 @@
 
     <div class="button-container flex">
       <a href="landing.php"><button class="buttons see-trailer">Go Back</button></a>
-      <a href="book-ticket.php"><button class="buttons reserve-now">Reserve Now</button></a>
+      <a href="book_ticket.php"><button class="buttons reserve-now">Reserve Now</button></a>
     </div>
   </main>
 </body>

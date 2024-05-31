@@ -19,6 +19,10 @@
   color: inherit;
 }
 
+img {
+  width: 100%;
+}
+
 html {
   font-family: 'Poppins', 'Inter', 'Montserrat', 'Arial', sans-serif;
 }
