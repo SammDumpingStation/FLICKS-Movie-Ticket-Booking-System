@@ -1,5 +1,4 @@
 .navbar {
-  background-color: var(--);
   position: fixed;
   top: 0;
   left: 0;
@@ -14,6 +13,11 @@
 
 .logo-div {
   gap: 0.5rem;
+}
+
+.logo {
+  max-width: 40px;
+  max-height: 40px;
 }
 
 .logo-label {

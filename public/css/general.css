@@ -1,11 +1,11 @@
 :root {
-  --primary-black: #212121; 
-  --secondary-black: #171717;
-  --tertiary-black: #2F2F2F;
-  --primary-white: #ECECEC;
-  --primary-grey: #9B9B9B;
-  --secondary-grey: #383838;
-  --primary-green: #14A27F;
+  --primary-black: #212121; /* mainly-bg */
+  --secondary-black: #171717; /* mainly navbar */
+  --tertiary-black: #2F2F2F; /* mainly search bar */
+  --primary-white: #ECECEC; /* 90% font */
+  --primary-grey: #9B9B9B; /* 10% font */
+  --secondary-grey: #383838; /* mainly border */
+  --primary-green: #14A27F; /* mainly buttons */
 }
 
 *, *::before, *::after {
@@ -33,6 +33,7 @@ body {
 button {
   background-color: var(--primary-green);
   border: none;
+  cursor: pointer;
 }
 
 input {
@@ -43,6 +44,13 @@ input {
 
 .flex {
   display: flex;
+}
+
+.flex-center {
+  display: flex;
   align-items: center;
 }
 
+body {
+  margin-bottom: 1000px;
+}
