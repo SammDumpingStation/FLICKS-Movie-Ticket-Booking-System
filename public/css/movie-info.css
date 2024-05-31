@@ -86,19 +86,25 @@ main {
 
 .times-container {
   gap: 24px;
+  width: 400px;
   margin-top: 24px;
 }
 
 .showtimes {
   cursor: pointer;
-  border: 3px solid var(--primary-green);
+  text-align: center;
+  flex-basis: 100%;
+  min-width: fit-content;
   border-radius: 5px;
-  padding: 8px 16px;
+  padding: 8px;
+  background-color: transparent;
+  border: 2px solid var(--primary-green);
   transition: all 0.3s;
 }
 
 .showtimes:hover {
   background-color: rgba(20, 162, 127, 0.2);
+  font-weight: 700;
   /* color: var(--primary-black); */
 }
 
