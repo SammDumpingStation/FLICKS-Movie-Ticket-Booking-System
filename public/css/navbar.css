@@ -47,8 +47,12 @@
 }
 
 .search-button {
-  padding: 10px;
+  padding-inline: 15px;
   border-radius: 0.5rem;
+}
+
+.button-icon {
+  align-self: center;
 }
 
 .login-div {
