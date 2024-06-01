@@ -16,22 +16,34 @@
         <h3 class="selection">3. Confirm</button>
         <h3 class="selection">4. Booking Successful</h3>
       </section>
-      <section class="ticket-contents">
+
+      <section class="ticket-contents flex">
         <div class="poster-container">
           <img class="poster" src="/public/images/Furiosa.jpg" alt="">
         </div>
-        <div class="ticket-details">
-          <label class="ticket-labels">Time Slot:</label>
-          <h3 class="chosen">12:30 P.M.</h3>
-          <label class="ticket-labels">Screen Location:</label>
-          <h3 class="chosen">Cinema 1</h3>
-          <label class="ticket-labels">Ticket Bought:</label>
-          <h3 class="chosen">8</h3>
-          <label class="ticket-labels">Total Cost:</label>
-          <h3 class="chosen">$3240</h3>
+
+        <div class="details-group flex">
+          <div class="ticket-details">
+            <label class="ticket-labels">Time Slot:</label>
+            <h3 class="chosen">12:30 P.M.</h3>
+            <label class="ticket-labels">Screen Location:</label>
+            <h3 class="chosen">Cinema 1</h3>
+            <label class="ticket-labels">Ticket Bought:</label>
+            <h3 class="chosen">8</h3>
+            <label class="ticket-labels">Total Cost:</label>
+            <h3 class="chosen">$3240</h3>
+          </div>
           <p class="note">*Please ensure that you are selecting seats of your choice</p>
         </div>
-      </section>      
+
+      </section>  
+      <section class="seat-section">
+
+      </section>    
+      <section class="buttons-div flex">
+        <button class="buttons go-back">Go Back</button>
+        <button class="buttons">Proceed</button>
+      </section>
     </main>
 
 </body>

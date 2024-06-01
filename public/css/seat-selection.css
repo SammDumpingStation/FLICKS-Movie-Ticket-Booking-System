@@ -17,3 +17,71 @@ main {
   background-color: var(--primary-green);
   font-weight: 600;
 }
+
+.ticket-contents, .seat-section, .buttons-div {
+  margin-inline: 85px;
+}
+
+.ticket-contents {
+  gap: 40px;
+}
+
+.poster-container {
+  max-width: 150px;
+  max-height: 250px;
+}
+
+.poster {
+  object-fit: cover;
+}
+
+.details-group {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ticket-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 20px;
+  gap: 5px;
+  margin-bottom: 20px;
+  align-items: end;
+  color: var(--primary-grey);
+}
+
+.chosen {
+  color: var(--primary-green);
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.note {
+  color: var(--primary-grey);
+  font-style: italic;
+  font-size: 0.875rem;
+}
+
+.seat-section {
+  width: 500px;
+  aspect-ratio: 1/1;
+  align-self: center;
+  border: 1px solid var(--primary-white);
+  margin-bottom: 32px;
+}
+
+.buttons-div {
+  gap: 16px;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.buttons {
+  padding: 16px 48px;
+  border-radius: 30px;
+}
+
+.go-back {
+  background-color: transparent;
+  border: 3px solid var(--primary-green);
+}
