@@ -5,6 +5,7 @@
   right: 0;
   padding: 24px;
   background-color: var(--secondary-black);
+  z-index: 999;
 }
 
 .navbar > * {
