@@ -29,12 +29,13 @@
             <h3 class="chosen">12:30 P.M.</h3>
             <label class="ticket-labels">Screen Location:</label>
             <h3 class="chosen">Cinema 1</h3>
-            <label class="ticket-labels">Ticket Bought:</label>
-            <h3 class="chosen">8</h3>
+            <label class="ticket-labels">Tickets Reserved:</label>
+            <h3 class="chosen">8 Tickets</h3>
             <label class="ticket-labels">Total Cost:</label>
             <h3 class="chosen">$3240</h3>
+            <label for="ticket-labels">Selected Seats</label>
+            <h3 class="chosen">A1, A2, A3, A4, A5, A6, A7, A8</h3>
           </div>
-          <p class="note">*Please ensure that you are selecting seats of your choice</p>
         </div>
     </section>
       <hr class="line">
@@ -60,25 +61,37 @@
 
       <section class="payment-section">
         <h2 class="titles">Payment Method</h2>
-        <h3 class="payment-methods">Available Methods</h3>
-          <div class="methods">
-            <label for="">Over-the-counter</label>
-            <input type="radio" name="" id="">         
+
+        <form class="flex methods-section">
+          <div class="flex status">
+            <h3 class="payment-methods">Available Methods</h3>
+            <label for="cash" class="methods flex">
+              <label for="cash">Over-the-counter</label>
+              <input class="radio" type="radio" name="methods" value="over-the-counter" id="cash">         
+            </label>            
           </div>
-        <h3 class="payment-methods">Unavailable Methods</h3>
-          <div class="methods unavailable">
-            <label for="">Gcash</label>
-            <input type="radio" name="" id="">     
+
+          <div class="flex status">
+            <h3 class="payment-methods">Unavailable Methods</h3>
+              <label for="gcash" class="methods unavailable flex">
+                <label for="gcash">Gcash</label>
+                <input class="radio" type="radio" name="methods" value="gcash" disabled id="gcash"> 
+                <hr class="line-gcash">    
+              </label>
+    
+              <label for="cards" class="methods unavailable flex">
+                <label for="cards">Credit/Debit Cards</label>
+                <input class="radio" type="radio" name="methods" value="credit/debit" disabled id="cards">
+                <hr class="line-cards"> 
+              </label>            
           </div>
-          <div class="methods unavailable">
-            <label for="">Credit/Debit Cards</label>
-            <input type="radio" name="" id=""> 
-          </div>
+        </form>
+
       </section>
 
-      <section class="buttons">
-        <button>Go Back</button>
-        <button>Proceed</button>
+      <section class="buttons-div flex">
+        <a href="seat_selection.php"><button class="buttons go-back">Go Back</button></a>
+        <a href="summary.php"><button class="buttons">Proceed</button></a>
       </section>
   </main>
 </body>

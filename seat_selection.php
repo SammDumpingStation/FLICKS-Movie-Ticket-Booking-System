@@ -28,8 +28,8 @@
             <h3 class="chosen">12:30 P.M.</h3>
             <label class="ticket-labels">Screen Location:</label>
             <h3 class="chosen">Cinema 1</h3>
-            <label class="ticket-labels">Ticket Bought:</label>
-            <h3 class="chosen">8</h3>
+            <label class="ticket-labels">Tickets Reserved:</label>
+            <h3 class="chosen">8 Tickets</h3>
             <label class="ticket-labels">Total Cost:</label>
             <h3 class="chosen">$3240</h3>
           </div>
@@ -41,7 +41,7 @@
 
       </section>    
       <section class="buttons-div flex">
-        <button class="buttons go-back">Go Back</button>
+        <a href="book_ticket.php"><button class="buttons go-back">Go Back</button></a>
         <a href="confirmation.php"><button class="buttons">Proceed</button></a>
       </section>
     </main>

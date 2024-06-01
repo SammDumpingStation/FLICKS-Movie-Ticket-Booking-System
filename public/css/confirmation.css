@@ -28,7 +28,7 @@ main {
 
 .poster-container {
   max-width: 150px;
-  max-height: 250px;
+  height: 250px;
 }
 
 .poster {
@@ -37,7 +37,6 @@ main {
 
 .details-group {
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .ticket-details {
@@ -101,5 +100,65 @@ main {
   color: var(--primary-white);
   padding: 8px;
   border-radius: 8px;
+  width: 50ch;
 }
 
+.input-details:focus-visible {
+  outline: none;
+}
+
+.payment-methods {
+  color: var(--primary-green);
+}
+
+.methods-section {
+  flex-direction: column;
+  margin-left: 36px;
+  gap: 40px;
+}
+
+.status {
+  flex-direction: column;
+}
+
+.methods {
+  border-bottom: 1px solid var(--primary-green);
+  justify-content: space-between;
+  max-width: 50ch;
+  padding: 8px;
+  font-size: 20px;
+  position: relative;
+}
+
+.unavailable {
+  color: var(--primary-grey);
+}
+
+.line-cards, .line-gcash {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+}
+
+.radio {
+  width: 30px;
+  height: 30px;
+ }
+
+.buttons-div {
+  margin-top: 32px;
+  gap: 16px;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.buttons {
+  padding: 16px 48px;
+  border-radius: 30px;
+}
+
+.go-back {
+  background-color: transparent;
+  border: 3px solid var(--primary-green);
+}

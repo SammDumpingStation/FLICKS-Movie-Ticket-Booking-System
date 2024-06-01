@@ -28,7 +28,7 @@ main {
 
 .poster-container {
   max-width: 150px;
-  max-height: 250px;
+  height: 250px;
 }
 
 .poster {
@@ -37,7 +37,6 @@ main {
 
 .details-group {
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .ticket-details {
