@@ -1,0 +1,105 @@
+main {
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.selection-group {
+  width: 100%;
+}
+
+.selection {
+  padding-block: 16px;
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.current {
+  background-color: var(--primary-green);
+  font-weight: 600;
+}
+
+.ticket-contents, .seat-section, .buttons-div {
+  margin-inline: 85px;
+}
+
+.ticket-contents {
+  gap: 40px;
+}
+
+.poster-container {
+  max-width: 150px;
+  max-height: 250px;
+}
+
+.poster {
+  object-fit: cover;
+}
+
+.details-group {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ticket-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 20px;
+  gap: 5px;
+  margin-bottom: 20px;
+  align-items: end;
+  color: var(--primary-grey);
+}
+
+.chosen {
+  color: var(--primary-green);
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.note {
+  color: var(--primary-grey);
+  font-style: italic;
+  font-size: 0.875rem;
+}
+
+.line {
+  border: 1px solid var(--secondary-grey);
+}
+
+.titles {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 1.5rem;
+}
+
+.personal-details, .personal-input, .input-div  {
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.personal-input {
+  margin-left: 36px;
+  gap: 24px;
+}
+
+.input-div {
+  gap: 8px;
+}
+
+.label {
+  color: var(--primary-grey);
+}
+
+.red {
+  color: lightcoral;
+}
+
+.input-details {
+  border: 2px solid var(--primary-green);
+  font-size: 20px;
+  color: var(--primary-white);
+  padding: 8px;
+  border-radius: 8px;
+}
+

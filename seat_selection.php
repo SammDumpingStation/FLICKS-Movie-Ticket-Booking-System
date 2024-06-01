@@ -42,7 +42,7 @@
       </section>    
       <section class="buttons-div flex">
         <button class="buttons go-back">Go Back</button>
-        <button class="buttons">Proceed</button>
+        <a href="confirmation.php"><button class="buttons">Proceed</button></a>
       </section>
     </main>
 
