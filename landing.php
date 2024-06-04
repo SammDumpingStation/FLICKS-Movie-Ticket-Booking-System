@@ -15,7 +15,7 @@
     <section class="carousel flex-center">
       <h1 class="carousel-title">Ready to Watch?</h1>
       <h2 class="carousel-details">Browse our movie listings, pick your preferred showtime, and book your tickets today!</h2>
-      <button class="carousel-button">Reserve Now</button>
+      <a href="./reserve_now.php"><button class="carousel-button">Reserve Now</button></a>
     </section>
 
     <section class="movies-section flex">
