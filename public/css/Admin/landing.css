@@ -8,6 +8,10 @@ section h1 {
   font-weight: 700;
 }
 
+a {
+  text-decoration: none;
+}
+
 .pending-container {
   padding: 32px;
   padding-bottom: 0px;
@@ -17,12 +21,18 @@ section h1 {
 }
 
 .pending-cinema {
+  cursor: pointer;
   border: 3px solid var(--primary-green);
   padding: 32px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   border-radius: 1rem;
+  transition: all 0.3s ;
+}
+
+.pending-cinema:hover {
+  background-color: var(--secondary-black);
 }
 
 .pending-cinema div {
@@ -45,3 +55,42 @@ section h1 {
   font-weight: 500;
 }
 
+.admin-container {
+  padding: 32px 64px 0px 64px;
+  padding-inline: 64px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-sections {
+  cursor: pointer;
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  max-width: 250px;
+  min-height: 160px;
+  padding-inline: 24px;
+  border-radius: 0.5rem;
+  border: 3px solid var(--primary-green);
+  transition: all 0.3s;
+}
+
+.admin-sections:hover {
+  background-color: var(--secondary-black);
+}
+
+.admin-sections img {
+  max-width: 2rem;
+  min-height: 2rem;
+}
+
+.admin-sections p {
+  max-width: fit-content;
+  font-size: 24px;
+  font-weight: 500;
+}

@@ -60,3 +60,11 @@ input {
 body {
   margin-bottom: 1000px;
 }
+
+.white {
+  color: var(--primary-white);
+}
+
+.grey {
+  color: var(--primary-grey);
+}

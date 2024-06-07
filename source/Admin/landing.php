@@ -15,11 +15,12 @@
     <section>
       <h1>Pending Payments</h1>
       <section class="pending-container">
-        <div class="pending-cinema">
-          <div>
-            <h3>Cinema 1</h3>
-            <p>Current Time</p>
-          </div>
+        <a href="pending_payment.php">
+          <div class="pending-cinema">
+            <div>
+              <h3>Cinema 1</h3>
+              <p>Current Time</p>
+            </div> 
           <div>
             <h2>Movie</h2>
             <p>Furiosa: A Mad Max Saga</p>
@@ -41,6 +42,7 @@
             <p>12 Reservations</p>
           </div>   
         </div>
+        </a>
         <div class="pending-cinema">
           <div>
             <h3>Cinema 2</h3>
@@ -120,10 +122,50 @@
           </div>  
         </div>
       </section> 
+    </section>
 
-      <section>
-        
+    <section>
+      <h1>Movie Section</h1>
+      <section class="admin-container">
+        <div class="admin-sections">
+          <img src="../../public/images/admin.png" alt="">
+          <p>Add Users</p>
+        </div>
+        <div class="admin-sections">
+          <img src="../../public/images/admin.png" alt="">
+          <p>Manage Movies</p>
+        </div>
+        <div class="admin-sections">
+          <img src="../../public/images/admin.png" alt="">
+          <p>Update Schedules</p>
+        </div>
+        <div class="admin-sections">
+          <img src="../../public/images/admin.png" alt="">
+          <p>Stashed Movies</p>
+        </div>
+        <div class="admin-sections">
+          <img src="../../public/images/admin.png" alt="">
+          <p>Upcoming Movies</p>
+        </div>       
       </section>
+    </section>
+
+    <section>
+      <h1>Action Center</h1>
+        <section class="admin-container">
+          <div class="admin-sections">
+            <img src="../../public/images/admin.png" alt="">
+            <p>Paid Tickets History</p>
+          </div>
+          <div class="admin-sections">
+            <img src="../../public/images/admin.png" alt="">
+            <p>Admin Action History</p>
+          </div>
+          <div class="admin-sections">
+            <img src="../../public/images/admin.png" alt="">
+            <p>See Registered Users</p>
+          </div>     
+        </section>
     </section>
 
   </main>

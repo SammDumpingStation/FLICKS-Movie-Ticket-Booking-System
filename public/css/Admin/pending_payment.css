@@ -1,0 +1,43 @@
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+.title-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-section h1 {
+  font-size: 2rem;
+  font-weight: 700;
+
+}
+
+.seats-avail {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+
+.seats-avail button {
+  border-radius: 20px;
+  padding: .5rem;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 4.5rem;
+  padding-top: 1rem;
+  gap: 8px;
+  font-size: 20px;
+}
+
+.movie-info {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
