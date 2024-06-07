@@ -17,12 +17,12 @@
   max-width: 200px;
   padding-block: 0.5rem;
   background-color: transparent;
-  border: 1px solid var(--primary-green);
+  border: 1px solid var(--secondary-grey);
   border-radius: 8px;
   transition: all 0.3s;
 }
 
 .sorting-movies button:hover {
-  background-color: var(--secondary-black);
+  background-color: var(--primary-green);
   font-weight: 600;
 }
