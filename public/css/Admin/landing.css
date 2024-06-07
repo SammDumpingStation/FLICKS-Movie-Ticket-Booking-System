@@ -1,0 +1,47 @@
+main {
+  flex-direction: column;
+  gap: 6rem;
+}
+
+section h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.pending-container {
+  padding: 32px;
+  padding-bottom: 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.pending-cinema {
+  border: 3px solid var(--primary-green);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 1rem;
+}
+
+.pending-cinema div {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.pending-cinema h2 {
+  color: var(--primary-grey);
+}
+
+.pending-cinema h3 {
+  color: var(--primary-white);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.pending-cinema p {
+  font-weight: 500;
+}
+
