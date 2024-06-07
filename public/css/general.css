@@ -68,3 +68,19 @@ body {
 .grey {
   color: var(--primary-grey);
 }
+
+.green-bg {
+  background-color: var(--primary-green);
+}
+
+.yellow-bg {
+  background-color: #F2AC42;
+}
+
+.red-bg {
+  background-color: #EA324C;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,0 +1,28 @@
+.title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.sorting-movies {
+  padding-left: 4.5rem;
+  margin-top: 2rem;
+  margin-bottom: 4.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sorting-movies button {
+  flex: 1 1 100%;
+  max-width: 200px;
+  padding-block: 0.5rem;
+  background-color: transparent;
+  border: 1px solid var(--primary-green);
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.sorting-movies button:hover {
+  background-color: var(--secondary-black);
+  font-weight: 600;
+}

@@ -18,7 +18,7 @@ main {
 .seats-avail {
   display: flex;
   align-items: flex-end;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 
@@ -27,7 +27,7 @@ main {
   padding: .5rem;
 }
 
-.info-container {
+.header-container {
   display: flex;
   flex-direction: column;
   padding-left: 4.5rem;
