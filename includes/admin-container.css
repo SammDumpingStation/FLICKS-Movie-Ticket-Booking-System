@@ -1,3 +1,7 @@
+.title {
+  font-size: 32px;
+  font-weight: 700;
+}
 .container {
   padding-inline: 72px;
   display: flex;
@@ -8,8 +12,8 @@
 
 .info-container {
   width: 100%;
-  gap: 32px;
-  max-width: 700px;
+  gap: 56px;
+  max-width: 800px;
   display: flex;
   border: 2px solid var(--primary-green);
   border-radius: 1rem;
@@ -21,6 +25,7 @@
   display: flex;
   width: 100%;
   flex-direction: column;
+  gap: 8px;
   justify-content: space-between;
 }
 
@@ -43,11 +48,14 @@
 .buttons {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 32px;
 }
 
 .buttons button {
   padding: 12px 32px;
   border-radius: 0.5rem;
+  width: 100%;
   min-width: max-content;
 }

@@ -12,6 +12,7 @@
   <?php include_once '../../includes/navbar_admin.php';?>
 
   <main>
+    <button><a href="landing.php">Go Back</a></button>
     <section class="header">
       <h1 class="title">Manage Movies</h1>
       <div class="sorting-movies">
