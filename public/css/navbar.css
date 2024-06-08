@@ -8,11 +8,13 @@
   z-index: 999;
 }
 
+
 .navbar > * {
   flex-basis: 100%;
 }
 
-.logo-div {
+.logo-link {
+  cursor: pointer;
   gap: 0.5rem;
 }
 
@@ -58,16 +60,29 @@
 
 .login-div {
   justify-content: end;
+  flex-wrap: wrap;
+}
+
+.login-div > * {
+  flex: 1 1 100%;
+  max-width: 40%;
 }
 
 .login-button {
-  padding: 0.5rem 1rem;
+  max-width: 5.3125rem;
+  height: 2.5rem;
   border-radius: 0.5rem;
+}
+
+.status:hover { /*better to use content and absolute to start from center to side*/
+  cursor: pointer;
+  text-decoration: underline; /* temporary */
+  color: var(--primary-green);
 }
 
 .login-button:hover {
   background-color: var(--green-solid-hover);
   border: 2px solid var(--primary-green);
   font-weight: 700;
-  font-size: 1.1rem; 
+  font-size: 1.1rem;
 }

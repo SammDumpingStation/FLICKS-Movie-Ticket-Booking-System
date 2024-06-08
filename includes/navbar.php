@@ -1,8 +1,11 @@
   <header>
     <nav class="flex-center navbar">
-      <div class="flex-center logo-div">
-        <img class="logo" src="/public/images/logo.png" alt="">
-        <h1 class="logo-label">FLICKS</h1>      
+      <div class="flex-center">
+        <a class="logo-link flex-center" href="/source/Client/landing.php">
+          <img class="logo" src="/public/images/logo.png" alt="">
+          <h1 class="logo-label">FLICKS</h1> 
+        </a>
+             
       </div>
 
       <div class="search-div flex">
