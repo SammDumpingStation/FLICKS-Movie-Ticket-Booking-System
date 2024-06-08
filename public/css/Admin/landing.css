@@ -28,7 +28,6 @@ a {
   flex-direction: column;
   gap: 10px;
   border-radius: 1rem;
-  transition: all 0.3s ;
 }
 
 .pending-cinema:hover {
@@ -77,7 +76,6 @@ a {
   padding-inline: 24px;
   border-radius: 0.5rem;
   border: 3px solid var(--primary-green);
-  transition: all 0.3s;
 }
 
 .admin-sections:hover {

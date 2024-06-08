@@ -89,9 +89,9 @@
 
       </section>
 
-      <section class="buttons-div flex">
-        <a href="seat_selection.php"><button class="buttons go-back">Go Back</button></a>
-        <a href="summary.php"><button class="buttons">Proceed</button></a>
+      <section class="button-operations">
+        <a href="seat_selection.php"><button class="go-back">Go Back</button></a>
+        <a href="summary.php"><button class="proceed">Proceed</button></a>
       </section>
   </main>
 </body>

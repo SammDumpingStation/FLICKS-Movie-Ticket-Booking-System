@@ -64,3 +64,10 @@
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }
+
+.login-button:hover {
+  background-color: var(--green-solid-hover);
+  border: 2px solid var(--primary-green);
+  font-weight: 700;
+  font-size: 1.1rem; 
+}

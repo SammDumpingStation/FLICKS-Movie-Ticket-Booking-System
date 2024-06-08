@@ -1,5 +1,6 @@
 .add-form {
   margin-left: 4.5rem;
+  margin-top: 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -29,4 +30,20 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.desc-poster-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.large-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.large-input {
+  min-height: 250px;
 }

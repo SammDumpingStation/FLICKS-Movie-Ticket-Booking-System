@@ -99,7 +99,6 @@ main {
   padding: 8px;
   background-color: transparent;
   border: 2px solid var(--primary-green);
-  transition: all 0.3s;
 }
 
 .showtimes:hover {

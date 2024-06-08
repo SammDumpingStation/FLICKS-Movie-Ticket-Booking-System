@@ -43,14 +43,18 @@
       <section class="desc-poster-section">
         <div class="large-container">
           <label class="grey" for="description">Movie Description</label>
-          <input class="large-input" id="description" type="text">
+          <textarea class="large-input input" name="" id="description"></textarea>
         </div>
 
         <div class="large-container">
           <label class="grey" for="poster">Movie Poster</label>
-          <input class="large-input" id="poster" type="text">
+          <input class="large-input input" id="poster" type="text">
         </div>
       </section>
+      <section class="button-operations">
+        <a href="landing.php"><button class="go-back">Go Back</button></a>
+        <a href=""><button class="proceed">Proceed</button></a> 
+      </section>  
     </form>
   </main>
 </body>

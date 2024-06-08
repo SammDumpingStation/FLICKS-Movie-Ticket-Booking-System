@@ -68,19 +68,3 @@ main {
   border: 1px solid var(--primary-white);
   margin-bottom: 32px;
 }
-
-.buttons-div {
-  gap: 16px;
-  width: 100%;
-  justify-content: flex-end;
-}
-
-.buttons {
-  padding: 16px 48px;
-  border-radius: 30px;
-}
-
-.go-back {
-  background-color: transparent;
-  border: 3px solid var(--primary-green);
-}

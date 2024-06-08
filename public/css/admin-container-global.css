@@ -38,7 +38,6 @@
 
 .seats {
   background-color: transparent;
-  transition: color 0.3s;
 }
 
 .seats:hover {

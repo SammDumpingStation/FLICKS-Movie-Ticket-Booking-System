@@ -40,9 +40,9 @@
       <section class="seat-section">
 
       </section>    
-      <section class="buttons-div flex">
-        <a href="book_ticket.php"><button class="buttons go-back">Go Back</button></a>
-        <a href="confirmation.php"><button class="buttons">Proceed</button></a>
+      <section class="button-operations">
+        <a href="book_ticket.php"><button class="go-back">Go Back</button></a>
+        <a href="confirmation.php"><button class="proceed">Proceed</button></a>
       </section>
     </main>
 

@@ -75,7 +75,6 @@ main {
   padding: 8px;
   background-color: transparent;
   border: 2px solid var(--primary-green);
-  transition: all 0.3s;
 }
 
 .times-container button:hover {
@@ -103,7 +102,6 @@ main {
   padding: 0.5rem 1rem;
   width: 55px;
   text-align: center;
-  transition: all 0.3s;
 }
 
 .operators:hover {
@@ -161,21 +159,4 @@ input[type=number] {
   text-align: center;
   font-size: 24px;
   font-weight: 700;
-}
-
-.button-operations {
-  margin-top: 80px;
-  display: flex;
-  justify-content: end;
-  gap: 1rem;
-}
-
-.go-back, .proceed {
-  padding: 16px 48px;
-  border-radius: 40px;
-}
-
-.go-back {
-  background-color: transparent;
-  border: 2px solid var(--primary-green);
 }
