@@ -117,12 +117,12 @@ a {
 }
 
 .go-back {
-  background-color: transparent;
-  border: 2px solid var(--primary-green);
+  background-color: rgba(234, 50, 76, 1);
 }
 
 .go-back:hover {
-  background-color: var(--green-transparent-hover);
+  border: 2px solid #EA324C;
+  background-color: transparent;
   font-weight: 700;
   font-size: 1.1rem;
 }

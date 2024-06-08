@@ -52,8 +52,8 @@
         </div>
       </section>
       <section class="button-operations">
-        <a href="landing.php"><button class="go-back">Go Back</button></a>
-        <a href=""><button class="proceed">Proceed</button></a> 
+        <a href="landing.php"><button class="go-back">Cancel</button></a>
+        <a href=""><button class="proceed">Save</button></a> 
       </section>  
     </form>
   </main>
