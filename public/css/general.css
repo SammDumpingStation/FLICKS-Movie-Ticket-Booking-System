@@ -45,7 +45,7 @@ button {
 input {
   background-color: transparent;
   border: none;
-  color: var(--primary-grey);
+  color: var(--primary-white);
 }
 
 .flex {
