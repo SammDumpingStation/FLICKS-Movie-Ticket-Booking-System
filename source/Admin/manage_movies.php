@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php include_once '../../includes/css_links.php'?>
-  <?php include_once '../../includes/admin-container.php'?>
   <link rel="stylesheet" href="../../public/css/Admin/manage-movie.css">
   <title>Document</title>
 </head>
 <body>
-  <?php include_once '../../includes/navbar_admin.php';?>
+  <?php include_once '../../includes/navbar.php';?>
 
   <main>
     <button><a href="landing.php">Go Back</a></button>

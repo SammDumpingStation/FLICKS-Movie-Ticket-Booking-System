@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <?php include_once '../../includes/navbar_admin.php';?>
+  <?php include_once '../../includes/navbar.php';?>
 
   <main class="flex">
     <section>
@@ -127,7 +127,7 @@
     <section>
       <h1>Movie Section</h1>
       <section class="admin-container">
-        <a class="admin-sections" href="add_movies.php">
+        <a class="admin-sections" href="add_movie.php">
           <img src="../../public/images/admin.png" alt="">
           <p>Add Movies</p>
         </a>
