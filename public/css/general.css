@@ -6,6 +6,8 @@
   --primary-grey: #9B9B9B; /* 10% font */
   --secondary-grey: #383838; /* mainly border */
   --primary-green: #14A27F; /* mainly buttons */
+  --primary-yellow: #F2AC42;
+  --primary-red: #EA324C;
   --green-solid-hover: transparent;
   --green-transparent-hover: rgba(20, 162, 127, 0.3);
 }
@@ -78,72 +80,39 @@ body {
 }
 
 .green-bg {
+  border: 2px solid transparent;
   background-color: var(--primary-green);
 }
 
+.green-bg:hover {
+  border: 2px solid var(--primary-green);
+  background-color: transparent;
+  font-weight: 700;
+}
+
 .yellow-bg {
-  background-color: #F2AC42;
+  border: 2px solid transparent;
+  background-color: var(--primary-yellow);
+}
+
+.yellow-bg:hover {
+  border: 2px solid var(--primary-yellow);
+  background-color: transparent;
+  font-weight: 700;
 }
 
 .red-bg {
-  background-color: #EA324C;
+  border: 2px solid transparent;
+  background-color: var(--primary-red);
+}
+
+.red-bg:hover {
+  border: 2px solid var(--primary-red);
+  background-color: transparent;
+  font-weight: 700;
 }
 
 a {
   text-decoration: none;
-}
-
-.button-operations {
-  margin-top: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.button-operations a {
-  flex: 1 1 100%;
-  min-width: 150px;
-  max-width: 180px;
-  height: 60px;
-}
-
-.go-back, .proceed {
   width: 100%;
-  height: 100%;
-  border-radius: 40px;
-
-}
-
-.go-back {
-  background-color: rgba(234, 50, 76, 1);
-}
-
-.go-back:hover {
-  border: 2px solid #EA324C;
-  background-color: transparent;
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-.proceed:hover {
-  background-color: var(--green-solid-hover);
-  border: 2px solid var(--primary-green);
-  font-weight: 700;
-  font-size: 1.1rem; 
-}
-
-.return {
-  border: 2px solid var(--secondary-grey);
-  width: 6.25rem;
-  height: 2.5rem;
-  border-radius: 1.875rem;
-  background-color: transparent;
-  margin-bottom: 1.25rem;
-}
-
-.return:hover {
-  font-weight: 700;
-  background-color: var(--primary-green);
 }

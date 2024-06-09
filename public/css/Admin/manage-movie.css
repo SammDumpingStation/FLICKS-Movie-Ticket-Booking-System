@@ -1,7 +1,6 @@
 .sorting-movies {
   padding-left: 4.5rem;
-  margin-top: 2rem;
-  margin-bottom: 4.5rem;
+  margin-top: 32px;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -11,12 +10,13 @@
   flex: 1 1 100%;
   max-width: 200px;
   padding-block: 0.5rem;
-  background-color: transparent;
-  border: 1px solid var(--secondary-grey);
+  background-color: var(--secondary-grey);
+  border: 2px solid transparent;
   border-radius: 8px;
 }
 
 .sorting-movies button:hover {
-  background-color: var(--primary-green);
+  border: 2px solid var(--primary-grey);
+  background-color: transparent;
   font-weight: 600;
 }

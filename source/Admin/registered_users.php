@@ -24,9 +24,9 @@
             <p class="grey p-info">Movies Booked: <span class="white">1</span></p>
           </div>
           <div class="buttons">
-            <a href="landing.php"><button class="green-bg">Full Details</button></a> 
-            <a href="landing.php"><button class="yellow-bg">Update</button></a> 
-            <a href="landing.php"><button class="red-bg">Delete</button></a> 
+            <button class="green-bg">Full Details</button>
+            <button class="yellow-bg">Update</button> 
+            <button class="red-bg">Delete</button> 
 
           </div>
         </div>     

@@ -24,7 +24,7 @@
             <p class="grey p-info">Table <span class="white">customer Table</span></p>
           </div>
           <div class="buttons">
-            <a href="landing.php"><button class="green-bg">Full Details</button></a> 
+            <button class="green-bg">Full Details</button>
           </div>
         </div>     
     </section>

@@ -1,0 +1,123 @@
+.title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.container {
+  margin-block: 4.5rem;
+  padding-inline: 72px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.info-container {
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 80%;
+  min-width: 600px;
+  display: flex;
+  border: 2px solid var(--primary-green);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  justify-content: space-between;
+}
+
+.info-container > * {
+  flex:  1 1 100%;
+}
+
+.info-div {
+  max-width: 65%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.p-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  width: 100%;
+}
+
+.seats {
+  background-color: transparent;
+}
+
+.seats:hover {
+  color: var(--primary-green);
+}
+
+.buttons {
+  max-width: 25%;
+  gap: 32px;
+  display: flex; 
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.buttons button {
+  flex: 1 1 100%;
+  padding: 8px;
+  min-height: 55px;
+  border-radius: 0.5rem;
+}
+
+/* Proceed and Go Back Section */
+.button-operations {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.button-operations a {
+  flex: 1 1 100%;
+  min-width: 150px;
+  max-width: 180px;
+  height: 60px;
+}
+
+.go-back, .proceed {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+
+}
+
+.go-back {
+  background-color: var(--primary-red);
+}
+
+.go-back:hover {
+  border: 2px solid var(--primary-red);
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.proceed:hover {
+  background-color: var(--green-solid-hover);
+  border: 2px solid var(--primary-green);
+  font-weight: 700;
+  font-size: 1.1rem; 
+}
+
+.return {
+  border: 2px solid var(--secondary-grey);
+  width: 6.25rem;
+  height: 2.5rem;
+  border-radius: 1.875rem;
+  background-color: transparent;
+  margin-bottom: 1.25rem;
+}
+
+.return:hover {
+  font-weight: 700;
+  background-color: var(--primary-green);
+}
