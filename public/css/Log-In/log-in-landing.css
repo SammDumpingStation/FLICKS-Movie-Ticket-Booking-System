@@ -31,7 +31,6 @@ form {
 }
 
 .option img{
-  margin-top: 24px;
   max-width: 32px;
   max-height: 32px;
 }
@@ -57,3 +56,48 @@ form {
   background-color: var(--secondary-grey);
   border: 2px solid transparent;
 }
+
+.continue-button {
+  margin: 48px auto 0px;
+}
+
+input[type="radio"] {
+            display: none;
+        }
+
+/* Create a custom radio button */
+.custom-radio {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: 2px solid var(--primary-grey);
+    border-radius: 50%;
+    position: relative;
+    align-self: flex-end;
+}
+
+/* Style the checked state */
+input[type="radio"]:checked + .custom-radio {
+    background-color: transparent; /* Your desired color */
+    border-color: var(--primary-green);
+}
+
+/* Create the inner dot of the radio button */
+.custom-radio::after {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+/* Show the inner dot when checked */
+input[type="radio"]:checked + .custom-radio::after {
+    opacity: 1;
+    background: var(--primary-green); /* Inner dot color */}

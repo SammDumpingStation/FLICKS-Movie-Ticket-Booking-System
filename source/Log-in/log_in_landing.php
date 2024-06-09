@@ -15,19 +15,21 @@
     <section class="option-section">
       <label for="have-account" class="option">
         <input id="have-account" class="radio" type="radio" name="options" value="customer">
+        <span class="custom-radio"></span>
         <img src="../../public/images/user.png" alt="">
         <label for="have-account">I'm a Customer</label>
       </label>
 
       <label for="no-account" class="option">
         <input id="no-account" class="radio" type="radio" name="options" value="admin">
+        <span class="custom-radio"></span>
         <img src="../../public/images/admin.png" alt="">
         <label for="no-account">I'm an Admin</label>
       </label>
-    </section>
-    <button class="proceed">
-        Continue
-    </button>
+      <button class="continue-button proceed">
+          Continue
+      </button>
+  </form>
   </main>
 </body>
 </html>
