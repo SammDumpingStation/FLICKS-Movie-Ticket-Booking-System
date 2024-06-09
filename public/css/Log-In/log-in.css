@@ -1,0 +1,146 @@
+main {
+  border: 2px solid var(--secondary-grey);
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  border-radius: 1rem;
+  padding: 40px 72px;
+}
+
+.main-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form h2 {
+  color: var(--primary-grey);
+  font-style: italic;  
+}
+
+.main-input {
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 5rem;
+}
+
+.input-form img {
+  max-width: 24px;
+  max-height: 24px;
+  margin-inline: 1rem;
+  cursor: pointer;
+}
+
+.input-form input {
+  width: 100%;
+}
+
+.input-form {
+  display: flex;
+  padding-block: 1rem;
+  border-radius: 10px;
+  align-items: center;
+  border: 2px solid var(--primary-grey);
+}
+
+.keep-login {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.keep-login > * {
+  cursor: pointer;
+}
+
+.keep-login input {
+  width: 16px;
+  height: 16px;
+}
+
+.proceed {
+  min-height: 0px;
+  height: 48px;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.forgot {
+  margin: -0.5rem auto 0;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 32px;
+}
+
+.register-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.line1 {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 20%;
+  color: var(--primary-grey);
+}
+
+.line2 {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 20%;
+  color: var(--primary-grey);
+}
+
+.last-form {
+  width: 100%;
+  text-align: center;
+}
+
+.register-button {
+  color: var(--primary-white);
+  background-color: transparent;
+  border: 2px solid var(--primary-green);
+  width: 100%;
+  max-width: 50%;
+  height: 48px;
+  border-radius: 10px;
+}
+
+.or {
+  margin-block: -0.5rem;
+}
+
+.opposite-button {
+  color: var(--primary-white);
+  background-color: transparent;
+  border: 2px solid var(--primary-yellow);
+  width: 100%;
+  max-width: 50%;
+  height: 48px;
+  border-radius: 10px;
+}
+
+.register-button:hover {
+  font-weight: 700;
+  background-color: rgba(20, 162, 127, 0.3);
+}
+
+.opposite-button:hover {
+  font-weight: 700;
+  background-color: rgba(242, 172, 66, 0.2);
+}

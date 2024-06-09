@@ -19,7 +19,7 @@
 
       <div class="login-div flex-center">
         <h1 class="status">Log - in for Discounts!</h1>
-        <a class="login-link flex" href="../Log-in/log_in.php"><button class="login-button">Log-in</button></a>
+        <a class="login-link flex" href="../Log-in/auth_portal.php"><button class="login-button">Log-in</button></a>
       </div>
     </nav>
   </header>

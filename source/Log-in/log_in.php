@@ -1,13 +1,19 @@
 <?php 
   $chose = $_GET['options'];
   $user = null;
-  if (isset($chose) && $chose === 'customer') {
+  $opposite = null;
+  $description = null;
+  if (isset($chose) && $chose === 'Customer') {
     $user = 'Customer';
+    $opposite = 'Admin';
+    $description = 'Log-in to get discounts when using FLICKS!';
   }
-  elseif (isset($chose) && $chose === 'admin') {
+  elseif (isset($chose) && $chose === 'Admin') {
     $user = 'Admin';
+    $opposite = 'Customer';
+    $description = 'Manage Movies and Approve Tickets with FLICKS!';
 } else {
-  echo "Unauthorized Access";
+  header('Location: auth_portal.php');
 }
 
 ?>
@@ -18,32 +24,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php include_once '../../includes/login_css_links.php'?>
-  <link rel="stylesheet" href="../../public/css/Log-In/log-in-landing.css">
+  <link rel="stylesheet" href="../../public/css/Log-In/log-in.css">
   <title>Log-in Landing Page</title>
 </head>
 <body>
   <?php include_once('../../includes/login_logo.php')?>
 
-  <form action="log_in.php" method="get">
-    <h1 class="title">Log-in as a Customer or Admin</h1>
-    <section class="option-section">
-      <label for="have-account" class="option">
-        <input id="have-account" class="radio" type="radio" name="options" value="customer">
-        <span class="custom-radio"></span>
-        <img src="../../public/images/user.png" alt="">
-        <label for="have-account">I'm a Customer</label>
-      </label>
+  <main>
+    <form class="main-form" action="log_in.php" method="get">
+      <h1 class="title">Welcome <?php echo $user?>!</h1>
+      <h2 class="title-desc"><?php echo $description?></h2>
+      <section class="main-input">
+        <label for="username" class="input-form">
+          <img src="../../public/images/user.png" alt="">
+          <input id="username" type="text" name="username" placeholder="Username or Email">
+        </label>
+        <label for="password" class="input-form">
+          <img src="../../public/images/padlock.png" alt="">
+          <input id="password" type="text" name="password" placeholder="Password">
+          <img src="../../public/images/hide.png" alt="">
+        </label>
+        <label for="keep-login" class="keep-login">
+          <input type="checkbox" name="keep-login" id="keep-login">
+          <p>Keep me Logged In</p>
+        </label>
+        <button class="proceed">Continue</button>
+        <p class="forgot">Forgot Password?</p>
+      </section>
+    </form>
+    <section class="register">
+      <div class="register-header">
+        <hr class="line1">
+        <p>Don't have a FLICKS account?</p>
+        <hr class="line2">
+      </div>
+      
+      <form class="last-form" action="auth_portal.php" method="get">
+        <button type="submit" class="register-button" name="operation" value="register">
+          Register</button>
+      </form>
 
-      <label for="no-account" class="option">
-        <input id="no-account" class="radio" type="radio" name="options" value="admin">
-        <span class="custom-radio"></span>
-        <img src="../../public/images/admin.png" alt="">
-        <label for="no-account">I'm an Admin</label>
-      </label>
+      <p class="or">OR</p>
+
+      <form class="last-form" action="log_in.php" method="get">
+        <button class="opposite-button" name="options" value="<?php echo $opposite?>">
+          Log-in as <?php echo $opposite?>
+        </button>
+      </form>
     </section>
-    <button class="proceed">
-        Continue
-    </button>
   </main>
+
 </body>
 </html>
