@@ -1,6 +1,5 @@
 main {
   flex-direction: column;
-  gap: 80px;
 }
 .main {
   display: flex;
@@ -73,6 +72,7 @@ main {
 
 .showtime-div {
   flex-direction: column;
+  width: 100%;
 }
 
 .showtime-title {
@@ -85,37 +85,31 @@ main {
 }
 
 .times-container {
+  flex-wrap: wrap;
+  padding-left: 1.5rem;
   gap: 24px;
-  width: 400px;
+  max-width: 600px;
   margin-top: 24px;
 }
 
 .showtimes {
   cursor: pointer;
-  text-align: center;
-  flex-basis: 100%;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 100%;
   min-width: fit-content;
+  min-height: 60px;
   border-radius: 5px;
-  padding: 8px;
   background-color: transparent;
   border: 2px solid var(--primary-green);
+  max-width: 150px;
 }
 
 .showtimes:hover {
   background-color: rgba(20, 162, 127, 0.2);
   font-weight: 700;
+  font-size: 1.1rem;
   /* color: var(--primary-black); */
-}
-
-.button-container {
-  justify-content: end;
-  gap: 16px;
-  width: 100%;
-}
-
-.buttons {
-  border-radius: 30px;
-  padding: 12px 40px;
 }
 
 .see-trailer {

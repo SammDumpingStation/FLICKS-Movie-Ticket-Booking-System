@@ -38,17 +38,17 @@
             <h2 class="showtime-title">Show Times</h2>
             <h6 class="showtime-date">May 30, 2024</h6>
             <div class="times-container flex">
-              <h5 class="showtimes">12:30 P.M.</h5>
-              <h5 class="showtimes">3:30 P.M.</h5>
-              <h5 class="showtimes">6:30 P.M.</h5>
+              <h5 class="showtimes flex">12:30 P.M.</h5>
+              <h5 class="showtimes flex">3:30 P.M.</h5>
+              <h5 class="showtimes flex">6:30 P.M.</h5>
             </div>
           </div>
       </section>
     </div>
 
-    <div class="button-container flex">
-      <a href="landing.php"><button class="buttons see-trailer">Go Back</button></a>
-      <a href="book_ticket.php"><button class="buttons reserve-now">Reserve Now</button></a>
+    <div class="button-operations">
+      <a href="landing.php"><button class="go-back">Go Back</button></a>
+      <a href="book_ticket.php"><button class="proceed">Reserve Now</button></a>
     </div>
   </main>
 </body>

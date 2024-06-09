@@ -56,8 +56,15 @@ a {
 .booking-button {
   margin-top: 40px;
   width: 100%;
-  padding-block: 1rem;
+  height: 60px;
   border-radius: 30px;
+}
+
+.booking-button:hover {
+  background-color: var(--green-solid-hover);
+  border: 2px solid var(--primary-green);
+  font-weight: 700;
+  font-size: 1.1rem; 
 }
 
 .receipt-hero {
