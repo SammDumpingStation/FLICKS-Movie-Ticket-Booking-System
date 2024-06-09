@@ -133,3 +133,17 @@ a {
   font-weight: 700;
   font-size: 1.1rem; 
 }
+
+.return {
+  border: 2px solid var(--secondary-grey);
+  width: 6.25rem;
+  height: 2.5rem;
+  border-radius: 1.875rem;
+  background-color: transparent;
+  margin-bottom: 1.25rem;
+}
+
+.return:hover {
+  font-weight: 700;
+  background-color: var(--primary-green);
+}

@@ -11,8 +11,9 @@
   <?php include_once '../../includes/navbar.php';?>
 
   <main>
+    <a href="landing.php"><button class="return">Return</button></a>
     <h1 class="title">Add a Movie</h1>
-    <form class="add-form" action="" method="POST">
+    <section class="add-form" action="" method="POST">
       <section class="basic-info-section">
         <div class="input-container">
           <label class="grey" for="name">Movie Name</label>
@@ -53,9 +54,9 @@
       </section>
       <section class="button-operations">
         <a href="landing.php"><button class="go-back">Cancel</button></a>
-        <a href=""><button class="proceed">Save</button></a> 
+        <a href="landing.php"><button class="proceed">Save</button></a> 
       </section>  
-    </form>
+    </section>
   </main>
 </body>
 </html>

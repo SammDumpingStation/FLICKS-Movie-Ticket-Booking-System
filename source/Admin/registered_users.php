@@ -11,7 +11,7 @@
   <?php include_once '../../includes/navbar.php';?>
 
   <main>
-    <button><a href="landing.php">Go Back</a></button>
+    <a href="landing.php"><button class="return">Return</button></a>
     <section class="header">
       <h1 class="title">Registered Users</h1>
     </section>

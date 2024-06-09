@@ -12,6 +12,7 @@
 
   <main>
     <section class="header">
+    <a href="landing.php"><button class="return">Return</button></a>
       <div class="title-section">
         <h1>Pending Payments</h1>
         <div class="seats-avail">

@@ -7,11 +7,11 @@
   <link rel="stylesheet" href="../../public/css/Admin/admin-action-history.css">
   <title>Document</title>
 </head>
-<body> =
+<body>
   <?php include_once '../../includes/navbar.php';?>
 
   <main>
-    <button><a href="landing.php">Go Back</a></button>
+    <a href="landing.php"><button class="return">Return</button></a>
     <section class="header">
       <h1 class="title">Admin Action History</h1>
     </section>
