@@ -63,13 +63,19 @@
   flex-wrap: wrap;
 }
 
+.login-link {
+  align-items: center;
+  justify-content: end;
+}
+
 .login-div > * {
   flex: 1 1 100%;
-  max-width: 40%;
+  max-width: fit-content;
 }
 
 .login-button {
-  max-width: 5.3125rem;
+  width: 100%;
+  min-width: 5.3125rem;
   height: 2.5rem;
   border-radius: 0.5rem;
 }
