@@ -39,6 +39,8 @@ body {
   color: var(--primary-white);
   padding: 9.375rem;
   position: relative;
+  min-height: 100vh;
+  margin-bottom: 1000px;
 }
 
 button {
@@ -65,10 +67,6 @@ textarea:focus-visible, input:focus-visible {
 .flex-center {
   display: flex;
   align-items: center;
-}
-
-body {
-  margin-bottom: 1000px;
 }
 
 .white {

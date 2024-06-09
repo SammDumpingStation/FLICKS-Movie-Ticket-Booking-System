@@ -63,7 +63,7 @@
         <h2 class="titles">Payment Method</h2>
 
         <form class="flex methods-section">
-          <div class="flex status">
+          <div class="flex current-status">
             <h3 class="payment-methods">Available Methods</h3>
             <label for="cash" class="methods flex">
               <label for="cash">Over-the-counter</label>
@@ -71,7 +71,7 @@
             </label>            
           </div>
 
-          <div class="flex status">
+          <div class="flex current-status">
             <h3 class="payment-methods">Unavailable Methods</h3>
               <label for="gcash" class="methods unavailable flex">
                 <label for="gcash">Gcash</label>
