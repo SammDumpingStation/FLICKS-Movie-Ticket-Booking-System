@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php include_once '../../includes/css_links.php'?>
   <link rel="stylesheet" href="../../public/css/Client/summary.css">
-  <title>Document</title>
+  <title>Summary</title>
 </head>
 <body>
   <?php include '../../includes/navbar.php'?>

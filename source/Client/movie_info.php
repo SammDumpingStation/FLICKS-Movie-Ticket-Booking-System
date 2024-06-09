@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php include_once '../../includes/css_links.php'?>
   <link rel="stylesheet" href="../../public/css/Client/movie-info.css">
-  <title>Document</title>
+  <title>Movie Information</title>
 </head>
 <body>
   <?php include_once '../../includes/navbar.php';?>
