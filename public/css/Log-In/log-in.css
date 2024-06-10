@@ -47,6 +47,7 @@ form h2 {
 }
 
 .keep-login {
+  max-width: fit-content;
   display: flex;
   gap: 0.5rem;
   margin-top: -0.5rem;
@@ -106,43 +107,27 @@ form h2 {
   color: var(--primary-grey);
 }
 
+.last-section {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+}
+
 .last-form {
-  width: 100%;
-  text-align: center;
+  width: 100%;  
 }
 
-.register-button {
+.register-button, .opposite-button {
   color: var(--primary-white);
   background-color: transparent;
-  border: 1px solid var(--primary-green);
+  border: 2px solid var(--secondary-grey);
   width: 100%;
-  max-width: 50%;
   height: 48px;
   border-radius: 10px;
 }
 
-.or {
-  margin-block: -0.5rem;
-}
-
-.opposite-button {
-  color: var(--primary-white);
-  background-color: transparent;
-  border: 1px solid var(--primary-yellow);
-  width: 100%;
-  max-width: 50%;
-  height: 48px;
-  border-radius: 10px;
-}
-
-.register-button:hover {
+.register-button:hover, .opposite-button:hover {
   font-weight: 700;
-  background-color: rgba(20, 162, 127, 0.3);
-  border-width: 2px;
-}
-
-.opposite-button:hover {
-  font-weight: 700;
-  background-color: rgba(242, 172, 66, 0.2);
-  border-width: 2px;
+  background-color: var(--secondary-grey);
+  border: 2px solid var(--primary-grey);
 }

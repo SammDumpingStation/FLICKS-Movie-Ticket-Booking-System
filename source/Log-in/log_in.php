@@ -59,18 +59,17 @@
         <hr class="line2">
       </div>
       
-      <form class="last-form" action="auth_portal.php" method="get">
-        <button type="submit" class="register-button" name="operation" value="register">
-          Register</button>
-      </form>
-
-      <p class="or">OR</p>
-
-      <form class="last-form" action="log_in.php" method="get">
-        <button class="opposite-button" name="options" value="<?php echo $opposite?>">
-          Log-in as <?php echo $opposite?>
-        </button>
-      </form>
+      <section class="last-section">
+        <form class="last-form" action="log_in.php" method="get">
+          <button class="opposite-button" name="options" value="<?php echo $opposite?>">
+            Log-in as <?php echo $opposite?>
+          </button>
+        </form>
+        <form class="last-form" action="auth_portal.php" method="get">
+          <button type="submit" class="register-button" name="operation" value="register">
+            Register</button>
+        </form>
+      </section>
     </section>
   </main>
 
