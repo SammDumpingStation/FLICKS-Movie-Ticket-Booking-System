@@ -114,7 +114,7 @@ form h2 {
 .register-button {
   color: var(--primary-white);
   background-color: transparent;
-  border: 2px solid var(--primary-green);
+  border: 1px solid var(--primary-green);
   width: 100%;
   max-width: 50%;
   height: 48px;
@@ -128,7 +128,7 @@ form h2 {
 .opposite-button {
   color: var(--primary-white);
   background-color: transparent;
-  border: 2px solid var(--primary-yellow);
+  border: 1px solid var(--primary-yellow);
   width: 100%;
   max-width: 50%;
   height: 48px;
@@ -138,9 +138,11 @@ form h2 {
 .register-button:hover {
   font-weight: 700;
   background-color: rgba(20, 162, 127, 0.3);
+  border-width: 2px;
 }
 
 .opposite-button:hover {
   font-weight: 700;
   background-color: rgba(242, 172, 66, 0.2);
+  border-width: 2px;
 }
