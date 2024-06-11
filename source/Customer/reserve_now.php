@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php include_once '../../includes/css_links.php'?>
-  <link rel="stylesheet" href="../../public/css/Client/reserve-now.css">
+  <link rel="stylesheet" href="../../public/css/Customer/reserve-now.css">
   <title>Reserve Now!</title>
 </head>
 <body>

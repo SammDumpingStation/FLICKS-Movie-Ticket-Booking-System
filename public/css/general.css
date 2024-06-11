@@ -37,6 +37,7 @@ html {
 body {
   background-color: var(--primary-black);
   color: var(--primary-white);
+  margin-bottom: 1000px;
   padding: 9.375rem;
   position: relative;
   min-height: 100vh;
