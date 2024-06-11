@@ -1,0 +1,49 @@
+.movie-status {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.movies-container {
+  width: 100%;
+}
+
+.movie-row {
+  flex-wrap: wrap;
+  margin-left: 2rem;
+  margin-top: 32px;
+  justify-content: space-between;
+}
+
+.per-movie {
+  flex-direction: column;
+  max-width: fit-content;
+  justify-content: center;
+  flex-basis: 100%;
+  align-items: center;
+  align-self: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.movie-screen {
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.poster-container {
+  height: 288px;
+  width: 200px;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-title {
+  margin-top: 14px;
+  max-width: 12ch;
+  font-size: 20px;
+  text-align: center;
+}

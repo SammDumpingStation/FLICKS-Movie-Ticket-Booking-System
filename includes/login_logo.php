@@ -4,5 +4,6 @@
       <img class="logo" src="/public/images/logo.png" alt="">
       <h1 class="logo-label">FLICKS</h1> 
     </a>
+      <button class="join-as">Join as Customer</button>
   </nav>
 </header>

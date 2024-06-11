@@ -48,7 +48,7 @@
           <input type="checkbox" name="keep-login" id="keep-login">
           <p>Keep me Logged In</p>
         </label>
-        <button class="proceed">Continue</button>
+        <button class="proceed">Log-in</button>
         <p class="forgot">Forgot Password?</p>
       </section>
     </form>
