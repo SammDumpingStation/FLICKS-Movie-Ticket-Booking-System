@@ -1,15 +1,18 @@
 <?php
   session_start();
-  if (isset($_GET['operation']) && $_GET['operation'] === 'register') {
+  if (isset($_GET['operation']) && $_GET['operation'] === 'register' || $_GET['operation'] === 'Register') {
     $operation = 'Register';
-    $fileLink = 'registration_form.php';
+    $fileLink = 'register_checkID.php';
+    $smallDesc = 'Join us today and enjoy exclusive benefits and discounts!';
 }
 
   else {
     $operation = 'Log-in';
     $fileLink = 'log_in.php';
+    $smallDesc = 'Log in to access your personalized dashboard and special offers!';
   }
   $_SESSION['web-status'] = 'authentication';
+  $_SESSION['action-type'] = $operation;
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +28,8 @@
   <?php include_once('../../includes/login_logo.php')?>
 
   <form action="<?php echo $fileLink?>" method="get">
-    <h1 class="title"><?php echo $operation ?> as a Customer or Admin</h1>
+    <h1 class="title"><span class="operation-type"><?php echo $operation ?></span> with FLICKS Today!</h1>
+    <h2 class="title2"><?php echo $smallDesc?></h2>
     <section class="option-section">
       <label for="have-account" class="option">
         <input id="have-account" class="radio" type="radio" name="options" value="Customer">

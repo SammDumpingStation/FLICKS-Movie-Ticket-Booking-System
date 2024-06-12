@@ -1,3 +1,7 @@
+nav form {
+  max-width: fit-content;
+}
+
 .login-nav {
   position: fixed;
   top: 0;
@@ -27,7 +31,7 @@
 }
 
 .join-as {
-  min-width: fit-content;
+  min-width: max-content;
   color: var(--primary-green);
   background-color: transparent;
 }

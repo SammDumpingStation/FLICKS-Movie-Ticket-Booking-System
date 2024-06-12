@@ -1,5 +1,6 @@
 <?php 
   $user = $_SESSION['user-type'];
+
   if (isset($user) && isset($_SESSION['user-name'])) {
     $userType = $_SESSION['user-type'];
     $userName = $_SESSION['user-name'];
