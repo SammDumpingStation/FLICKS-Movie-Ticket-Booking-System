@@ -18,11 +18,13 @@ if (isset($_GET['portal-button']) && $_GET['portal-button'] === 'cancel') {
         }
     } else {
         header('Location: auth_portal.php');
+        exit;
     }
 }
 
-$_SESSION['web-status'] = "Join as {$user}";
+$_SESSION['web-status'] = "Join as {$opposite}";
 $_SESSION['user-type'] = $user;
+$_SESSION['opposite'] = $opposite;
 ?>
 
 <!DOCTYPE html>
@@ -48,15 +50,15 @@ $_SESSION['user-type'] = $user;
         </label>
         <label for="password" class="input-form">
           <img src="../../public/images/padlock.png" alt="">
-          <input id="password" type="text" name="pwd" placeholder="Password">
+          <input id="password" type="password" name="pwd" placeholder="Password">
           <img src="../../public/images/hide.png" alt="">
         </label>
         <label for="keep-login" class="keep-login">
           <input type="checkbox" name="keep-login" id="keep-login">
           <p>Keep me Logged In</p>
         </label>
-        <button class="proceed" name="log-in" value="log-in">Log-in</button>
-        <p class="forgot">Forgot Password?</p>
+        <button class="proceed" name="Log-in" value="Log-in">Log-in</button>
+        <button class="forgot">Forgot Password?</button>
       </section>
     </form>
     <section class="register">
@@ -73,7 +75,7 @@ $_SESSION['user-type'] = $user;
           </button>
         </form>
         <form class="last-form" action="auth_portal.php" method="get">
-          <button type="submit" class="register-button" name="operation" value="register">
+          <button type="submit" class="register-button" name="options" value="register">
             Register</button>
         </form>
       </section>

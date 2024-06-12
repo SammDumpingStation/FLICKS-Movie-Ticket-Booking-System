@@ -1,18 +1,25 @@
 <?php
   session_start();
-  if (isset($_GET['operation']) && $_GET['operation'] === 'register' || $_GET['operation'] === 'Register') {
+  $userOperation = $_GET['options'] ?? null;
+  $logButton = $_GET['log-button'] ?? null;
+ 
+  if (isset($userOperation) && $userOperation === 'register' || $userOperation === 'Register') {
     $operation = 'Register';
     $fileLink = 'register_checkID.php';
     $smallDesc = 'Join us today and enjoy exclusive benefits and discounts!';
 }
 
-  else {
+  elseif (!$userOperation || $userOperation === 'Log-in' || $userOperation === 'log-in') {
     $operation = 'Log-in';
     $fileLink = 'log_in.php';
-    $smallDesc = 'Log in to access your personalized dashboard and special offers!';
+    $smallDesc = 'Log in to access your personalized dashboard and special offers!';   
   }
-  $_SESSION['web-status'] = 'authentication';
-  $_SESSION['action-type'] = $operation;
+  else {
+    header('Location: ../Customer/landing.php');
+    exit();
+  }
+  $_SESSION['web-status'] = 'authentication' ?? null;
+  $_SESSION['action-type'] = $operation ?? null;
 ?>
 
 <!DOCTYPE html>

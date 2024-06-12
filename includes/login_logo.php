@@ -8,14 +8,16 @@ if (isset($_SESSION['web-status'])) {
         if ($actionType === 'Log-in') {
             $logInAs = 'Register Here!';
             $actionType = 'Register';
-        } else {
+            $_GET['options'] = 'Register';
+        } elseif($actionType === 'Register') {
             $logInAs = 'Login Here!';
             $actionType = 'Log-in';
-        }
-    } elseif ($webStatus === 'Join as Customer') {
+            $_GET['options'] = 'Log-in';
+        } $link = 'auth_portal.php';
+    } elseif ($webStatus === 'Join as Customer' || $webStatus === 'Join as Admin' ) {
         $logInAs = $webStatus;
-    } elseif ($webStatus === 'Join as Admin') {
-        $logInAs = $webStatus;
+        $link = 'log_in.php';
+        $actionType = $_SESSION['opposite'];
     }
 }
 ?>
@@ -26,8 +28,8 @@ if (isset($_SESSION['web-status'])) {
       <img class="logo" src="/public/images/logo.png" alt="">
       <h1 class="logo-label">FLICKS</h1>
     </a>
-    <form action="auth_portal.php" method="get">
-      <button class="join-as" name="operation" value="<?php echo $actionType ?>"><?php echo $logInAs ?></button>
+    <form action="<?php echo $link?>" method="get">
+      <button class="join-as" name="options" value="<?php echo $actionType ?>"><?php echo $logInAs ?></button>
     </form>
   </nav>
 </header>

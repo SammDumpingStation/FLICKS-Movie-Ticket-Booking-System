@@ -1,9 +1,9 @@
 <?php 
-  $user = $_SESSION['user-type'];
+  $user = $_SESSION['user-type'] ?? null;
 
-  if (isset($user) && isset($_SESSION['user-name'])) {
-    $userType = $_SESSION['user-type'];
-    $userName = $_SESSION['user-name'];
+  if (isset($user) || isset($_SESSION['user-name'])) {
+    $userType = $_SESSION['user-type'] ?? null;
+    $userName = $_SESSION['user-name'] ?? null;
     $logStatus = 'Log-out';
     $landingPage = "/source/{$userType}/landing.php";
   }
@@ -32,9 +32,9 @@
           </button>
       </section>
 
-      <form action="/source/Log-in/auth_portal.php" method="get" class="login-div flex-center">
+      <form action="/source/Log-in/reset.php" method="get" class="login-div flex-center">
         <h1 class="status"><?php echo $userName?></h1>
-        <button class="login-button"><?php echo $logStatus?></button>
+        <button class="login-button" name="log-button" value="<?php echo $logStatus ?>"><?php echo $logStatus?></button>
       </form>
     </nav>
   </header>

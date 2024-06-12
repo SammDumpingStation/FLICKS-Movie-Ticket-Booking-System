@@ -14,10 +14,9 @@ main {
   gap: 1rem;
 }
 
-form h2 {
+.title2 {
   color: var(--primary-grey);
   font-style: italic; 
-  font-size: 14px;
   max-width: 60ch;
   text-align: center; 
 }
@@ -65,4 +64,5 @@ form h2 {
 .forgot {
   margin: -2rem auto 0;
   cursor: pointer;
+  background-color: transparent;
 }
