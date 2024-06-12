@@ -6,7 +6,7 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 48px;
+  gap: 56px;
 }
 
 .option-section {
@@ -57,8 +57,23 @@ form {
   border: 2px solid transparent;
 }
 
-.continue-button {
-  margin: 48px auto 0px;
+.portal-button {
+  width: 100%;
+  display: flex;
+  margin-top: 56px;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.portal-button button {
+  min-height: 0px;
+  height: 48px;
+  max-width: 280px;
+  border-radius: 10px;
+}
+
+.go-back {
+  background-color: transparent;
 }
 
 input[type="radio"] {

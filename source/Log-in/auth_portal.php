@@ -1,15 +1,15 @@
 <?php
-  $operation = null;
-  $fileLink = null;
+  session_start();
   if (isset($_GET['operation']) && $_GET['operation'] === 'register') {
     $operation = 'Register';
-    $fileLink = 'register.php';
+    $fileLink = 'registration_form.php';
 }
+
   else {
     $operation = 'Log-in';
     $fileLink = 'log_in.php';
   }
-
+  $_SESSION['web-status'] = 'authentication';
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php include_once '../../includes/login_css_links.php'?>
-  <link rel="stylesheet" href="../../public/css/Log-In/log-in-landing.css">
+  <link rel="stylesheet" href="../../public/css/Log-In/auth_portal.css">
   <title><?php echo $operation?> Landing Page</title>
 </head>
 <body>
@@ -40,9 +40,14 @@
         <img src="../../public/images/admin.png" alt="">
         <label for="no-account">I'm an Admin</label>
       </label>
-      <button class="continue-button proceed">
-          Continue
-      </button>
+      <section class="portal-button">
+        <button class="go-back" name="portal-button" value="cancel">
+            Cancel
+        </button>
+        <button class="proceed" name="portal-button" value="continue">
+            Continue
+        </button>
+      </section>
   </form>
   </main>
 </body>

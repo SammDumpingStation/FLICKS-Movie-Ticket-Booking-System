@@ -1,5 +1,6 @@
 <?php 
-  if (isset($_SESSION['user-type']) && isset($_SESSION['user-name'])) {
+  $user = $_SESSION['user-type'];
+  if (isset($user) && isset($_SESSION['user-name'])) {
     $userType = $_SESSION['user-type'];
     $userName = $_SESSION['user-name'];
     $logStatus = 'Log-out';
@@ -30,7 +31,7 @@
           </button>
       </section>
 
-      <form action="/includes/Central Controller/navbar_control.php" method="get" class="login-div flex-center">
+      <form action="/source/Log-in/auth_portal.php" method="get" class="login-div flex-center">
         <h1 class="status"><?php echo $userName?></h1>
         <button class="login-button"><?php echo $logStatus?></button>
       </form>
