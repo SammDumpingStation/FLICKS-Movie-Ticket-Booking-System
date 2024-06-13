@@ -8,17 +8,15 @@ if (isset($_SESSION['web-status'])) {
         if ($actionType === 'Log-in') {
             $logInAs = 'Register Here!';
             $actionType = 'Register';
-            $_GET['options'] = 'Register';
         } elseif($actionType === 'Register') {
             $logInAs = 'Login Here!';
             $actionType = 'Log-in';
-            $_GET['options'] = 'Log-in';
         } $link = 'auth_portal.php';
     } elseif ($webStatus === 'Join as Customer' || $webStatus === 'Join as Admin' ) {
         $logInAs = $webStatus;
         $link = 'log_in.php';
         $actionType = $_SESSION['opposite'];
-    }
+    } 
 }
 ?>
 

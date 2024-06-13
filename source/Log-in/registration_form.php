@@ -1,6 +1,30 @@
 <?php
-  session_start();
-  
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    $option = $_GET['options'] ?? null;
+    $userType = $_SESSION['user-type'];
+
+    if (isset($option)) {
+        if ($option === 'cancel') {
+            session_unset();
+            session_destroy();
+            header('Location: auth_portal.php');
+            exit;
+        } elseif ($option === 'check') {
+            header('Location: registration_form.php');
+            exit;
+        }
+    }
+    if ($userType === 'Admin') {
+        $desc = 'Register to manage movies and approve tickets!';
+    } elseif ($userType === 'Customer') {
+        $desc = 'Register to watch movies and get discounts!';
+    } else {
+      $desc = 'Nothing to see here';
+    }
+
+}
 
 ?>
 
@@ -17,10 +41,10 @@
   <?php include_once '../../includes/login_logo.php'?>
 
   <main>
-    <form class="main-form">
+    <form class="main-form" action="register_user_control.php" method="get">
       <section>
-        <h1 class="title">Registration Form for Customers</h1>
-        <h2>Register to watch movies and get discounts!</h2>
+        <h1 class="title">Registration Form for <?php echo $userType ?></h1>
+        <h2><?php echo $desc?></h2>
       </section>
       <section class="main-input">
         <div class="name-section">
@@ -56,12 +80,12 @@
       </section>
 
       <section class="click-buttons">
-          <a href="auth_portal.php"><button name="operation" value="cancel" class="go-back">Cancel</button></a>
-          <a href="registration_form.php"><button name="operation" value="Check" class="proceed">Create Account</button></a>
+          <button name="option" value="cancel" class="go-back">Cancel</button>
+          <button name="option" value="create" class="proceed">Create Account</button>
       </section>
-            
-      <p class="forgot">Already have an account? <button class="log-in">Log-in</button></p>
-    </form>    
+
+      <p class="forgot">Already have an account? <button class="log-in" name="option" value="log-in">Log-in</button></p>
+    </form>
   </main>
 
 </body>

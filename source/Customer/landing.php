@@ -2,7 +2,6 @@
   session_start();
   $userType = $_SESSION['user-type'] ?? null;
   $userName = $_SESSION['user-name'] ?? null;
-
 ?>
 
 <!DOCTYPE html>

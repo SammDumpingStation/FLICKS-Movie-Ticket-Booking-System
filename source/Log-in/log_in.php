@@ -1,27 +1,30 @@
 <?php
 session_start();
-$chose = $_GET['options'] ?? null;
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    $chose = $_GET['options'] ?? null;
 
-if (isset($_GET['portal-button']) && $_GET['portal-button'] === 'cancel') {
-    header('Location: ../Customer/landing.php');
-    exit();
-} else {
-    if (isset($chose)) {
-        if ($chose === 'Customer') {
-            $user = 'Customer';
-            $opposite = 'Admin';
-            $description = 'Log-in to get discounts when using FLICKS!';
-        } elseif ($chose === 'Admin') {
-            $user = 'Admin';
-            $opposite = 'Customer';
-            $description = 'Manage Movies and Approve Tickets with FLICKS!';
-        }
+    if (isset($_GET['portal-button']) && $_GET['portal-button'] === 'cancel') {
+        session_unset();
+        session_destroy();
+        header('Location: ../Customer/landing.php');
+        exit();
     } else {
-        header('Location: auth_portal.php');
-        exit;
+        if (isset($chose)) {
+            if ($chose === 'Customer') {
+                $user = 'Customer';
+                $opposite = 'Admin';
+                $description = 'Log-in to get discounts when using FLICKS!';
+            } elseif ($chose === 'Admin') {
+                $user = 'Admin';
+                $opposite = 'Customer';
+                $description = 'Manage Movies and Approve Tickets with FLICKS!';
+            }
+        } else {
+            header('Location: auth_portal.php');
+            exit;
+        }
     }
 }
-
 $_SESSION['web-status'] = "Join as {$opposite}";
 $_SESSION['user-type'] = $user;
 $_SESSION['opposite'] = $opposite;
