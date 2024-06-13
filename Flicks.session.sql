@@ -1,0 +1,4 @@
+CREATE TABLE images (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  img_file VARCHAR(50)
+);
