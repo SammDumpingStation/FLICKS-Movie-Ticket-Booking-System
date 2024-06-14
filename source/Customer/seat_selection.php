@@ -24,6 +24,8 @@
 
         <div class="details-group flex">
           <div class="ticket-details">
+            <label class="ticket-labels" for="">Movie Title</label>
+            <h3 class="chosen">Furiosa: A Mad Max Saga</h3>
             <label class="ticket-labels">Time Slot:</label>
             <h3 class="chosen">12:30 P.M.</h3>
             <label class="ticket-labels">Screen Location:</label>

@@ -1,0 +1,82 @@
+CREATE TABLE movie (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    poster VARCHAR(255),
+    age_rating VARCHAR(10),
+    dimension VARCHAR(50),
+    length INT,  -- Length in minutes
+    rating_score DECIMAL(3, 2),  -- Example: 8.75
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE customer (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_type VARCHAR(50),
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    phone_number VARCHAR(20),
+    customer_password VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE cinema (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    time_start DATETIME,
+    time_end DATETIME,
+    number INT,
+    movie_id INT,
+    FOREIGN KEY (movie_id) REFERENCES movie(id)
+);
+
+CREATE TABLE ticket (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cost DECIMAL(10, 2),
+    discount_percent DECIMAL(5, 2),
+    total_discount DECIMAL(10, 2),
+    cinema_id INT,
+    customer_id INT,
+    FOREIGN KEY (cinema_id) REFERENCES cinema(id),
+    FOREIGN KEY (customer_id) REFERENCES customer(id)
+);
+
+CREATE TABLE reservation (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    quantity INT,
+    total_cost DECIMAL(10, 2),
+    seats_chosen VARCHAR(255),
+    time_selected TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    date_reserved DATE,
+    reference_id VARCHAR(255),
+    customer_id INT,
+    cinema_id INT,
+    FOREIGN KEY (customer_id) REFERENCES customer(id),
+    FOREIGN KEY (cinema_id) REFERENCES cinema(id)
+);
+
+CREATE TABLE payment (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    method VARCHAR(50),
+    status VARCHAR(50),
+    paid_time TIMESTAMP,
+    reservation_id INT,
+    FOREIGN KEY (reservation_id) REFERENCES reservation(id)
+);
+
+CREATE TABLE seats (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    capacity INT,
+    booked INT,
+    available INT,
+    cinema_id INT,
+    FOREIGN KEY (cinema_id) REFERENCES cinema(id)
+);
+
+CREATE TABLE movie_stash (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    movie_id INT,
+    status ENUM('now showing', 'coming soon', 'next picture', 'stash'),
+    FOREIGN KEY (movie_id) REFERENCES movie(id)
+);

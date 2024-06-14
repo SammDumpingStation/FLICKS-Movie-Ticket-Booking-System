@@ -25,6 +25,8 @@
 
         <div class="details-group flex">
           <div class="ticket-details">
+            <label class="ticket-labels" for="">Movie Title</label>
+            <h3 class="chosen">Furiosa: A Mad Max Saga</h3>
             <label class="ticket-labels">Time Slot:</label>
             <h3 class="chosen">12:30 P.M.</h3>
             <label class="ticket-labels">Screen Location:</label>
@@ -44,17 +46,21 @@
         <h2 class="titles">Personal Details</h2>
         <div class="flex personal-input">
           <div class="flex input-div">
-            <label class="label" for=" name">Full Name <span class="red">*</span></label>
-            <input id="name" class="input-details" type="text" name="" id="">            
+            <label class="label" for="fname">First Name <span class="red">*</span></label>
+            <input id="fname" class="input-details" type="text" name="" placeholder="First Name">            
+          </div>
+          <div class="flex input-div">
+            <label class="label" for="lname">Last Name <span class="red">*</span></label>
+            <input id="lname" class="input-details" type="text" name="" placeholder="Last Name">            
           </div>
           <div class="flex input-div">
             <label class="label"  for="email">Email <span class="red">*</span></label>
-            <input id="input-details" class="input-details" type="text" name="" id="">  
+            <input id="input-details" class="input-details" type="text" name="" placeholder="Email">  
           </div>
 
           <div class="flex input-div">
             <label class="label"  for="number">Phone Number <span class="red">*</span></label>
-            <input id="number" class="input-details" type="text" name="" id="">   
+            <input id="number" class="input-details" type="text" name="" id="" placeholder="Phone Number">   
           </div>        
         </div>
       </section>

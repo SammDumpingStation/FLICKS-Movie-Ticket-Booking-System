@@ -14,7 +14,7 @@
     <div class="main">
       <section class="poster-left flex">
         <div class="poster-container">
-          <img class="poster" src="/public/images/Furiosa.jpg" alt="">
+          <img class="poster" src="/public/images/Quiet-Place-Day-One.jpg" alt="">
         </div>
         <h2 class="screen">Cinema 2</h2>
       </section>

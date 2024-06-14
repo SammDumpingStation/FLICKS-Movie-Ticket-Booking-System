@@ -5,9 +5,9 @@ class Dbh
     private $host = 'localhost';
     private $dbUser = "root";
     private $dbPassword = "root42069";
-    private $dbName = "Flicks";
+    private $dbName = "movie_ticket_booking";
 
-    protected function connection()
+    public function connection()
     {
         try {
             $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName;

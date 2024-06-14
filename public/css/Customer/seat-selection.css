@@ -27,7 +27,7 @@ main {
 }
 
 .poster-container {
-  max-width: 150px;
+  width: 150px;
   height: 250px;
 }
 
@@ -50,7 +50,7 @@ main {
 }
 
 .chosen {
-  color: var(--primary-green);
+  color: var(--primary-white);
   font-weight: 600;
   font-size: 24px;
 }

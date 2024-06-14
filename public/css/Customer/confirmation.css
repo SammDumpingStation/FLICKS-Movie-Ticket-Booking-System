@@ -27,7 +27,7 @@ main {
 }
 
 .poster-container {
-  max-width: 150px;
+  width: 150px;
   height: 250px;
 }
 
@@ -50,7 +50,7 @@ main {
 }
 
 .chosen {
-  color: var(--primary-green);
+  color: var(--primary-white);
   font-weight: 600;
   font-size: 24px;
 }
@@ -87,7 +87,7 @@ main {
 }
 
 .label {
-  color: var(--primary-grey);
+  color: var(--primary-white);
 }
 
 .red {
@@ -95,10 +95,9 @@ main {
 }
 
 .input-details {
-  border: 2px solid var(--primary-green);
-  font-size: 20px;
+  border: 2px solid var(--secondary-grey);
   color: var(--primary-white);
-  padding: 8px;
+  padding: 12px 16px;
   border-radius: 8px;
   width: 50ch;
 }
