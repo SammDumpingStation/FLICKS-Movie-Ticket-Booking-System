@@ -10,6 +10,12 @@ CREATE TABLE movie (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE movie_status (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    movie_id INT,
+    status ENUM('now showing','next picture', 'coming soon', 'upcoming movies', 'stashed'),
+    FOREIGN KEY (movie_id) REFERENCES movie(id)
+);
 
 CREATE TABLE customer (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -74,9 +80,4 @@ CREATE TABLE seats (
     FOREIGN KEY (cinema_id) REFERENCES cinema(id)
 );
 
-CREATE TABLE movie_stash (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    movie_id INT,
-    status ENUM('now showing', 'coming soon', 'next picture', 'stash'),
-    FOREIGN KEY (movie_id) REFERENCES movie(id)
-);
+

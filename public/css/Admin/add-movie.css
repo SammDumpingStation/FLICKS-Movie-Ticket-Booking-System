@@ -7,11 +7,16 @@
 }
 
 .input {
-  border: 2px solid var(--primary-white);
-  border-radius: 5px;
-  padding: 8px;
+  border: 2px solid var(--secondary-grey);
+  border-radius: 8px;
+  padding: 12px 16px;
   width: 100%;
 }
+
+select {
+  background-color: transparent;
+}
+
 
 .input:focus-visible {
   outline: none;
@@ -42,8 +47,25 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  height: 250px;
 }
 
 .large-input {
-  min-height: 250px;
+  height: 100%;
+  border: 1px solid var(--secondary-grey);
+}
+
+.poster-section {
+  display: flex;
+  width: 100%;
+  height: 250px;
+  border: 2px dotted var(--secondary-grey);
+  border-radius: 8px;
+}
+
+.poster-input {
+  border-color: transparent;
+  min-height: 0px;
+  width: fit-content;
+  margin: auto;
 }
