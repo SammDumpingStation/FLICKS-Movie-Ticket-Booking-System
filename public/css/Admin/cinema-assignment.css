@@ -1,32 +1,3 @@
-.carousel {
-  width: 100%;
-  gap: 16px;
-  border: 3px solid var(--secondary-grey);
-  padding: 3.5rem 9.375rem;
-  border-radius: 40px;
-  flex-direction: column;
-  margin-bottom: 5rem;
-}
-
-.carousel a {
-  text-align: center;
-}
-
-.carousel-title {
-  font-weight: 700;
-  font-size: 3.5rem;
-}
-
-.carousel-details {
-  color: var(--primary-grey);
-  margin-bottom: 56px;
-  max-width: 50ch;
-  text-align: center;
-  font-size: 20px;
-  letter-spacing: 1px;
-  line-height: 32px;
-}
-
 .movies-section {
   gap: 6rem;
   flex-direction: column;
@@ -56,7 +27,11 @@
   align-items: center;
   align-self: flex-start;
   gap: 10px;
-  cursor: pointer;
+}
+
+.per-movie > * {
+    cursor: pointer;
+
 }
 
 .movie-screen {
@@ -67,6 +42,7 @@
 .poster-container {
   height: 288px;
   width: 200px;
+  border: 1px solid;
 }
 
 .movie-poster {
@@ -81,4 +57,34 @@
   font-size: 20px;
   text-align: center;
   min-height: 100px;
+}
+
+.show-times {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.show-times > * {
+  flex: 1 1 100%;
+}
+
+.times-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.time{
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  text-align: center;
+  padding: 12px 16px;
+}
+
+.time:hover {
+  background-color: var(--secondary-grey);
 }

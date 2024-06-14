@@ -138,6 +138,10 @@
           <img src="../../public/images/admin.png" alt="">
           <p>Manage Movies</p>
         </a>
+        <a class="admin-sections" href="cinema_assignment.php">
+          <img src="../../public/images/admin.png" alt="">
+          <p>Cinema Assignment</p>
+        </a>
         <a class="admin-sections" href="update_schedules.php">
           <img src="../../public/images/admin.png" alt="">
           <p>Update Schedules</p>

@@ -1,14 +1,7 @@
--- SELECT * FROM movie;
--- SELECT * FROM movie_status;
+-- INSERT INTO cinema (number, movie_id)
+-- VALUES (1, 2024001);
 
+-- SELECT * FROM cinema;
 
--- -- UPDATE movie
--- -- SET dimension = '2D'
--- -- WHERE id = 2024005;
+-- SELECT length FROM movie WHERE title = 'Furiosa: A Mad Max Movie';
 
-
--- SELECT movie.*, movie_status.* 
--- FROM movie
--- JOIN movie_status
--- ON movie.id = movie_status.movie_id
--- WHERE movie_status.status = 'next picture';
