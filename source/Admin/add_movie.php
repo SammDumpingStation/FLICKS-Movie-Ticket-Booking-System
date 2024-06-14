@@ -108,8 +108,7 @@ if (isset($button)) {
               <option value="G">G (General Audiences)</option>
               <option value="PG">PG (Parental Guidance Suggested)</option>
               <option value="PG-13">PG-13 (Parents Strongly Cautioned)</option>
-              <option value="R">R (Restricted)</option>
-              <option value="NC-17">NC-17 (Adults Only)</option>
+              <option value="R-18">R-18 (Rated 18)</option>
             </select>
           </div>
 

@@ -1,4 +1,14 @@
-DELETE FROM movie_status;
-DELETE FROM movie;
-ALTER TABLE movie_status AUTO_INCREMENT = 1;
-ALTER TABLE movie AUTO_INCREMENT = 2024000;
+-- SELECT * FROM movie;
+-- SELECT * FROM movie_status;
+
+
+-- -- UPDATE movie
+-- -- SET dimension = '2D'
+-- -- WHERE id = 2024005;
+
+
+-- SELECT movie.*, movie_status.* 
+-- FROM movie
+-- JOIN movie_status
+-- ON movie.id = movie_status.movie_id
+-- WHERE movie_status.status = 'next picture';
