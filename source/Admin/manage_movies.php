@@ -46,7 +46,7 @@
         <div class="info-div">
           <p class="grey p-info">Movie Title <span class="white"><?php echo htmlspecialchars($key['title'])?></span></p>
           <p class="grey p-info">Status: <span class="white"><?php echo ucwords(htmlspecialchars($key['status']))  ?></span></p>
-          <p class="grey p-info">Screen Location: <span class="white"><?php echo htmlspecialchars($key['number'] ?? "Not Showing")?></span></p>
+          <p class="grey p-info">Screen Location: <span class="white"><?php echo htmlspecialchars($key['number'] ?? "Not Currently Showing")?></span></p>
         </div>
         <div class="buttons">
           <button class="yellow-bg">Edit Movie</button>
