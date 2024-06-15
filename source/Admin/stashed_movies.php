@@ -1,3 +1,18 @@
+<?php
+include_once '../../classes/dbh.class.php';
+$dbhconnect = new Dbh();
+
+try {
+    $query = "SELECT movie.poster, movie.title, movie_status.status FROM movie JOIN movie_status ON movie.id = movie_status.movie_id WHERE movie_status.status = 'stashed'";
+    $stmt = $dbhconnect->connection()->prepare($query);
+    $stmt->execute();
+    $result = $stmt->fetchALL(PDO::FETCH_ASSOC);
+
+} catch (\Throwable $th) {
+    die("Query Failed. " . $th->getMessage());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,33 +34,18 @@
      <section class="movies-section flex">
       <div class="movies-container">
         <div class="movie-row flex">
-          <div class="per-movie flex">
-              <div class="poster-container">
-                <img class="movie-poster" src="/public/images/Haikyu-Dumpster-Battle.jpg" alt="Haikyuu Dumpster Battle Poster">
-              </div>
-              <h2 class="movie-title">Haikyuu!! The Dumpster Battle</h2>
-          </div>
-
-          <div class="per-movie flex">
-              <div class="poster-container">
-                <img class="movie-poster" src="/public/images/Kingdom-of-the-Planet-of-the-Apes.jpg" alt="Haikyuu Dumpster Battle Poster">
-              </div>
-              <h2 class="movie-title">Kingdom of the Planet of the Apes</h2>
-          </div>
-
-          <div class="per-movie flex">
-              <div class="poster-container">
-                <img class="movie-poster" src="/public/images/WInnie-the-Pooh-Blood-and-Honey.jpg" alt="Haikyuu Dumpster Battle Poster">
-              </div>
-              <h2 class="movie-title">Winnie the Pooh Blood and Honey</h2>
-          </div>
-
-          <div class="per-movie flex">
-              <div class="poster-container">
-                <img class="movie-poster" src="/public/images/Furiosa.jpg" alt="Haikyuu Dumpster Battle Poster">
-              </div>
-              <h2 class="movie-title">Furiosa A Mad Max Saga </h2>
-          </div>        
+          <?php 
+          if (!$result) {
+            echo "<h2 class=''>Nothing Has Been added yet!</h2>";
+          } else {
+            foreach ($result as $key) {?>
+              <div class="per-movie flex">
+                <div class="poster-container">
+                  <img class="movie-poster" src="/public/images/Haikyu-Dumpster-Battle.jpg" alt="Haikyuu Dumpster Battle Poster">
+                </div>
+                <h2 class="movie-title">Haikyuu!! The Dumpster Battle</h2>
+            </div>
+          <?php }}?>       
         </div>  
       </div>
            

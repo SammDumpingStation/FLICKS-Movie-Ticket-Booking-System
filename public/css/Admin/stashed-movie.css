@@ -12,14 +12,16 @@
   flex-wrap: wrap;
   margin-left: 2rem;
   margin-top: 32px;
+  gap: 56px;
   justify-content: space-between;
 }
 
 .per-movie {
+  min-width: 200px;
   flex-direction: column;
   max-width: fit-content;
   justify-content: center;
-  flex-basis: 100%;
+  flex-basis: 1 1 100%;
   align-items: center;
   align-self: flex-start;
   gap: 10px;

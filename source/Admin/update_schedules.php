@@ -23,7 +23,7 @@ try {
     $upResults = $upStmt->fetchALL(PDO::FETCH_ASSOC);
 
 } catch (\Throwable $th) {
-
+die("Query Failed. " . $th->getMessage());
 }
 
 ?>
