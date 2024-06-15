@@ -3,17 +3,20 @@ session_start();
 include_once '../../classes/dbh.class.php';
 $dbhconnect = new Dbh();
 
-// try {
-//     $query = "SELECT movie.title, cinema.number, cinema.time_start FROM movie JOIN cinema ON movie.id = cinema.movie_id";
+try {
+    $movieQuery = "SELECT DISTINCT movie.id, movie.title, movie.length, cinema.number, seats.available, COUNT(reservation.id) AS reservation_count FROM movie JOIN movie_status ON movie.id = movie_status.movie_id JOIN cinema ON movie.id = cinema.movie_id LEFT JOIN seats ON cinema.id = seats.cinema_id LEFT JOIN reservation ON cinema.id = reservation.cinema_id WHERE movie_status.status = 'now showing' GROUP BY movie.id, movie.title, movie.length, cinema.number, seats.available ORDER BY cinema.number;";
+    $movieStmt = $dbhconnect->connection()->prepare($movieQuery);
+    $movieStmt->execute();
+    $movieResults = $movieStmt->fetchALL(PDO::FETCH_ASSOC);
 
-//     $stmt = $dbhconnect->connection()->prepare($query);
-//     $stmt->execute();
-//     $data = $stmt->fetch(PDO::FETCH_ASSOC);
-//     $result = $data['id'];
+    // $query = "SELECT movie.id, movie.title, movie.length, cinema.time_start, cinema.number, seats.available, movie_status.status, COUNT(reservation.id) AS reservation_count FROM movie LEFT JOIN cinema ON movie.id = cinema.movie_id LEFT JOIN seats ON cinema.id = seats.cinema_id LEFT JOIN reservation ON cinema.id = reservation.cinema_id LEFT JOIN movie_status ON movie.id = movie_status.movie_id WHERE movie_status.status = 'now showing' GROUP BY movie.id, movie.title, cinema.time_start, cinema.number, seats.available, movie_status.status ORDER BY cinema.number;";
+    // $stmt = $dbhconnect->connection()->prepare($query);
+    // $stmt->execute();
+    // $results = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
-// } catch (\Throwable $th) {
-//     //throw $th;
-// }
+} catch (\Throwable $th) {
+    //throw $th;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,34 +35,38 @@ $dbhconnect = new Dbh();
     <section>
       <h1>Pending Payments</h1>
       <section class="pending-container">
-        <?php for ($i = 0; $i < 4; $i++) {?>
-          <section class="pending-cinema">
-            <div>
-              <h3>Cinema 1</h3>
-              <p>Current Time</p>
-            </div>
-          <div>
-            <h2>Movie</h2>
-            <p>Furiosa: A Mad Max Saga</p>
-          </div>
-          <div>
-            <h2>Time Start:</h2>
-            <p>12:30</p>
-          </div>
-          <div>
-            <h2>Status</h2>
-            <p>Available</p>
-          </div>
-          <div>
-            <h2>Seats Available</h2>
-            <p>80 Seats</p>
-          </div>
-          <div>
-            <h2>Pending</h2>
-            <p>12 Reservations</p>
-          </div>
-        </section>
-        <?php }?>
+        <?php foreach($movieResults as $key) {?>
+          <form action="pending_payments.php" method="get" class="pending-cinema">
+            <input hidden type="text" name="title" value="<?php echo htmlspecialchars($key['title']) ?>">
+            <input hidden type="text" name="available" value="<?php echo htmlspecialchars($key['available']?? 120)?>">
+            <button name="cinema" value="<?php echo htmlspecialchars($key['number']) ?>" class="button-pending pending-cinema">
+                <div>
+                    <h3 data-name="">Cinema <?php echo htmlspecialchars($key['number'])?></h3>
+                    <p class="date"><?php echo date('F d, Y h:i A')?></p>
+                  </div>
+                <div>
+                  <h2>Movie</h2>
+                  <p><?php echo $key['title']?></p>
+                </div>
+                <div>
+                  <h2>Time Start:</h2>
+                  <p>12:30 PM</p>
+                </div>
+                <div>
+                  <h2>Status</h2>
+                  <p>Available</p>
+                </div>
+                <div>
+                  <h2>Seats Available</h2>
+                  <p><?php echo htmlspecialchars($key['available'] ?? '120') ?> Seats</p>
+                </div>
+                <div>
+                  <h2>Pending</h2>
+                  <p><?php echo htmlspecialchars($key['reservation_count'] ?? '0') ?> Reservations</p>
+                </div>
+            </button>
+          </form> 
+              <?php  }?>  
     </section>
     </section>
 
