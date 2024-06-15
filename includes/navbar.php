@@ -1,4 +1,5 @@
-<?php 
+<?php
+date_default_timezone_set('Asia/Manila');
   $user = $_SESSION['user-type'] ?? null;
 
   if (isset($user) || isset($_SESSION['user-name'])) {

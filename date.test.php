@@ -41,25 +41,23 @@ function calculateEndTime($startTime, $minutesToAdd)
     return $endTime;
 }
 
-$startTime = '12:30';
+
+
+$timeStart = '12:30';
 $length = $length ?? 150; // Default length of 150 minutes
 $rest = 45; // Rest time between intervals
 
 // Calculate and display first time interval
-$timeEndFirst = calculateEndTime($startTime, $length);
-echo "<br>Time Start: $startTime <br> Time Ended: $timeEndFirst";
+$timeEnd1st = calculateEndTime($timeStart, $length);
+$timeStart2nd = $timeEnd1st; // Update start time for the next interval
+// Add rest time
+$timeStart2nd = calculateEndTime($timeStart2nd, $rest);
 
-// Iterate for the remaining intervals
-$startTime = $timeEndFirst; // Update start time for the next interval
+$timeEnd2nd = calculateEndTime($timeStart2nd, $length);
+// Update start time for the next interval
+$timeStart3rd = $timeEnd2nd;
 
-for ($i = 2; $i <= 3; $i++) {
-    // Add rest time
-    $startTime = calculateEndTime($startTime, $rest);
-
-    // Calculate and display end time for the current interval
-    $endTime = calculateEndTime($startTime, $length);
-    echo "<br><br>Time Start: $startTime <br> Time Ended: $endTime";
-
-    // Update start time for the next interval
-    $startTime = $endTime;
-}
+// Add rest time
+$timeStart3rd = calculateEndTime($timeStart3rd, $rest);
+// Calculate and display end time for the current interval
+$timeEnd3rd = calculateEndTime($timeStart3rd, $length);

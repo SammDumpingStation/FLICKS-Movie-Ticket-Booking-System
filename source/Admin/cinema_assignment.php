@@ -1,3 +1,95 @@
+<?php
+function calculateEndTime($startTime, $minutesToAdd)
+{
+    $time_in_minutes = strtotime($startTime) / 60; // Convert start time to minutes
+    $new_time_in_minutes = $time_in_minutes + $minutesToAdd; // Calculate end time in minutes
+    $newTime = date("h:i", $new_time_in_minutes * 60); // Convert end time back to desired format
+    return $newTime;
+}
+session_start();
+include_once '../../classes/dbh.class.php';
+$dbhconnect = new Dbh();
+$buttonAction = $_POST['submit'] ?? null;
+if (isset($buttonAction)) {
+    if ($buttonAction === 'cancel') {
+        header('Location: landing.php');
+    } elseif($buttonAction === 'save') {
+        try {
+            // Setting up the time
+            $timeStart = '12:30';
+            $screenNumbers = $_POST['number'];
+            $movieIDs = $_POST['movie-id'];
+            $lengths = $_POST['length'] ?? null;
+            $rest = 45;
+
+            for ($i=0; $i < count($screenNumbers); $i++) { 
+            $screenNumber = $screenNumbers[$i];
+            $movieID = $movieIDs[$i];
+            $length = $lengths[$i];
+
+            $timeEnd1st = calculateEndTime($timeStart, $length);
+
+            $queryTime = "INSERT INTO cinema (time_start, time_end, number, movie_id) VALUES (:time_started, :time_ended, :number, :movie_id);";
+            $timestmt1 = $dbhconnect->connection()->prepare($queryTime);
+            $timestmt1->bindParam(":time_started", $timeStart, PDO::PARAM_STR);
+            $timestmt1->bindParam(":time_ended", $timeEnd1st, PDO::PARAM_STR);
+            $timestmt1->bindParam(":number", $screenNumber, PDO::PARAM_INT);
+            $timestmt1->bindParam(":movie_id", $movieID, PDO::PARAM_INT);
+
+            if (!$timestmt1->execute()) {
+                throw new Exception("Failed to insert movie data");
+            }
+
+            $timeStart2nd = $timeEnd1st;
+            $timeStart2nd = calculateEndTime($timeStart2nd, $rest);
+            $timeEnd2nd = calculateEndTime($timeStart2nd, $length);
+
+            $queryTime = "INSERT INTO cinema (time_start, time_end, number, movie_id) VALUES (:time_started, :time_ended, :number, :movie_id);";
+            $timestmt2 = $dbhconnect->connection()->prepare($queryTime);
+            $timestmt2->bindParam(":time_started", $timeStart2nd, PDO::PARAM_STR);
+            $timestmt2->bindParam(":time_ended", $timeEnd2nd, PDO::PARAM_STR);
+            $timestmt2->bindParam(":number", $screenNumber, PDO::PARAM_INT);
+            $timestmt2->bindParam(":movie_id", $movieID, PDO::PARAM_INT);
+
+            if (!$timestmt2->execute()) {
+                throw new Exception("Failed to insert movie data");
+            }
+
+            $timeStart3rd = $timeEnd2nd;
+            $timeStart3rd = calculateEndTime($timeStart3rd, $rest);
+            $timeEnd3rd = calculateEndTime($timeStart3rd, $length);
+
+            $queryTime = "INSERT INTO cinema (time_start, time_end, number, movie_id) VALUES (:time_started, :time_ended, :number, :movie_id);";
+            $timestmt3 = $dbhconnect->connection()->prepare($queryTime);
+            $timestmt3->bindParam(":time_started", $timeStart3rd, PDO::PARAM_STR);
+            $timestmt3->bindParam(":time_ended", $timeEnd3rd, PDO::PARAM_STR);
+            $timestmt3->bindParam(":number", $screenNumber, PDO::PARAM_INT);
+            $timestmt3->bindParam(":movie_id", $movieID, PDO::PARAM_INT);
+
+            if (!$timestmt3->execute()) {
+                throw new Exception("Failed to insert movie data");
+            }
+            else {
+              header('Location: cinema_assignment.php');
+            }
+
+        } 
+            } catch (\Throwable $th) {
+            die("Query Failed. " . $th->getMessage());
+        } 
+      }
+    }
+try {
+    $queryNow = "SELECT movie.id, movie.title, movie.poster, movie.length FROM movie JOIN movie_status ON movie.id = movie_status.movie_id WHERE movie_status.status = 'now showing';";
+    $stmt = $dbhconnect->connection()->prepare($queryNow);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+} catch (\Throwable $th) {
+    die("Query Failed. " . $th->getMessage());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,80 +97,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php include_once '../../includes/css_links.php'?>
   <link rel="stylesheet" href="../../public/css/Admin/cinema-assignment.css">
-  <title>Document</title>
+  <title>Cinema Assignment</title>
 </head>
 <body>
   <?php include_once '../../includes/navbar.php';?>
   <main>
     <a href="landing.php"><button class="return">Return</button></a>
-    <section class="movies-section flex">
+    <form action="" method="post" class="movies-section flex">
       <div class="movies-container">
         <h2 class="movie-status">Now Showing</h2>
         <div class="movie-row flex">
-
+        <?php foreach ($result as $key) {?>
           <div class="per-movie flex">
-              <h1 class="movie-screen">C1</h1>
+              <label class="screen-label" for="">Screen Location</label>
+              <input type="text" name="length[]" value="<?php echo htmlspecialchars($key['length']) ?>" hidden>
+              <input type="text" name="movie-id[]" value="<?php echo htmlspecialchars($key['id']) ?>" hidden>
+              <select name="number[]" class="movie-screen">
+                <option value=""></option>
+                <option value="1">C1</option>
+                <option value="2">C2</option>
+                <option value="3">C3</option>
+                <option value="4">C4</option>
+              </select>
               <div class="poster-container">
-                <img class="movie-poster" src="/public/images/Haikyu-Dumpster-Battle.jpg" alt="Haikyuu Dumpster Battle Poster">
+                <img class="movie-poster" src="/public/images/<?php echo htmlspecialchars($key['poster']) ?>" alt="<?php echo htmlspecialchars($key['title']) ?> Poster">
               </div>
-              <h2 class="movie-title">Haikyuu!! The Dumpster Battle</h2>
+              <h2 class="movie-title"><?php echo htmlspecialchars($key['title']) ?></h2>
                 <div class="show-times">
                   <h2 class="times-title">Show Times</h2>
-                  <h6 class="time">12:30</h6>
-                  <h6 class="time">3:30</h6>
-                  <h6 class="time">7:30</h6>
+                  <?php
+                    try {
+                        $movie_ID = $key['id'];
+                        $queryShowTimes = "SELECT time_start FROM cinema WHERE movie_id = :movieID";
+                        $stmt = $dbhconnect->connection()->prepare($queryShowTimes);
+                        $stmt->bindParam(":movieID", $movie_ID, PDO::PARAM_INT);
+                        $stmt->execute();
+                        $timeResult = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                        if (empty($timeResult)) {?>
+                            <h6 class='time'>Not yet set!</h6>
+                        <?php } else {
+                            foreach ($timeResult as $time) {?>
+                                <?php $timeFromDbh = $time['time_start'];
+                                  $timestamp = strtotime($timeFromDbh);
+                                  $formattedTime = date("h:i A", $timestamp);
+                                  $finalTime = str_replace('AM', 'PM', $formattedTime);?>
+                                <h6 class='time'><?php echo htmlspecialchars($finalTime)?></h6>
+                           <?php }
+                        }
+                    } catch (\Throwable $th) {
+                        die("Query Failed. " . $th->getMessage());
+                    }?>
                 </div>
           </div>
-
-          <div class="per-movie flex">
-              <h1 class="movie-screen">C2</h1>
-              <div class="poster-container">
-                <img class="movie-poster" src="/public/images/Kingdom-of-the-Planet-of-the-Apes.jpg" alt="Haikyuu Dumpster Battle Poster">
-              </div>
-              <h2 class="movie-title">Kingdom of the Planet of the Apes</h2>
-              <div class="show-times">
-                  <h2 class="times-title">Show Times</h2>
-                  <h6 class="time">12:30</h6>
-                  <h6 class="time">3:30</h6>
-                  <h6 class="time">7:30</h6>
-                </div>
-          </div>
-
-          <div class="per-movie flex">
-              <h1 class="movie-screen">C3</h1>
-              <div class="poster-container">
-                <img class="movie-poster" src="/public/images/WInnie-the-Pooh-Blood-and-Honey.jpg" alt="Haikyuu Dumpster Battle Poster">
-              </div>
-              <h2 class="movie-title">Winnie the Pooh Blood and Honey</h2>
-              <div class="show-times">
-                  <h2 class="times-title">Show Times</h2>
-                  <h6 class="time">12:30</h6>
-                  <h6 class="time">3:30</h6>
-                  <h6 class="time">7:30</h6>
-                </div>
-          </div>
-
-          <div class="per-movie flex">
-              <h1 class="movie-screen">C4</h1>
-              <div class="poster-container">
-                <img class="movie-poster" src="/public/images/Furiosa.jpg" alt="Haikyuu Dumpster Battle Poster">
-              </div>
-              <h2 class="movie-title">Furiosa A Mad Max Saga </h2>
-              <div class="show-times">
-                  <h2 class="times-title">Show Times</h2>
-                  <h6 class="time">12:30</h6>
-                  <h6 class="time">3:30</h6>
-                  <h6 class="time">7:30</h6>
-                </div>
-          </div>        
-        </div>  
+        <?php }?>
+        </div>
       </div>
 
       <section class="button-operations">
         <button class="go-back" name="submit" value="cancel">Cancel</button>
         <button class="proceed" name="submit" value="save">Save</button>
       </section>
-    </section>
+    </form>
   </main>
 </body>
 </html>

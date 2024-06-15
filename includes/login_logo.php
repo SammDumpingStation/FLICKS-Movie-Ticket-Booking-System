@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Manila');
 $actionType = $_SESSION['action-type'];
 
 $logInAs = null;
