@@ -1,1 +1,6 @@
-SELECT DISTINCT movie.id, movie.title, movie.length, cinema.number, seats.available, COUNT(reservation.id) AS reservation_count FROM movie JOIN movie_status ON movie.id = movie_status.movie_id JOIN cinema ON movie.id = cinema.movie_id LEFT JOIN seats ON cinema.id = seats.cinema_id LEFT JOIN reservation ON cinema.id = reservation.cinema_id WHERE movie_status.status = 'now showing' GROUP BY movie.id, movie.title, movie.length, cinema.number, seats.available ORDER BY cinema.number;
+SELECT reservation.*, customer.first_name, customer.last_name, customer.user_type
+FROM reservation
+JOIN customer
+ON reservation.customer_id = customer.id
+WHERE reservation.status = 'pending';
+

@@ -11,6 +11,9 @@ if (isset($_GET['cinema'])) {
 
 try {
   $query = "SELECT reservation.*, customer.first_name, customer.last_name, customer.user_type FROM reservation JOIN customer ON reservation.customer_id = customer.id WHERE reservation.status = 'pending';";
+  $stmt = $dbhconnect->connection()->prepare($query);
+  $stmt->execute();
+  $results = $stmt->fetchALL(PDO::FETCH_ASSOC) ?? null;
 } catch (\Throwable $th) {
   //throw $th;
 }
@@ -46,7 +49,10 @@ try {
       </div>   
     </section>
 
-    <?php foreach($results as $key) {?>
+    <?php if (!$results) {
+      echo "<p class='container'>No one reserved a ticket yet!</p>";
+}else {
+    foreach($results as $key) {?>
         <section class="container">
           <div class="info-container">
             <div class="info-div">
@@ -64,9 +70,7 @@ try {
             </div>
           </div>
         </section>
-      <?php }?>
-
-
+      <?php } }?>
   </main>
 </body>
 </html>
