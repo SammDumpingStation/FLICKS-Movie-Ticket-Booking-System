@@ -1,6 +1,1 @@
-SELECT reservation.*, customer.first_name, customer.last_name, customer.user_type
-FROM reservation
-JOIN customer
-ON reservation.customer_id = customer.id
-WHERE reservation.status = 'pending';
-
+SELECT DISTINCT movie.id, movie.title, ticket.*, cinema.number FROM movie JOIN cinema ON movie.id = cinema.movie_id JOIN ticket ON cinema.number = ticket.id WHERE movie.id = 2024001;

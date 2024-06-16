@@ -48,6 +48,25 @@ main {
 
 .timeslot {
   margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+.time-desc {
+  font-style: italic;
+  color: var(--primary-grey);
+  margin-left: 32px;
+  margin-top: 24px; 
+}
+
+.time-option {
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid var(--primary-green);
+  padding: 12px 16px;
+  width: 50%;
+  text-align: center;
+  align-self: center;
 }
 
 .sec-head {
