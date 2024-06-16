@@ -1,4 +1,4 @@
-main {
+.form {
   flex-direction: column;
   gap: 3.5rem;
 }
@@ -27,8 +27,8 @@ main {
 }
 
 .poster-container {
-  width: 150px;
-  height: 250px;
+  width: 200px;
+  height: 300px;
 }
 
 .poster {
@@ -43,10 +43,19 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-size: 20px;
-  gap: 5px;
+  gap: 8px;
   margin-bottom: 20px;
-  align-items: end;
+  align-items: center;
   color: var(--primary-grey);
+  min-width: 600px;
+}
+
+.movie-title {
+  max-width: 15ch;
+}
+
+.label-title {
+  align-self: flex-start;
 }
 
 .chosen {
@@ -65,5 +74,24 @@ main {
   width: 500px;
   aspect-ratio: 1/1;
   align-self: center;
-  border: 1px solid var(--primary-white);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.seats-button {
+  flex: 1 1 100%;
+  max-width: 40px;
+  max-height: 50px;  
+  background-color: var(--primary-white);
+  color: var(--secondary-black);
+}
+
+.seats-button:hover {
+  background-color: var(--primary-green);
+}
+
+.seats-button.clicked {
+  background-color: var(--primary-green); /* Or any other desired color */
+  color: var(--primary-white); /* Optional: Change the text color as well */
 }

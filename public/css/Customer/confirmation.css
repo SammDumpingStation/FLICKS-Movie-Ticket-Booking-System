@@ -1,4 +1,4 @@
-main {
+.form {
   flex-direction: column;
   gap: 3.5rem;
 }
@@ -27,8 +27,8 @@ main {
 }
 
 .poster-container {
-  width: 150px;
-  height: 250px;
+  width: 200px;
+  height: 300px;
 }
 
 .poster {
@@ -43,10 +43,19 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-size: 20px;
-  gap: 5px;
+  gap: 8px;
   margin-bottom: 20px;
-  align-items: end;
+  align-items: center;
   color: var(--primary-grey);
+  min-width: 600px;
+}
+
+.movie-title {
+  max-width: 15ch;
+}
+
+.label-title {
+  align-self: flex-start;
 }
 
 .chosen {

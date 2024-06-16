@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+$buttons = $_GET['buttons'];
+if (isset($buttons)) {
+  if ($buttons === 'confirm') {
+    
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +21,7 @@
 <body>
   <?php include('../../includes/navbar.php')?>
 
-  <main class="flex">
+  <form action="" method="get" class="form flex">
       <section class="selection-group flex">
         <h3 class="selection">1. Book Tickets</h3>
         <h3 class="selection">2. Select Seats</h3>
@@ -20,23 +31,36 @@
 
       <section class="ticket-contents flex">
         <div class="poster-container">
-          <img class="poster" src="/public/images/Furiosa.jpg" alt="">
+          <img class="poster" src="/public/images/<?php echo $_SESSION['poster']?>" alt="">
         </div>
 
         <div class="details-group flex">
           <div class="ticket-details">
-            <label class="ticket-labels" for="">Movie Title</label>
-            <h3 class="chosen">Furiosa: A Mad Max Saga</h3>
+            <label class="ticket-labels label-title" for="">Movie Title</label>
+            <h3 class="chosen movie-title"><?php echo $_SESSION['title'] ?></h3>
             <label class="ticket-labels">Time Slot:</label>
-            <h3 class="chosen">12:30 P.M.</h3>
+            <h3 class="chosen"><?php echo $_SESSION['time-selected'] ?></h3>
             <label class="ticket-labels">Screen Location:</label>
-            <h3 class="chosen">Cinema 1</h3>
+            <h3 class="chosen">Cinema <?php echo $_SESSION['cinema-number'] ?></h3>
             <label class="ticket-labels">Tickets Reserved:</label>
-            <h3 class="chosen">8 Tickets</h3>
+            <h3 class="chosen"><?php echo $_SESSION['quantity']?> Tickets</h3>
             <label class="ticket-labels">Total Cost:</label>
-            <h3 class="chosen">$3240</h3>
+            <h3 class="chosen">₱<?php echo $_SESSION['cost-plus-tax']?></h3>
             <label for="ticket-labels">Selected Seats</label>
-            <h3 class="chosen">A1, A2, A3, A4, A5, A6, A7, A8</h3>
+            <h3 class="chosen"> 
+              <?php
+                  if (isset($_SESSION['seats-selected'])) {
+                      $seats = $_SESSION['seats-selected'];
+                      $lastIndex = count($seats) - 1;
+                      $seatString = '';
+                      foreach ($seats as $index => $seat) {
+                      if ($index === $lastIndex) {
+                          $seatString .= $seat; // Add the last seat without a comma
+                      } else {
+                          $seatString .= $seat . ", "; // Add the seat followed by a comma
+                      }
+                  } 
+                  echo $seatString; }?></h3>
           </div>
         </div>
     </section>
@@ -47,20 +71,20 @@
         <div class="flex personal-input">
           <div class="flex input-div">
             <label class="label" for="fname">First Name <span class="red">*</span></label>
-            <input id="fname" class="input-details" type="text" name="" placeholder="First Name">            
+            <input id="fname" class="input-details" type="text" name="first-name" value="<?php echo $_SESSION['first-name'] ?? null?>" placeholder="First Name">            
           </div>
           <div class="flex input-div">
             <label class="label" for="lname">Last Name <span class="red">*</span></label>
-            <input id="lname" class="input-details" type="text" name="" placeholder="Last Name">            
+            <input id="lname" class="input-details" type="text" name="last-name" value="<?php echo $_SESSION['last-name'] ?? null?>" placeholder="Last Name">            
           </div>
           <div class="flex input-div">
             <label class="label"  for="email">Email <span class="red">*</span></label>
-            <input id="input-details" class="input-details" type="text" name="" placeholder="Email">  
+            <input id="input-details" class="input-details" type="text" name="email" value="<?php echo $_SESSION['email'] ?? null?>" value="" placeholder="Email">  
           </div>
 
           <div class="flex input-div">
             <label class="label"  for="number">Phone Number <span class="red">*</span></label>
-            <input id="number" class="input-details" type="text" name="" id="" placeholder="Phone Number">   
+            <input id="number" class="input-details" type="text" name="phone-number" value="<?php echo $_SESSION['phone-number'] ?? null?>" id="" placeholder="Phone Number">   
           </div>        
         </div>
       </section>
@@ -96,9 +120,9 @@
       </section>
 
       <section class="button-operations">
-        <a href="seat_selection.php"><button class="go-back">Go Back</button></a>
-        <a href="summary.php"><button class="proceed">Proceed</button></a>
+        <button class="go-back" name="buttons" value="cancel">Go Back</button>
+        <button class="proceed" name="buttons" value="confirm">Confirm</button>
       </section>
-  </main>
+    </form>
 </body>
 </html>

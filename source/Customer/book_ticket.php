@@ -2,11 +2,11 @@
 session_start();
 include_once '../../classes/dbh.class.php';
 $dbhconnect = new Dbh();
-$_SESSION['movie-id'] = $_GET['movie-id'];
 $movieID = $_GET['movie-id'] ?? ($_SESSION['movie-id'] ?? null);
 $link = null;
 $movieTime = $_GET['time'] ?? null;
-$time = $_GET['time-option'] ?? ($_SESSION['time-selected'] ?? "None");
+$time = $_GET['time-option'] ?? $_SESSION['time-selected'] ?? "None";
+$_SESSION['time-selected'] = $time;
 $buttons = $_GET['book-buttons'] ?? 'Check';
 
 try {
@@ -36,14 +36,17 @@ if (isset($buttons)) {
     unset($_SESSION['title']);
     unset($_SESSION['time-selected']);
     unset($_SESSION['cost-plus-tax']);
+    unset($_SESSION['cinema-number']);
+    unset($_SESSION['quantity']);
     header('Location: landing.php');
   } elseif ($buttons === 'Check') {
-    $quantity = $_GET['quantity'] ?? null;
+    $quantity = $_GET['quantity'] ?? 0;
     $cost = $_GET['cost'] ?? 0;
     $product = $cost * $quantity;
     $PlusTax = $product + 40; 
     if ($PlusTax > 40) {
-      $_SESSION['cost-plus-tax'] = $PlusTax ?? null;
+      $_SESSION['quantity'] = $quantity;
+      $_SESSION['cost-plus-tax'] = $PlusTax;
       $buttons = 'Proceed';
     }
   } elseif ($buttons === 'Proceed'){
@@ -76,11 +79,11 @@ if (isset($buttons)) {
           <form action="<?php echo $link?>" method="get" class="current-contents flex">
             <div class="poster-container">
 
-              <img src="../../public/images/<?php echo htmlspecialchars($singleNow['poster']);?>" alt="">
+              <img src="../../public/images/<?php echo htmlspecialchars($singleNow['poster']); $_SESSION['poster'] = $singleNow['poster']; $_SESSION['movie-id'] = $singleNow['id']?>" alt="">
             </div>
 
         <div class="movie-details flex">
-          <h1 class="title"><?php echo htmlspecialchars($singleNow['title']); $_SESSION['title'] = $singleNow ?? null; ?></h1>
+          <h1 class="title"><?php echo htmlspecialchars($singleNow['title']); $_SESSION['title'] = $singleNow['title'] ?? null; ?></h1>
         <?php }?>
         <section class="below-title">
           <?php foreach ($tickResults as $key) {?>
@@ -111,10 +114,9 @@ if (isset($buttons)) {
                     $formattedTime = date("h:i A", $timestamp);
                     $finalTime = str_replace('AM', 'PM', $formattedTime);
                     ?>
-                    <option value="<?php echo $finalTime?>"><?php echo $finalTime ?></option>
-                <?php } ?>
+            <option value="<?php echo $finalTime; ?>" <?php echo ($finalTime == $time) ? 'selected' : ''; ?>><?php echo $finalTime; ?></option>                <?php } ?>
             </select>
-            <p class="time-desc">You have selected: <span class="white"><?php echo $time; $_SESSION['time-selected'] = $time ?? "None";?></span></p>
+            <p class="time-desc">You have selected: <span class="white"><?php echo htmlspecialchars($time);?></span></p>
             
           </section>
 
@@ -127,7 +129,7 @@ if (isset($buttons)) {
 
               <div class="quantity-div flex">
                 <h6 class="operators minus">-</h6>
-                <input type="number" class="input" name="quantity">
+                <input type="number" class="input" name="quantity" value="<?php echo $_SESSION['quantity'] ?? 0?>">
                 <h6 class="operators plus">+</h6>
               </div>
               <h6 class="info-quant">*You can buy a maximum of 8 tickets per transaction*</h6>
@@ -136,7 +138,7 @@ if (isset($buttons)) {
 
             <div class="total-div">
               <h4 class="sect-title">Total Cost</h4>
-              <p class="total">₱<?php echo $product ?? 0?>.00 + ₱40.00 <span class="book-fee">(Booking fee)</span> = <span class="total-plus-fee">₱<?php echo $PlusTax; $_SESSION['cost-plus-tax'] = $PlusTax ?? null;?>.00</span></p>
+              <p class="total">₱<?php echo $product ?? 0?>.00 + ₱40.00 <span class="book-fee">(Booking fee)</span> = <span class="total-plus-fee">₱<?php echo $_SESSION['cost-plus-tax'] ?? 0;?>.00</span></p>
             </div>
           </div>
         </section>
