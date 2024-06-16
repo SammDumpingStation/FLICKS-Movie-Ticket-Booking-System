@@ -3,10 +3,8 @@ session_start();
 include_once '../../classes/dbh.class.php';
 $dbhconnect = new Dbh();
 $movieID = $_GET['movie-id'] ?? ($_SESSION['movie-id'] ?? null);
-$link = null;
 $movieTime = $_GET['time'] ?? null;
 $time = $_GET['time-option'] ?? $_SESSION['time-selected'] ?? "None";
-$_SESSION['time-selected'] = $time;
 $buttons = $_GET['book-buttons'] ?? 'Check';
 
 try {
@@ -53,6 +51,7 @@ if (isset($buttons)) {
       header('Location: seat_selection.php');  
 }
 }
+$_SESSION['time-selected'] = $time;
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +75,7 @@ if (isset($buttons)) {
     </section>
 
         <?php if($singleNow) {?>
-          <form action="<?php echo $link?>" method="get" class="current-contents flex">
+          <form action="" method="get" class="current-contents flex">
             <div class="poster-container">
 
               <img src="../../public/images/<?php echo htmlspecialchars($singleNow['poster']); $_SESSION['poster'] = $singleNow['poster']; $_SESSION['movie-id'] = $singleNow['id']?>" alt="">
