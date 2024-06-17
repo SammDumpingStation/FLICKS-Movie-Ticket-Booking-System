@@ -1,7 +1,11 @@
 <?php
 session_start();
+include_once '../../classes/dbh.class.php';
+$dbhconnect = new Dbh();
+
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $chose = $_GET['options'] ?? null;
+    $verdict = null;
 
     if (isset($_GET['portal-button']) && $_GET['portal-button'] === 'cancel') {
         session_unset();
@@ -19,15 +23,57 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 $opposite = 'Customer';
                 $description = 'Manage Movies and Approve Tickets with FLICKS!';
             }
+            $_SESSION['web-status'] = "Join as {$opposite}";
+            $_SESSION['user-type'] = $user;
+            $_SESSION['opposite'] = $opposite;
+            $_SESSION['descript'] = $description;
         } else {
             header('Location: auth_portal.php');
             exit;
         }
     }
+} elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    try {
+        $userType = $_SESSION['user-type'];
+        $input = $_POST['input-user'];
+        $pwd = $_POST['pwd'];
+
+        if ($userType === 'Admin') {
+            $userQuery = "SELECT * FROM admin WHERE first_name = :input OR email = :input";
+        } elseif ($userType === 'Customer') {
+            $userQuery = "SELECT * FROM customer WHERE first_name = :input OR email = :input";
+        }
+
+        $userStmt = $dbhconnect->connection()->prepare($userQuery);
+        $userStmt->bindParam(":input", $input, PDO::PARAM_STR);
+        $userStmt->execute();
+        $result = $userStmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$result) {
+            $verdict = "*Username not found*";
+        } else {
+            if ($userType === 'Admin') {
+                $pwdHashed = $result['admin_password'];
+            } elseif ($userType === 'Customer') {
+                $pwdHashed = $result['customer_password'];
+            }
+
+            if (password_verify($pwd, $pwdHashed)) {
+                $_SESSION['first-name'] = $result['first_name'];
+                $_SESSION['email'] = $result['email'];
+                $_SESSION['last-name'] = $result['last_name'];
+                $_SESSION['phone-number'] = $result['phone_number'];
+
+                header("Location: ../{$userType}/landing.php");
+                exit();
+            } else {
+                $verdict = "*Wrong Password*";
+            }
+        }
+    } catch (\Throwable $th) {
+        die("Query Failed. " . $th->getMessage());
+    }
 }
-$_SESSION['web-status'] = "Join as {$opposite}";
-$_SESSION['user-type'] = $user;
-$_SESSION['opposite'] = $opposite;
 ?>
 
 <!DOCTYPE html>
@@ -43,13 +89,13 @@ $_SESSION['opposite'] = $opposite;
   <?php include_once '../../includes/login_logo.php'?>
 
   <main>
-    <form class="main-form" action="log_in_control.php" method="get">
-      <h1 class="title">Welcome <?php echo $user ?>!</h1>
-      <h2 class="title-desc"><?php echo $description ?></h2>
+    <form class="main-form" action="" method="post">
+      <h1 class="title">Welcome <?php echo $_SESSION['user-type'] ?>!</h1>
+      <h2 class="title-desc"><?php echo $_SESSION['descript'] ?></h2>
       <section class="main-input">
         <label for="username" class="input-form">
           <img src="../../public/images/user.png" alt="">
-          <input id="username" type="text" name="username" placeholder="Username or Email">
+          <input id="username" type="text" name="input-user" placeholder="Username or Email">
         </label>
         <label for="password" class="input-form">
           <img src="../../public/images/padlock.png" alt="">
@@ -60,6 +106,7 @@ $_SESSION['opposite'] = $opposite;
           <input type="checkbox" name="keep-login" id="keep-login">
           <p>Keep me Logged In</p>
         </label>
+        <h3 class="verdict"><?php echo $verdict ?? null ?></h3>
         <button class="proceed" name="Log-in" value="Log-in">Log-in</button>
         <button class="forgot">Forgot Password?</button>
       </section>
@@ -73,8 +120,8 @@ $_SESSION['opposite'] = $opposite;
 
       <section class="last-section">
         <form class="last-form" action="log_in.php" method="get">
-          <button class="opposite-button" name="options" value="<?php echo $opposite ?>">
-            Log-in as <?php echo $opposite ?>
+          <button class="opposite-button" name="options" value="<?php echo $_SESSION['opposite'] ?>">
+            Log-in as <?php echo $_SESSION['opposite'] ?>
           </button>
         </form>
         <form class="last-form" action="auth_portal.php" method="get">

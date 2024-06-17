@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once '../../classes/dbh.class.php';
 $dbhconnect = new Dbh();
 try {

@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $action = "Try Again";
             $verdictClass = 'not-okay';
         } else {
+            $_SESSION['id-num'] = $id;
             $stmt = $dbhconnect->connection()->prepare($checkQuery);
             $stmt->bindParam(":id", $id, PDO::PARAM_STR);
             $stmt->execute();
