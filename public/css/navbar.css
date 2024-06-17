@@ -16,6 +16,8 @@
 .logo-link {
   cursor: pointer;
   gap: 0.5rem;
+  background-color: transparent;
+
 }
 
 .logo {

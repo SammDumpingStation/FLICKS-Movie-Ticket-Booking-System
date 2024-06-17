@@ -2,21 +2,33 @@
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    $user = $_GET['options'];
+    $user = $_GET['options'] ?? ($_SESSION['user-type'] ?? null);
+    $buttons = $_GET['buttons'] ?? null;
+    $action = 'Check';
 
-    if (isset($user)) {
-        if ($user === 'Admin') {
-            $title = 'Existing Employee?';
-            $desc = 'Only employees of FLICKS that is verified are allowed to have an account. Please verify if you are currently a verified employee or not.';
-        } else {
-            $title = 'Existing Card Member?';
-            $desc = 'Only registered members of FLICKS are allowed to have an account. Please verify if you are currently a member or not.';
+    if (isset($buttons) && $buttons === 'Cancel') {
+        unset($_SESSION['user-type']);
+        header('Location: auth_portal.php');
+        exit;
+    } elseif (isset($buttons) && $buttons === 'Check') {
+        $action = 'Proceed';
+    } elseif (isset($buttons) && $buttons === 'Proceed') {
+        header('Location: registration_form.php');
+        exit;
+    } elseif (empty($buttons)) {
+        if (isset($user)) {
+            if ($user === 'Admin') {
+                $title = 'Existing Employee?';
+                $desc = 'Only employees of FLICKS that is verified are allowed to have an account. Please verify if you are currently a verified employee or not.';
+            } else {
+                $title = 'Existing Card Member?';
+                $desc = 'Only registered members of FLICKS are allowed to have an account. Please verify if you are currently a member or not.';
+            }
         }
     } else {
-        header('Location: auth_portal.php');
+        header('Location: auth_portal.php?=error');
     }
     $_SESSION['user-type'] = $user;
-
 }
 ?>
 
@@ -33,17 +45,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   <?php include_once '../../includes/login_logo.php'?>
 
   <main>
-    <section class="main-form">
+    <section action="" method="get" class="main-form">
       <h1 class="title"><?php echo $title ?></h1>
       <h2 class="title2"><?php echo $desc ?></h2>
       <form action="registration_form.php" class="main-input" method="get">
-        <label for="username" class="input-form">
+        <label for="id-num" class="input-form">
           <img src="../../public/images/id.png" alt="">
-          <input id="username" type="text" name="username" placeholder="Identification Number">
+          <input id="id-num" type="text" name="username" placeholder="Identification Number">
         </label>
         <div class="click-buttons">
-          <button name="options" value="cancel" class="go-back">Cancel</button>
-          <button name="options" value="check" class="proceed">Check</button>
+          <button name="buttons" value="cancel" class="go-back">Cancel</button>
+          <button name="buttons" value="<?php echo $action ?>" class="proceed"><?php echo $action ?></button>
         </div>
         <button name="options" value="not-member" class="forgot">Not a member?</button>
       </form>

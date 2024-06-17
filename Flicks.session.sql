@@ -1,1 +1,0 @@
-SELECT DISTINCT movie.id, movie.title, ticket.*, cinema.number FROM movie JOIN cinema ON movie.id = cinema.movie_id JOIN ticket ON cinema.number = ticket.id WHERE movie.id = 2024001;

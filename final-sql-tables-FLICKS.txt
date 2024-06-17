@@ -53,7 +53,7 @@ CREATE TABLE reservation (
     quantity INT,
     total_cost DECIMAL(10, 2),
     seats_chosen VARCHAR(255),
-    time_selected TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    time_selected TIME,
     date_reserved DATE,
     reference_id VARCHAR(255),
     customer_id INT,

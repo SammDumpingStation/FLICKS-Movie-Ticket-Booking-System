@@ -4,18 +4,6 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $option = $_GET['options'] ?? null;
     $userType = $_SESSION['user-type'];
-
-    if (isset($option)) {
-        if ($option === 'cancel') {
-            session_unset();
-            session_destroy();
-            header('Location: auth_portal.php');
-            exit;
-        } elseif ($option === 'check') {
-            header('Location: registration_form.php');
-            exit;
-        }
-    }
     if ($userType === 'Admin') {
         $desc = 'Register to manage movies and approve tickets!';
     } elseif ($userType === 'Customer') {

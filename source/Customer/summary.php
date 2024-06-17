@@ -1,3 +1,28 @@
+<?php
+session_start();
+
+if (isset($_GET['home']) && $_GET['home'] === 'home') {
+  // Define the session variables you want to keep
+$sessionVariablesToKeep = [
+    'user-type',
+    'first-name',
+    'last-name',
+    'email',
+    'phone-number',
+];
+
+// Loop through the entire $_SESSION array
+foreach ($_SESSION as $key => $value) {
+    // Check if the current key is not in the array of session variables to keep
+    if (!in_array($key, $sessionVariablesToKeep)) {
+        // Unset the session variable
+        unset($_SESSION[$key]);
+    }
+}
+header('Location: landing.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +35,7 @@
 <body>
   <?php include '../../includes/navbar.php'?>
 
-  <main class="flex">
+  <form action="" method="get" class="flex form">
       <section class="selection-group flex">
         <h3 class="selection">1. Book Tickets</h3>
         <h3 class="selection">2. Select Seats</h3>
@@ -25,56 +50,56 @@
           </div>
           <h2 class="booking-title">Booking Confirmed Successfully!</h2>
           <p class="booking-desc">Thank you for choosing to book with FLICKS! Your reservation has been confirmed. If there's anything you need before your arrival, don't hesitate to reach us out!</p>
-          <a href="landing.php"><button class="booking-button">Go Back to Home</button></a>
+          <button class="booking-button" name="home" value="home">Go Back to Home</button>
         </div>
 
         <div class="receipt-hero flex">
           <div class="first-half receipt"> 
-            <h2 class="total-cost">$3240</h2>
+            <h2 class="total-cost">₱<?php echo $_SESSION['cost-plus-tax'] ?>.00</h2>
             <h4 class="confirmed">Reservation Confirmed!</h4>
-            <h6 class="reference">Ref. No.: 123456789</h6>
+            <h6 class="reference">Ref. No.: <?php echo $_SESSION['reference-id'] ?? 12345?></h6>
           </div>  
           
           <div class="second-half receipt flex">
 
             <div class="receipt-group flex">
               <h3 class="payment-title">Payment Details</h3>
-              <h6 class="date">Jul 25, 2023 05:07:03 AM</h6>              
+              <h6 class="date"><?php echo date(' F d D, Y h:i a')?></h6>              
             </div>
 
             <div class="receipt-group flex">
               <h5 class="label first">Movie Name</h5>
-              <h4 class="details">Furiosa: A Mad Max Saga</h4>              
+              <h4 class="details"><?php echo $_SESSION['title']?></h4>              
             </div>
 
             <div class="receipt-group flex">
               <h5 class="label">Screen Location</h5>
-              <h4 class="details">Cinema 4</h4>              
+              <h4 class="details">Cinema <?php echo $_SESSION['cinema-number']?></h4>              
             </div>
 
             <div class="receipt-group flex">
               <h5 class="label">Seats Booked</h5>
-              <h4 class="details">8 Tickets</h4>              
+              <h4 class="details"><?php echo $_SESSION['quantity'] ?> Ticket/s</h4>              
             </div>
 
             <div class="receipt-group flex">
               <h5 class="label">Time Slot</h5>
-              <h4 class="details">12:30</h4>              
+              <h4 class="details"><?php echo $_SESSION['time-selected']?></h4>              
             </div>
 
             <div class="receipt-group flex">
               <h5 class="label">Amount</h5>
-              <h4 class="details">$3240</h4>              
+              <h4 class="details">₱<?php echo $_SESSION['cost-plus-tax'] ?>.00</h4>              
             </div>
 
             <div class="receipt-group flex">
               <h5 class="label">Payment Method</h5>
-              <h4 class="details">Over-the-counter</h4>              
+              <h4 class="details"><?php echo $_SESSION['method'] ?? 'Over the Counter'?></h4>              
             </div>
 
             <div class="receipt-group flex">
               <h5 class="label">Payment Status</h5>
-              <h4 class="details">Pending</h4>              
+              <h4 class="details"><?php echo $_SESSION['status'] ?? 'Pending' ?></h4>              
             </div>
           </div>
         </div>
