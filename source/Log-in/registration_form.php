@@ -11,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     } else {
       $desc = 'Nothing to see here';
     }
-
+} elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  # code...
 }
 
 ?>

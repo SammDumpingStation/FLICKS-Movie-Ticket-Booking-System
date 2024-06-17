@@ -16,17 +16,17 @@ main {
 
 .title2 {
   color: var(--primary-grey);
-  font-style: italic; 
+  font-style: italic;
   max-width: 60ch;
-  text-align: center; 
+  text-align: center;
 }
 
 .main-input {
   width: 100%;
-  margin-top: 40px;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 32px;
 }
 
 .input-form img {
@@ -48,12 +48,29 @@ main {
   border: 2px solid var(--primary-grey);
 }
 
+.not-okay,
+.okay {
+  margin-top: -1.5rem;
+  text-align: center;
+  font-size: 14px;
+  height: 3rem;
+}
+
+.not-okay {
+  color: var(--primary-red);
+}
+
+.okay {
+  color: var(--primary-green);
+}
+
 .click-buttons {
   display: flex;
   gap: 24px;
 }
 
-.proceed, .go-back {
+.proceed,
+.go-back {
   min-height: 0px;
   height: 48px;
   max-width: 100%;
@@ -62,7 +79,6 @@ main {
 }
 
 .forgot {
-  margin: -2rem auto 0;
   cursor: pointer;
   background-color: transparent;
 }
