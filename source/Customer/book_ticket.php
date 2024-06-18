@@ -8,7 +8,7 @@ $time = $_GET['time-option'] ?? $_SESSION['time-selected'] ?? "None";
 $buttons = $_GET['book-buttons'] ?? 'Check';
 
 try {
-    $query = "SELECT movie.id, movie.title, movie.poster, cinema.time_start FROM movie JOIN cinema ON movie.id = cinema.movie_id WHERE movie.id = :movieID;";
+    $query = "SELECT movie.id, movie.title, movie.poster, movie.ticket_cost, cinema.time_start, cinema.number FROM movie JOIN cinema ON movie.id = cinema.movie_id WHERE movie.id = :movieID;";
     $nowStmt = $dbhconnect->connection()->prepare($query);
     $nowStmt->bindParam(":movieID", $movieID, PDO::PARAM_STR);
     $nowStmt->execute();
@@ -18,12 +18,6 @@ try {
     $singleStmt->bindParam(":movieID", $movieID, PDO::PARAM_STR);
     $singleStmt->execute();
     $singleNow = $singleStmt->fetch(PDO::FETCH_ASSOC);
-
-    $ticketQuery = "SELECT DISTINCT movie.id, ticket.cost, cinema.number FROM movie JOIN cinema ON movie.id = cinema.movie_id JOIN ticket ON cinema.number = ticket.id WHERE movie.id = :movieID;";
-    $tickStmt = $dbhconnect->connection()->prepare($ticketQuery);
-    $tickStmt->bindParam(":movieID", $movieID, PDO::PARAM_STR);
-    $tickStmt->execute();
-    $tickResults = $tickStmt->fetchALL(PDO::FETCH_ASSOC);
 } catch (\Throwable $th) {
     die("Query Failed. " . $th->getMessage());
 }
@@ -49,8 +43,8 @@ if (isset($buttons)) {
         header('Location: landing.php');
 
     } elseif ($buttons === 'Check') {
-        $quantity = $_GET['quantity'] ?? 0;
-        $cost = $_GET['cost'] ?? 0;
+        $quantity = (int) ($_GET['quantity'] ?? 0);
+        $cost = (int) ($_GET['cost'] ?? 0);
         $product = $cost * $quantity;
         $PlusTax = $product + 40;
         if ($PlusTax > 40) {
@@ -63,6 +57,7 @@ if (isset($buttons)) {
     }
 }
 $_SESSION['time-selected'] = $time;
+$_SESSION['cinema-number'] = $singleNow['number'] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -89,21 +84,15 @@ $_SESSION['time-selected'] = $time;
           <form action="" method="get" class="current-contents flex">
             <div class="poster-container">
 
-              <img src="../../public/images/<?php echo htmlspecialchars($singleNow['poster']);
-    $_SESSION['poster'] = $singleNow['poster'];
-    $_SESSION['movie-id'] = $singleNow['id'] ?>" alt="">
+              <img src="../../public/images/<?php echo htmlspecialchars($singleNow['poster']); $_SESSION['poster'] = $singleNow['poster']; $_SESSION['movie-id'] = $singleNow['id'] ?>" alt="">
             </div>
 
         <div class="movie-details flex">
-          <h1 class="title"><?php echo htmlspecialchars($singleNow['title']);
-    $_SESSION['title'] = $singleNow['title'] ?? null; ?></h1>
+          <h1 class="title"><?php echo htmlspecialchars($singleNow['title']); $_SESSION['title'] = $singleNow['title'] ?? null; ?></h1>
         <?php }?>
         <section class="below-title">
-          <?php foreach ($tickResults as $key) {?>
-            <input type="hidden" name="cost" value="<?php echo htmlspecialchars($key['cost']);
-    $_SESSION['cinema-number'] = $key['number'] ?? null ?>" id="">
-            <h1 class="price">₱<?php echo htmlspecialchars($key['cost']) ?></h1>
-          <?php }?>
+          <input type="hidden" name="cost" value="<?php echo htmlspecialchars($singleNow['ticket_cost'])?> name="" id="">
+          <h1 class="price">₱<?php echo htmlspecialchars($singleNow['ticket_cost']) ?></h1>
           <section class="timeslot">
             <h2 class="sec-head">Select Time Slot</h2>
             <h3 class="sec-desc">Select the time slot you wish to watch.</h3>

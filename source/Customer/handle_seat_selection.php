@@ -8,10 +8,10 @@ if (isset($_GET['jsonArray'])) {
     // Decode the JSON string into a PHP array
     $phpArray = json_decode($jsonArray, true);
 
-    // Print the PHP array for debugging purposes
-    echo '<pre>';
-    print_r($phpArray);
-    echo '</pre>';
+    if ($phpArray === null) {
+        // Handle JSON decoding error
+        echo "Error decoding JSON data.";
+    }
 
     // Output each selected seat
     foreach ($phpArray as $seat) {

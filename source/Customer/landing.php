@@ -46,7 +46,7 @@ try {
     <section class="movies-section flex">
       <div class="movies-container">
         <h2 class="movie-status">Now Showing</h2>
-        <form action="book_ticket.php" method="get" class="movie-row flex">
+        <form action="movie_info.php" method="get" class="movie-row flex">
         <?php foreach ($nowResults as $key) {?>
           <input hidden type="text" name="number[]" value="<?php echo htmlspecialchars($key['number']) ?>">
           <button name="movie-id" value="<?php echo htmlspecialchars($key['id'])?>" class="per-movie flex">

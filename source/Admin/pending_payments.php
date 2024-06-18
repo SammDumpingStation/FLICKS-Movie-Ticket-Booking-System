@@ -64,15 +64,11 @@ try {
     <a href="landing.php"><button class="return">Return</button></a>
       <div class="title-section">
         <h1>Pending Payments</h1>
-        <div class="seats-avail">
-          <p class="grey">Seats Available: <span class="white">80</span></p>
-          <button>Available Seats</button>
-        </div>
       </div>
       <div class="header-container">
         <p class="movie-info grey">Movie Name: <span class="details white"><?php echo $title ?></span></p>
         <p class="movie-info grey">Screen Location: <span class="details white">Cinema <?php echo $number ?></span></p>
-        <p class="movie-info grey">Current Showtime: <span class="details white">12:30</span></p>
+        <p class="movie-info grey">Showtime Start: <span class="details white">12:30 P.M.</span></p>
       </div>
     </section>
 

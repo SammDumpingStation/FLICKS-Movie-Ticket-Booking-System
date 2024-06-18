@@ -1,3 +1,7 @@
+body {
+  position: relative;
+}
+
 .form {
   flex-direction: column;
   gap: 3.5rem;
@@ -94,4 +98,16 @@
 .seats-button.clicked {
   background-color: var(--primary-green); /* Or any other desired color */
   color: var(--primary-white); /* Optional: Change the text color as well */
+}
+
+.go-back {
+  margin-right: 100px;
+}
+
+.confirm {
+  margin: 0 auto;
+  position: absolute;
+  max-height: 50px;
+  right: 20px;
+  bottom: 10.5%;
 }

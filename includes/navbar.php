@@ -3,7 +3,7 @@ date_default_timezone_set('Asia/Manila');
 $user = $_SESSION['user-type'] ?? null;
 
 if (isset($user) || isset($_SESSION['first-name']) && isset($_SESSION['last-name'])) {
-    $userName = $_SESSION['first-name'];
+    $userName = $_SESSION['first-name'] . " " . $_SESSION['last-name'];
     $userType = $_SESSION['user-type'];
     $logStatus = 'Log-out';
     $landingPage = "/source/{$userType}/landing.php";

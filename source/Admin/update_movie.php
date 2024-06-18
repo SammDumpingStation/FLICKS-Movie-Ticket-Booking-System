@@ -18,6 +18,7 @@ if (isset($button)) {
         $length = $_POST['length'];
         $ratingScore = $_POST['rating-score'];
         $status = $_POST['movie-status'];
+        $cost = $_POST['cost'];
 
         $tempname = $_FILES['poster']['tmp_name'];
         $folder = '../../public/images/' . $poster;
@@ -26,7 +27,7 @@ if (isset($button)) {
         if (move_uploaded_file($tempname, $folder)) {
             try {
                 // SQL Query to update movie data
-                $updateMovieQuery = "UPDATE movie SET title = :title, description = :description, poster = :poster, age_rating = :age_rating, dimension = :dimension, length = :length, rating_score = :rating_score WHERE id = :id";
+                $updateMovieQuery = "UPDATE movie SET title = :title, description = :description, poster = :poster, age_rating = :age_rating, dimension = :dimension, length = :length, rating_score = :rating_score, ticket_cost = :ticket_cost WHERE id = :id";
                 $updateMovieStmt = $dbhconnect->connection()->prepare($updateMovieQuery);
                 $updateMovieStmt->bindParam(":title", $title, PDO::PARAM_STR);
                 $updateMovieStmt->bindParam(":description", $description, PDO::PARAM_STR);
@@ -35,6 +36,7 @@ if (isset($button)) {
                 $updateMovieStmt->bindParam(":dimension", $dimension, PDO::PARAM_STR);
                 $updateMovieStmt->bindParam(":length", $length, PDO::PARAM_INT);
                 $updateMovieStmt->bindParam(":rating_score", $ratingScore, PDO::PARAM_INT);
+                $updateMovieStmt->bindParam(":ticket_cost", $cost, PDO::PARAM_STR);
                 $updateMovieStmt->bindParam(":id", $id, PDO::PARAM_INT);
 
                 if (!$updateMovieStmt->execute()) {
@@ -78,7 +80,7 @@ try {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php include_once '../../includes/css_links.php'?>
   <link rel="stylesheet" href="../../public/css/Admin/add-movie.css">
-  <title>Add A Movie</title>
+  <title>Update Movie</title>
 </head>
 <body>
   <?php include_once '../../includes/navbar.php';?>
@@ -138,6 +140,11 @@ try {
               <option value="stashed">Stashed</option>
             </select>
         </div>
+
+        <div class="input-container">
+          <label for="cost">Ticket Cost</label>
+          <input class="input" id="cost" type="text" name="cost" value="<?php echo $movieResults['ticket_cost']?>" placeholder="Ticket Cost">
+        </div>
       </section>
 
       <section class="desc-poster-section">
@@ -149,7 +156,7 @@ try {
         <div class="large-container ">
           <label class="grey" for="poster">Poster</label>
           <div class="poster-section">
-              <input class="input poster-input" id="poster" name="poster" type="file" value="<?php echo $movieResults['poster'] ?>">
+              <input class="input poster-input" id="poster" name="poster" type="file">
           </div>
         </div>
       </section>

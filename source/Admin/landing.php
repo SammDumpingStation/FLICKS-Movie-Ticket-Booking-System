@@ -5,7 +5,7 @@ include_once '../../classes/dbh.class.php';
 $dbhconnect = new Dbh();
 
 try {
-    $movieQuery = "SELECT DISTINCT movie.id, movie.length, movie.title, movie_status.status,  cinema.number FROM movie JOIN movie_status ON movie.id = movie_status.movie_id JOIN cinema ON movie.id = cinema.movie_id WHERE movie_status.status = 'now showing' ORDER BY cinema.number;";
+    $movieQuery = "SELECT DISTINCT movie.id, movie.length, movie.title, movie_status.status,  cinema.number, seats.available FROM movie JOIN movie_status ON movie.id = movie_status.movie_id JOIN cinema ON movie.id = cinema.movie_id JOIN seats ON cinema.number = seats.cinema_id WHERE movie_status.status = 'now showing' ORDER BY cinema.number;";
     $movieStmt = $dbhconnect->connection()->prepare($movieQuery);
     $movieStmt->execute();
     $movieResults = $movieStmt->fetchALL(PDO::FETCH_ASSOC);
@@ -58,24 +58,6 @@ try {
                 </div>
                 <div>
                   <h2>Time Start:</h2>
-                  <?php 
-                    $cinemaQuery = "SELECT * FROM cinema WHERE movie_id = :movie_id;";
-                    $cinemaStmt = $dbhconnect->connection()->prepare($cinemaQuery);
-                    $cinemaStmt->bindParam(":movie_id", $key['id'], PDO::PARAM_INT);
-                    $cinemaStmt->execute();
-                    $cinemaResult = $cinemaStmt->fetchALL(PDO::FETCH_ASSOC);
-
-                  foreach ($cinemaResult as $time) {
-                    $startTimeSlot = $time['time_start'];
-                    $endTimeSlot = $time['time_end'];
-
-                    if ($currentTime > $startTimeSlot && $currentTime < $endTimeSlot) {
-                      echo $startTimeSlot . '<br>';
-                    } else {
-                      echo "Too Late!";
-                    }
-                  }
-                  ?>
                   <p>12:30 PM</p>
                 </div>
                 <div>
@@ -84,7 +66,7 @@ try {
                 </div>
                 <div>
                   <h2>Seats Available</h2>
-                  <p><?php echo htmlspecialchars($key['available'] ?? '120') ?> Seats</p>
+                  <p><?php echo htmlspecialchars($key['available']) ?> Seats</p>
                 </div>
                 <div>
                   <h2>Pending</h2>
@@ -126,7 +108,7 @@ try {
       </section>
     </section>
 
-    <section>
+    <!-- <section>
       <h1>Action Center</h1>
         <section class="admin-container">
           <a class="admin-sections" href="paid_tickets_history.php">
@@ -142,7 +124,7 @@ try {
             <p>Registered Users</p>
           </a>
         </section>
-    </section>
+    </section> -->
 
   </main>
 

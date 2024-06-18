@@ -6,7 +6,7 @@ session_start();
 $sortButtons = $_GET['sort'] ?? null;
 $returnButton = $_GET['return'] ?? null;
 if ($returnButton === 'return') {
-  header('Location: landing.php');
+    header('Location: landing.php');
 }
 if (!$sortButtons) {
     $movieQuery = "SELECT DISTINCT movie.id, movie.title, cinema.number, movie_status.status FROM movie LEFT JOIN cinema ON movie.id = cinema.movie_id LEFT JOIN movie_status ON movie.id = movie_status.movie_id ORDER BY movie_status.status, cinema.number";
@@ -35,34 +35,37 @@ try {
     die("Query Failed. " . $th->getMessage());
 }
 
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['movie-id']) && isset($_GET['button-value'])) {
+    $movieIDs = $_GET['movie-id'];
+    $buttonValues = $_GET['button-value'];
 
+    foreach ($movieIDs as $id) {
+        if (isset($buttonValues[$id])) {
+            $buttonValue = $buttonValues[$id];
+            if ($buttonValue === 'edit') {
+                $_SESSION['movie-id'] = $id;
+                header('Location: update_movie.php');
+            } elseif ($buttonValue === 'delete') {
+                try {
+                    $dbh = $dbhconnect->connection();
 
-$buttons = $_GET['buttons'] ?? null;
-$id = $_GET['movie-id'] ?? null;
-if (isset($buttons)) {
-    if ($buttons === 'edit') {
-        $_SESSION['movie-id'] = $id;
-        header('Location: update_movie.php');
-    } elseif ($buttons === 'delete') {
-        try {
-            $dbh = $dbhconnect->connection();
+                    // Delete from movie_status table
+                    $deleteStatusQuery = "DELETE FROM movie WHERE id = :id";
+                    $statusStmt = $dbh->prepare($deleteStatusQuery);
+                    $statusStmt->bindParam(":id", $id, PDO::PARAM_INT);
+                    $statusStmt->execute();
 
-            // Delete from movie_status table
-            $deleteStatusQuery = "DELETE FROM movie WHERE id = :id";
-            $statusStmt = $dbh->prepare($deleteStatusQuery);
-            $statusStmt->bindParam(":id", $id, PDO::PARAM_INT);
-            $statusStmt->execute();
-
-            echo "Movie and its related records deleted successfully.";
-            header('Location: manage_movies.php?=deletedsuccess');
-        } catch (Exception $e) {
-            die("Error deleting movie: " . $e->getMessage());
+                    echo "Movie and its related records deleted successfully.";
+                    header('Location: manage_movies.php?=deletedsuccess');
+                } catch (Exception $e) {
+                    die("Error deleting movie: " . $e->getMessage());
+                }
+            } else {
+                echo "No movie ID provided.";
+            }
         }
-    } else {
-        echo "No movie ID provided.";
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,25 +95,26 @@ if (isset($buttons)) {
     </section>
 
     <?php
-    if (!$movieResults) {
+if (!$movieResults) {
     echo " <section class='container'><p class='info-container'>Nothing Has Been added yet!</p></section>";
-    } else {
-      foreach ($movieResults as $key) {?>  
+} else {
+    foreach ($movieResults as $key) {?>
     <section class="container">
       <div class="info-container">
         <div class="info-div">
           <p class="grey p-info">Movie Title <span class="white"><?php echo htmlspecialchars($key['title']) ?></span></p>
-          <input type="hidden" name="movie-id" value="<?php echo $key['id'] ?>" id="">
+          <input type="hidden" name="movie-id[]" value="<?php echo $key['id'] ?>" id="">
           <p class="grey p-info">Status: <span class="white"><?php echo ucwords(htmlspecialchars($key['status'])) ?></span></p>
           <p class="grey p-info">Screen Location: <span class="white"><?php echo htmlspecialchars($key['number'] ?? "Not Currently Showing") ?></span></p>
         </div>
         <div class="buttons">
-          <button class="yellow-bg" name="buttons" value="edit">Edit Movie</button>
-          <button class="red-bg" name="buttons" value="delete">Delete</button>
+          <button class="yellow-bg" name="button-value[<?php echo $key['id'] ?>]" value="edit">Edit Movie</button>
+          <button class="red-bg" name="button-value[<?php echo $key['id'] ?>]" value="delete">Delete</button>
         </div>
       </div>
     </section>
-    <?php } }?>
+    <?php }
+}?>
   </form>
 </body>
 </html>

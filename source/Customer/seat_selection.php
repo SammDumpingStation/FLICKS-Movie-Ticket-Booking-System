@@ -34,9 +34,9 @@ session_start();
             <label class="ticket-labels">Screen Location:</label>
             <h3 class="chosen">Cinema <?php echo $_SESSION['cinema-number'] ?></h3>
             <label class="ticket-labels">Tickets Reserved:</label>
-            <h3 class="chosen"><?php echo $_SESSION['quantity']?> Tickets</h3>
+            <h3 class="chosen"><?php echo $_SESSION['quantity'] ?> Tickets</h3>
             <label class="ticket-labels">Total Cost:</label>
-            <h3 class="chosen">₱<?php echo $_SESSION['cost-plus-tax']?></h3>
+            <h3 class="chosen">₱<?php echo $_SESSION['cost-plus-tax'] ?></h3>
           </div>
           <p class="note">*Please ensure that you are selecting seats of your choice</p>
         </div>
@@ -44,26 +44,26 @@ session_start();
 
       <section class="seat-section">
         <?php for ($i = 1; $i <= 120; $i++) {
-              // Determine the group number (1-10 -> 'a', 11-20 -> 'b', etc.)
-              $groupNumber = ceil($i / 10);
-              // Convert the group number to a letter (1 -> 'a', 2 -> 'b', etc.)
-              $letter = chr(64 + $groupNumber);
-              // Combine the letter with the number
-              $label = $letter . $i;
-              ?>
+    // Determine the group number (1-10 -> 'a', 11-20 -> 'b', etc.)
+    $groupNumber = ceil($i / 10);
+    // Convert the group number to a letter (1 -> 'a', 2 -> 'b', etc.)
+    $letter = chr(64 + $groupNumber);
+    // Combine the letter with the number
+    $label = $letter . $i;
+    ?>
           <button type="button" value="<?php echo $label ?>" class="seats-button"><?php echo $label ?></button>
-        <?php }?>
+        <?php
+}?>
       </section>
       <section class="button-operations">
         <button class="go-back" name="buttons" value="cancel">Cancel</button>
-        <button class="proceed" onclick="submitArray();">Confirm</button>
       </section>
     </form>
+      <button class="proceed confirm" onclick="submitArray();">Confirm</button>
 <script>
     // Array to store clicked button values
-    const clickedValues = [];
-    // Counter to track the number of clicks
-    const maxClicks = <?php echo $_SESSION['quantity'] ?>;
+    let clickedValues = [];
+    let maxClicks = <?php echo $_SESSION['quantity'] ?>;
 
     // Add event listeners to all buttons
     document.querySelectorAll('.seats-button').forEach(button => {

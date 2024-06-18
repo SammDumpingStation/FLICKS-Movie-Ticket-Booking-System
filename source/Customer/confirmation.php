@@ -158,18 +158,18 @@ if (isset($buttons)) {
             <label for="ticket-labels">Selected Seats</label>
             <h3 class="chosen">
               <?php
-if (isset($_SESSION['seats-selected'])) {
-    $seats = $_SESSION['seats-selected'];
-    $lastIndex = count($seats) - 1;
-    $seatString = '';
-    foreach ($seats as $index => $seat) {
-        if ($index === $lastIndex) {
-            $seatString .= $seat; // Add the last seat without a comma
-        } else {
-            $seatString .= $seat . ", "; // Add the seat followed by a comma
-        }
-    }
-    echo $seatString;
+                if (isset($_SESSION['seats-selected'])) {
+                    $seats = $_SESSION['seats-selected'];
+                    $lastIndex = count($seats) - 1;
+                    $seatString = '';
+                    foreach ($seats as $index => $seat) {
+                        if ($index === $lastIndex) {
+                            $seatString .= $seat; // Add the last seat without a comma
+                        } else {
+                            $seatString .= $seat . ", "; // Add the seat followed by a comma
+                        }
+                    }
+                    echo $seatString;
 }?></h3>
           </div>
         </div>
@@ -185,16 +185,16 @@ if (isset($_SESSION['seats-selected'])) {
           </div>
           <div class="flex input-div">
             <label class="label" for="lname">Last Name <span class="red">*</span></label>
-            <input id="lname" class="input-details" type="text" name="last-name" value="<?php echo $_SESSION['last-name']?>" placeholder="Last Name">
+            <input id="lname" class="input-details" type="text" name="last-name" value="<?php echo $_SESSION['last-name'] ?? null?>" placeholder="Last Name">
           </div>
           <div class="flex input-div">
             <label class="label"  for="email">Email <span class="red">*</span></label>
-            <input id="input-details" class="input-details" type="text" name="email" value="<?php echo $_SESSION['email']?>" value="" placeholder="Email">
+            <input id="input-details" class="input-details" type="text" name="email" value="<?php echo $_SESSION['email'] ?? null?>" value="" placeholder="Email">
           </div>
 
           <div class="flex input-div">
             <label class="label"  for="number">Phone Number <span class="red">*</span></label>
-            <input id="number" class="input-details" type="text" name="phone-number" value="<?php echo $_SESSION['phone-number']?>" id="" placeholder="Phone Number">
+            <input id="number" class="input-details" type="text" name="phone-number" value="<?php echo $_SESSION['phone-number'] ?? null?>" id="" placeholder="Phone Number">
           </div>
         </div>
       </section>

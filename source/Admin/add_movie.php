@@ -16,6 +16,7 @@ if (isset($button)) {
         $dimension = $_POST['dimension'];
         $ratingScore = $_POST['rating-score'];
         $status = $_POST['movie-status'];
+        $cost = $_POST['cost'];
 
         // Retrieve file data
         $poster = $_FILES['poster']['name'];
@@ -25,8 +26,8 @@ if (isset($button)) {
         // Move uploaded file
         if (move_uploaded_file($tempname, $folder)) {
             try { // SQL Query to insert movie data
-                $movieQuery = "INSERT INTO movie (title, description, poster, age_rating, dimension, length, rating_score, created_at)
-                               VALUES (:title, :description, :poster, :age_rating, :dimension, :length, :rating_score, NOW())";
+                $movieQuery = "INSERT INTO movie (title, description, poster, age_rating, dimension, length, rating_score, ticket_cost, created_at)
+                               VALUES (:title, :description, :poster, :age_rating, :dimension, :length, :ticket_cost, :rating_score, NOW())";
                 $movieStmt = $dbhconnect->connection()->prepare($movieQuery);
                 $movieStmt->bindParam(":title", $title, PDO::PARAM_STR);
                 $movieStmt->bindParam(":description", $description, PDO::PARAM_STR);
@@ -35,6 +36,7 @@ if (isset($button)) {
                 $movieStmt->bindParam(":dimension", $dimension, PDO::PARAM_STR);
                 $movieStmt->bindParam(":length", $length, PDO::PARAM_INT);
                 $movieStmt->bindParam(":rating_score", $ratingScore, PDO::PARAM_INT);
+                $movieStmt->bindParam(":ticket_cost", $cost, PDO::PARAM_INT);
 
                 if (!$movieStmt->execute()) {
                     throw new Exception("Failed to insert movie data");
@@ -140,6 +142,11 @@ if (isset($button)) {
               <option value="upcoming movies">Upcoming Movies</option>
               <option value="stashed">Stashed</option>
             </select>
+        </div>
+
+        <div class="input-container">
+          <label for="cost">Ticket Cost</label>
+          <input class="input" id="cost" type="text" name="cost" placeholder="Ticket Cost">
         </div>
       </section>
 

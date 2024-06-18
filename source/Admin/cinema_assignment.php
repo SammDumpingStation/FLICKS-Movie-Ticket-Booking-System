@@ -26,7 +26,7 @@ if (isset($buttonAction)) {
                 $queryDelete = "DELETE FROM cinema";
                 $stmtDelete = $dbhconnect->connection()->prepare($queryDelete);
                 $stmtDelete->execute();
-            } 
+            }
 
             // Setting up the time
             $timeStart = '12:30';
@@ -138,28 +138,28 @@ try {
                 <div class="show-times">
                   <h2 class="times-title">Show Times</h2>
                   <?php
-try {
-    $movie_ID = $key['id'];
-    $queryShowTimes = "SELECT time_start FROM cinema WHERE movie_id = :movieID";
-    $stmt = $dbhconnect->connection()->prepare($queryShowTimes);
-    $stmt->bindParam(":movieID", $movie_ID, PDO::PARAM_INT);
-    $stmt->execute();
-    $timeResult = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    try {
+                        $movie_ID = $key['id'];
+                        $queryShowTimes = "SELECT time_start FROM cinema WHERE movie_id = :movieID";
+                        $stmt = $dbhconnect->connection()->prepare($queryShowTimes);
+                        $stmt->bindParam(":movieID", $movie_ID, PDO::PARAM_INT);
+                        $stmt->execute();
+                        $timeResult = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if (empty($timeResult)) {?>
+                        if (empty($timeResult)) {?>
                             <h6 class='time'>Not yet set!</h6>
-                        <?php } else {
-        foreach ($timeResult as $time) {?>
+                                            <?php } else {
+                            foreach ($timeResult as $time) {?>
                                 <?php $timeFromDbh = $time['time_start'];
-            $timestamp = strtotime($timeFromDbh);
-            $formattedTime = date("h:i A", $timestamp);
-            $finalTime = str_replace('AM', 'PM', $formattedTime);?>
+                                $timestamp = strtotime($timeFromDbh);
+                                $formattedTime = date("h:i A", $timestamp);
+                                $finalTime = str_replace('AM', 'PM', $formattedTime);?>
                                 <h6 class='time'><?php echo htmlspecialchars($finalTime) ?></h6>
-                           <?php }
-    }
-} catch (\Throwable $th) {
-    die("Query Failed. " . $th->getMessage());
-}?>
+                                <?php }
+                                  }
+                              } catch (\Throwable $th) {
+                                  die("Query Failed. " . $th->getMessage());
+                              }?>
                 </div>
           </div>
         <?php }?>
