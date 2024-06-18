@@ -3,19 +3,46 @@ session_start();
 include_once '../../classes/dbh.class.php';
 $dbhconnect = new Dbh();
 
-if (isset($_GET['cinema'])) {
-  $number = $_GET['cinema'];
-  $title = $_GET['title'];
-  $seatAvail = $_GET['available'];
+$number = $_GET['cinema'] ?? $_SESSION['number'] ?? null;
+$title = $_GET['title']  ?? $_SESSION['title'] ?? null;
+$seatAvail = $_GET['available']  ?? $_SESSION['seatsAvail'] ?? null;
+$_SESSION['title'] = $title;
+$_SESSION['number'] = $number;
+$_SESSION['seatsAvail'] = $seatAvail;
+$buttons = $_GET['buttons'] ?? null;
+$id = $_GET['reservation-id'] ?? null;
+
+if (isset($buttons)) {
+    if ($buttons === 'approve') {
+        $query = "UPDATE reservation SET status = 'approved' WHERE id = :id;";
+        $updateStatusStmt = $dbhconnect->connection()->prepare($query);
+        $updateStatusStmt->bindParam(":id", $id, PDO::PARAM_INT);
+        if (!$updateStatusStmt->execute()) {
+            throw new Exception("Failed to update movie status");
+        } else {
+            header('Location: pending_payments.php?=approved');
+        }
+
+    } elseif ($buttons === 'reject') {
+        $query = "UPDATE reservation SET status = 'rejected' WHERE id = :id; ";
+        $updateStatusStmt = $dbhconnect->connection()->prepare($query);
+        $updateStatusStmt->bindParam(":id", $id, PDO::PARAM_INT);
+        if (!$updateStatusStmt->execute()) {
+            throw new Exception("Failed to update movie status");
+        } else {
+            header('Location: pending_payments.php?=rejected');
+        }
+
+    }
 }
 
 try {
-  $query = "SELECT reservation.*, customer.first_name, customer.last_name, customer.user_type FROM reservation JOIN customer ON reservation.customer_id = customer.id WHERE reservation.status = 'pending';";
-  $stmt = $dbhconnect->connection()->prepare($query);
-  $stmt->execute();
-  $results = $stmt->fetchALL(PDO::FETCH_ASSOC) ?? null;
+    $query = "SELECT reservation.*, customer.first_name, customer.last_name, customer.user_type FROM reservation JOIN customer ON reservation.customer_id = customer.id WHERE reservation.status = 'pending';";
+    $stmt = $dbhconnect->connection()->prepare($query);
+    $stmt->execute();
+    $results = $stmt->fetchALL(PDO::FETCH_ASSOC) ?? null;
 } catch (\Throwable $th) {
-  //throw $th;
+    //throw $th;
 }
 
 ?>
@@ -39,38 +66,39 @@ try {
         <h1>Pending Payments</h1>
         <div class="seats-avail">
           <p class="grey">Seats Available: <span class="white">80</span></p>
-          <button>Available Seats</button>          
+          <button>Available Seats</button>
         </div>
       </div>
       <div class="header-container">
-        <p class="movie-info grey">Movie Name: <span class="details white"><?php echo $title?></span></p>
-        <p class="movie-info grey">Screen Location: <span class="details white">Cinema <?php echo $number?></span></p>
+        <p class="movie-info grey">Movie Name: <span class="details white"><?php echo $title ?></span></p>
+        <p class="movie-info grey">Screen Location: <span class="details white">Cinema <?php echo $number ?></span></p>
         <p class="movie-info grey">Current Showtime: <span class="details white">12:30</span></p>
-      </div>   
+      </div>
     </section>
 
     <?php if (!$results) {
-      echo "<p class='container'>No one reserved a ticket yet!</p>";
-}else {
-    foreach($results as $key) {?>
-        <section class="container">
+    echo "<p class='container'>No one reserved a ticket yet!</p>";
+} else {
+    foreach ($results as $key) {?>
+        <form action="" method="get" class="container">
           <div class="info-container">
             <div class="info-div">
-              <p class="grey p-info">Member <span class="white">Samm Caagbay</span></p>
-              <p class="grey p-info">Total Amount: <span class="white">$3240</span></p>
-              <p class="grey p-info">Reference I.D.: <span class="white">12345678</span></p>
-              <p class="grey p-info">Seat/s Booked: <button class="white seats"><a href="seats_chosen.php">8 seats</a></button></p>
-              <p class="grey p-info">Time Slot: <span class="white">12:30</span></p>
-              <p class="grey p-info">Time Booked: <span class="white">June 1, 2023 10:30 A.M.</span></p>
+              <p class="grey p-info">Member <span class="white"><?php echo $key['first_name'] . " " . $key['last_name'] ?></span></p>
+              <p class="grey p-info">Total Amount: <span class="white">₱<?php echo $key['total_cost'] ?></span></p>
+              <p class="grey p-info">Reference I.D.: <span class="white"><?php echo $key['reference_id'] ?></span></p>
+              <p class="grey p-info">Seat/s Booked: <button class="white seats"><a href="seats_chosen.php"><?php echo $key['quantity'] ?> seat/s</a></button></p>
+              <p class="grey p-info">Time Slot: <span class="white"><?php echo $key['time_selected'] ?></span></p>
+              <p class="grey p-info">Time Booked: <span class="white"><?php echo $key['date_reserved'] ?></span></p>
             </div>
             <div class="buttons">
-              <button class="green-bg">Approve</button>
-              <button class="yellow-bg">Edit Ticket</button>
-              <button class="red-bg">Reject</button>
+              <input type="hidden" name="reservation-id" value="<?php echo $key['id'] ?>">
+              <button class="green-bg" name="buttons" value="approve">Approve</button>
+              <button class="red-bg" name="buttons" value="reject">Reject</button>
             </div>
           </div>
-        </section>
-      <?php } }?>
+        </form>
+      <?php }
+}?>
   </main>
 </body>
 </html>
