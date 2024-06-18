@@ -4,8 +4,8 @@ include_once '../../classes/dbh.class.php';
 $dbhconnect = new Dbh();
 
 $number = $_GET['cinema'] ?? $_SESSION['number'] ?? null;
-$title = $_GET['title']  ?? $_SESSION['title'] ?? null;
-$seatAvail = $_GET['available']  ?? $_SESSION['seatsAvail'] ?? null;
+$title = $_GET['title'] ?? $_SESSION['title'] ?? null;
+$seatAvail = $_GET['available'] ?? $_SESSION['seatsAvail'] ?? null;
 $_SESSION['title'] = $title;
 $_SESSION['number'] = $number;
 $_SESSION['seatsAvail'] = $seatAvail;
@@ -14,7 +14,7 @@ $id = $_GET['reservation-id'] ?? null;
 
 if (isset($buttons)) {
     if ($buttons === 'approve') {
-        $query = "UPDATE reservation SET status = 'approved' WHERE id = :id;";
+        $query = "UPDATE reservation SET status = 'paid' WHERE id = :id;";
         $updateStatusStmt = $dbhconnect->connection()->prepare($query);
         $updateStatusStmt->bindParam(":id", $id, PDO::PARAM_INT);
         if (!$updateStatusStmt->execute()) {
@@ -42,7 +42,7 @@ try {
     $stmt->execute();
     $results = $stmt->fetchALL(PDO::FETCH_ASSOC) ?? null;
 } catch (\Throwable $th) {
-    //throw $th;
+    die("Update Failed. " . $th->getMessage());
 }
 
 ?>
