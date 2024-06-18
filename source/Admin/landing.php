@@ -5,7 +5,7 @@ include_once '../../classes/dbh.class.php';
 $dbhconnect = new Dbh();
 
 try {
-    $movieQuery = "SELECT movie.id, movie.length, movie.title, movie_status.status FROM movie JOIN movie_status ON movie.id = movie_status.movie_id WHERE movie_status.status = 'now showing';";
+    $movieQuery = "SELECT DISTINCT movie.id, movie.length, movie.title, movie_status.status,  cinema.number FROM movie JOIN movie_status ON movie.id = movie_status.movie_id JOIN cinema ON movie.id = cinema.movie_id WHERE movie_status.status = 'now showing' ORDER BY cinema.number;";
     $movieStmt = $dbhconnect->connection()->prepare($movieQuery);
     $movieStmt->execute();
     $movieResults = $movieStmt->fetchALL(PDO::FETCH_ASSOC);
@@ -41,7 +41,7 @@ try {
             <input hidden type="text" name="available" value="<?php echo htmlspecialchars($key['available'] ?? 120) ?>">
             <button name="cinema" value="" class="button-pending pending-cinema">
                 <div>
-                    <h3 data-name="">Cinema </h3>
+                    <h3 data-name="">Cinema <?php echo $key['number']?></h3>
                     <p class="date"><?php echo date('F d, Y h:i A') ?></p>
                   </div>
                 <div>

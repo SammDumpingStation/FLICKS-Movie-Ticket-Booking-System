@@ -41,9 +41,9 @@ try {
             foreach ($result as $key) {?>
               <div class="per-movie flex">
                 <div class="poster-container">
-                  <img class="movie-poster" src="/public/images/Haikyu-Dumpster-Battle.jpg" alt="Haikyuu Dumpster Battle Poster">
+                  <img class="movie-poster" src="/public/images/<?php echo htmlspecialchars($key['poster'])?>" alt="<?php echo htmlspecialchars($key['title'])?> Poster">
                 </div>
-                <h2 class="movie-title">Haikyuu!! The Dumpster Battle</h2>
+                <h2 class="movie-title"><?php echo htmlspecialchars($key['title']) ?></h2>
             </div>
           <?php }
             }?>

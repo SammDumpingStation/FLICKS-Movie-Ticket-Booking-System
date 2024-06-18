@@ -3,8 +3,30 @@ include_once '../../classes/dbh.class.php';
 $dbhconnect = new Dbh();
 session_start();
 
-try {
+$sortButtons = $_GET['sort'] ?? null;
+$returnButton = $_GET['return'] ?? null;
+if ($returnButton === 'return') {
+  header('Location: landing.php');
+}
+if (!$sortButtons) {
     $movieQuery = "SELECT DISTINCT movie.id, movie.title, cinema.number, movie_status.status FROM movie LEFT JOIN cinema ON movie.id = cinema.movie_id LEFT JOIN movie_status ON movie.id = movie_status.movie_id ORDER BY movie_status.status, cinema.number";
+} elseif ($sortButtons === 'recently') {
+    $movieQuery = "SELECT DISTINCT movie.id, movie.title, cinema.number, movie_status.status FROM movie LEFT JOIN cinema ON movie.id = cinema.movie_id LEFT JOIN movie_status ON movie.id = movie_status.movie_id ORDER BY movie.id DESC";
+} elseif ($sortButtons === 'alphabetical') {
+    $movieQuery = "SELECT DISTINCT movie.id, movie.title, cinema.number, movie_status.status FROM movie LEFT JOIN cinema ON movie.id = cinema.movie_id LEFT JOIN movie_status ON movie.id = movie_status.movie_id ORDER BY movie.title";
+} elseif ($sortButtons === 'now') {
+    $movieQuery = "SELECT DISTINCT movie.id, movie.title, cinema.number, movie_status.status FROM movie LEFT JOIN cinema ON movie.id = cinema.movie_id LEFT JOIN movie_status ON movie.id = movie_status.movie_id WHERE movie_status.status = 'now showing' ORDER BY cinema.number";
+} elseif ($sortButtons === 'next') {
+    $movieQuery = "SELECT DISTINCT movie.id, movie.title, cinema.number, movie_status.status FROM movie LEFT JOIN cinema ON movie.id = cinema.movie_id LEFT JOIN movie_status ON movie.id = movie_status.movie_id WHERE movie_status.status = 'next picture'";
+} elseif ($sortButtons === 'coming') {
+    $movieQuery = "SELECT DISTINCT movie.id, movie.title, cinema.number, movie_status.status FROM movie LEFT JOIN cinema ON movie.id = cinema.movie_id LEFT JOIN movie_status ON movie.id = movie_status.movie_id WHERE movie_status.status = 'coming soon'";
+} elseif ($sortButtons === 'stashed') {
+    $movieQuery = "SELECT DISTINCT movie.id, movie.title, cinema.number, movie_status.status FROM movie LEFT JOIN cinema ON movie.id = cinema.movie_id LEFT JOIN movie_status ON movie.id = movie_status.movie_id WHERE movie_status.status = 'stashed'";
+} elseif ($sortButtons === 'upcoming') {
+    $movieQuery = "SELECT DISTINCT movie.id, movie.title, cinema.number, movie_status.status FROM movie LEFT JOIN cinema ON movie.id = cinema.movie_id LEFT JOIN movie_status ON movie.id = movie_status.movie_id WHERE movie_status.status = 'upcoming movies'";
+}
+
+try {
     $movieStmt = $dbhconnect->connection()->prepare($movieQuery);
     $movieStmt->execute();
     $movieResults = $movieStmt->fetchALL(PDO::FETCH_ASSOC);
@@ -13,6 +35,8 @@ try {
     die("Query Failed. " . $th->getMessage());
 }
 
+
+
 $buttons = $_GET['buttons'] ?? null;
 $id = $_GET['movie-id'] ?? null;
 if (isset($buttons)) {
@@ -20,24 +44,24 @@ if (isset($buttons)) {
         $_SESSION['movie-id'] = $id;
         header('Location: update_movie.php');
     } elseif ($buttons === 'delete') {
-            try {
-                $dbh = $dbhconnect->connection();
+        try {
+            $dbh = $dbhconnect->connection();
 
-                // Delete from movie_status table
-                $deleteStatusQuery = "DELETE FROM movie WHERE id = :id";
-                $statusStmt = $dbh->prepare($deleteStatusQuery);
-                $statusStmt->bindParam(":id", $id, PDO::PARAM_INT);
-                $statusStmt->execute();
+            // Delete from movie_status table
+            $deleteStatusQuery = "DELETE FROM movie WHERE id = :id";
+            $statusStmt = $dbh->prepare($deleteStatusQuery);
+            $statusStmt->bindParam(":id", $id, PDO::PARAM_INT);
+            $statusStmt->execute();
 
-                echo "Movie and its related records deleted successfully.";
-                header('Location: manage_movies.php?=deletedsuccess');
-            } catch (Exception $e) {
-                die("Error deleting movie: " . $e->getMessage());
-            }
-        } else {
-            echo "No movie ID provided.";
+            echo "Movie and its related records deleted successfully.";
+            header('Location: manage_movies.php?=deletedsuccess');
+        } catch (Exception $e) {
+            die("Error deleting movie: " . $e->getMessage());
         }
+    } else {
+        echo "No movie ID provided.";
     }
+}
 
 ?>
 <!DOCTYPE html>
@@ -52,23 +76,27 @@ if (isset($buttons)) {
 <body>
   <?php include_once '../../includes/navbar.php';?>
 
-  <main>
-    <a href="landing.php"><button class="return">Return</button></a>
+  <form action="" method="get">
+    <button class="return" name="return" value="return">Return</button>
     <section class="header">
       <h1 class="title">Manage Movies</h1>
       <div class="sorting-movies">
-        <button>Recently Added</button>
-        <button>Alphabetical Order</button>
-        <button>Now Showing</button>
-        <button>Next Picture</button>
-        <button>Coming Soon</button>
-        <button>Stashed</button>
-        <button>Upcoming Movies</button>
+        <button name="sort" value="recently">Recently Added</button>
+        <button name="sort" value="alphabetical">Alphabetical Order</button>
+        <button name="sort" value="now">Now Showing</button>
+        <button name="sort" value="next">Next Picture</button>
+        <button name="sort" value="coming">Coming Soon</button>
+        <button name="sort" value="stashed">Stashed</button>
+        <button name="sort" value="upcoming">Upcoming Movies</button>
       </div>
     </section>
 
-    <?php foreach ($movieResults as $key) {?>
-    <form action="" method="get" class="container">
+    <?php
+    if (!$movieResults) {
+    echo " <section class='container'><p class='info-container'>Nothing Has Been added yet!</p></section>";
+    } else {
+      foreach ($movieResults as $key) {?>  
+    <section class="container">
       <div class="info-container">
         <div class="info-div">
           <p class="grey p-info">Movie Title <span class="white"><?php echo htmlspecialchars($key['title']) ?></span></p>
@@ -81,8 +109,8 @@ if (isset($buttons)) {
           <button class="red-bg" name="buttons" value="delete">Delete</button>
         </div>
       </div>
-    </form>
-    <?php }?>
-  </main>
+    </section>
+    <?php } }?>
+  </form>
 </body>
 </html>
