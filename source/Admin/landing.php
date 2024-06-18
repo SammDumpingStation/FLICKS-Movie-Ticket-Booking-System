@@ -42,6 +42,7 @@ try {
             <button name="cinema" value="" class="button-pending pending-cinema">
                 <div>
                     <h3 data-name="">Cinema <?php echo $key['number']?></h3>
+                    <input type="hidden" name="cinema-number" value="<?php echo $key['number'] ?>" id="">
                     <p class="date"><?php echo date('F d, Y h:i A') ?></p>
                   </div>
                 <div>
@@ -63,10 +64,6 @@ try {
                 <div>
                   <h2>Status</h2>
                   <p>Available</p>
-                </div>
-                <div>
-                  <h2>Seats Available</h2>
-                  <p><?php echo htmlspecialchars($key['available']) ?> Seats</p>
                 </div>
                 <div>
                   <h2>Pending</h2>

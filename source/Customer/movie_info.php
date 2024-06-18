@@ -13,7 +13,7 @@ function formatDuration($minutes)
 $id = $_GET['movie-id'] ?? ($_SESSION['movie-id'] ?? null);
 $_SESSION['movie-id'] = $id;
 try {
-    $query = "SELECT DISTINCT movie.*, movie_status.status, cinema.number FROM movie JOIN movie_status ON movie.id = movie_status.movie_id JOIN cinema ON movie.id = cinema.movie_id WHERE movie.id = :id";
+    $query = "SELECT DISTINCT movie.*, movie_status.status, cinema.number FROM movie LEFT JOIN movie_status ON movie.id = movie_status.movie_id LEFT JOIN cinema ON movie.id = cinema.movie_id WHERE movie.id = :id";
     $stmt = $dbhconnect->connection()->prepare($query);
     $stmt->bindParam(":id", $id, PDO::PARAM_INT);
     $stmt->execute();
@@ -62,7 +62,7 @@ if (isset($button)) {
       <section class="details-right flex">
           <div class="title-container flex">
             <h1 class="movie-title"><?php echo $key['title'] ?></h1>
-            <h3 class="rating">Rating: (<?php echo $key['rating_score'] ?>/5)</h3>
+            <h3 class="rating">Rating: (<?php echo $key['rating_score'] ?>/10)</h3>
           </div>
           <div class="mini-info flex">
             <button class="info"><?php echo $key['age_rating'] ?></button>
@@ -85,7 +85,7 @@ if (isset($button)) {
                   $timeResult = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   ?>
             <?php if (empty($timeResult)) {?>
-                    <h5 class="showtimes flex">Not Currently Showing</h5>
+                    <h5 class="showtime flex">Not Currently Showing</h5>
                     <?php } else {
                     foreach ($timeResult as $time) {
                         $timeFromDbh = $time['time_start'];
@@ -101,11 +101,11 @@ if (isset($button)) {
     </div>
 
     <div class="button-operations">
-      <button class="go-back" name="buttons" value="go-back">Go Back</button>
+      <button class="go-back" name="buttons" value="go-back">Cancel</button>
       <?php if ($key['status'] === 'now showing') {?>
       <button class="proceed" name="buttons" value="reserve">Reserve Now</button>
       <?php } else{?>
-      <button class="proceed" name="buttons" value="okay">Okay</button>
+      <button class="proceed" name="buttons" value="okay">Confirm</button>
         <?php }?>
     </div>
   </form>

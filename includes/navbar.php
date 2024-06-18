@@ -11,26 +11,33 @@ if (isset($user) || isset($_SESSION['first-name']) && isset($_SESSION['last-name
     $userName = "Log-in for discounts!";
     $logStatus = "Log-in";
     $landingPage = "/source/Customer/landing.php";
+} if (isset($_GET['nav-logo']) && $_GET['nav-logo'] === 'home') {
+  header('Location: ' . $landingPage);
+}
+
+if (isset($_GET['search-button']) && $_GET['search-button'] === 'search') {
+  $_SESSION['search'] = $_GET['search'];
+  header('Location: search.php');
 }
 ?>
 
 <header>
     <nav class="flex-center navbar">
       <form action="" method="get" class="flex-center">
-        <button class="logo-link flex-center" name="nav-logo" value="">
+        <button class="logo-link flex-center" name="nav-logo" value="home">
           <img class="logo" src="/public/images/logo.png" alt="">
           <h1 class="logo-label">FLICKS</h1>
         </button>
       </form>
 
-      <section class="search-div flex">
+      <form action="" method="get" class="search-div flex">
         <div class="search-bar">
-          <input class="search-input" type="text" name="" id="" placeholder="Search for movies, showtimes, or cinemas...">
+          <input class="search-input" type="text" name="search" placeholder="Search for movies...">
         </div>
-          <button class="search-button flex">
+          <button name="search-button" value="search" class="search-button flex">
             <img class="button-icon" src="/public/images/search.png" alt="">
           </button>
-      </section>
+      </form>
 
       <form action="/source/Log-in/reset.php" method="get" class="login-div flex-center">
         <h1 class="status"><?php echo $userName ?></h1>

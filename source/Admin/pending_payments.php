@@ -3,7 +3,7 @@ session_start();
 include_once '../../classes/dbh.class.php';
 $dbhconnect = new Dbh();
 
-$number = $_GET['cinema'] ?? $_SESSION['number'] ?? null;
+$number = $_GET['cinema-number'] ?? $_SESSION['number'] ?? null;
 $title = $_GET['title'] ?? $_SESSION['title'] ?? null;
 $seatAvail = $_GET['available'] ?? $_SESSION['seatsAvail'] ?? null;
 $_SESSION['title'] = $title;
@@ -37,10 +37,12 @@ if (isset($buttons)) {
 }
 
 try {
-    $query = "SELECT reservation.*, customer.first_name, customer.last_name, customer.user_type FROM reservation JOIN customer ON reservation.customer_id = customer.id WHERE reservation.status = 'pending';";
+    $query = "SELECT reservation.*, customer.first_name, customer.last_name, customer.user_type FROM reservation JOIN customer ON reservation.customer_id = customer.id WHERE reservation.status = 'pending' AND reservation.cinema_id = :id;";
     $stmt = $dbhconnect->connection()->prepare($query);
+    $stmt->bindParam(":id", $number, PDO::PARAM_INT);
     $stmt->execute();
     $results = $stmt->fetchALL(PDO::FETCH_ASSOC) ?? null;
+
 } catch (\Throwable $th) {
     die("Update Failed. " . $th->getMessage());
 }

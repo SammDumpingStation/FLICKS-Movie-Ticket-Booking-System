@@ -43,10 +43,10 @@ try {
       <a href="./reserve_now.php"><button class="proceed">Reserve Now</button></a>
     </section>
 
-    <section class="movies-section flex">
+    <form action="movie_info.php" method="get" class="movies-section flex">
       <div class="movies-container">
         <h2 class="movie-status">Now Showing</h2>
-        <form action="movie_info.php" method="get" class="movie-row flex">
+        <section class="movie-row flex">
         <?php foreach ($nowResults as $key) {?>
           <input hidden type="text" name="number[]" value="<?php echo htmlspecialchars($key['number']) ?>">
           <button name="movie-id" value="<?php echo htmlspecialchars($key['id'])?>" class="per-movie flex">
@@ -57,41 +57,37 @@ try {
               <h2 class="movie-title"><?php echo htmlspecialchars($key['title'])?></h2>
           </button>
           <?php }?>       
-        </form>  
+        </section>  
       </div>
 
       <div class="movies-container">
         <h2 class="movie-status">Next Picture</h2>
-        <form  action="movie_info.php" method="get" class="movie-row flex">
-        <?php foreach ($nextResults as $key) {?>
-          <button name="movie-id[]" value="<?php echo htmlspecialchars($key['id']) ?>" class="per-movie flex">
-            <input type="hidden" name="poster[]" value="<?php $key['poster']?>">
-            <input type="hidden" name="title[]" value="<?php echo $key['title']?>"> 
+        <section class="movie-row flex">
+        <?php foreach ($nextResults as $next) {?>
+          <button name="movie-id" value="<?php echo htmlspecialchars($next['id']) ?>" class="per-movie flex">
               <div class="poster-container">
-                <img class="movie-poster" src="/public/images/<?php echo htmlspecialchars($key['poster'])?>" alt="<?php echo htmlspecialchars($key['poster']) ?> Poster">
+                <img class="movie-poster" src="/public/images/<?php echo htmlspecialchars($next['poster'])?>" alt="<?php echo htmlspecialchars($next['poster']) ?> Poster">
               </div>
-              <h2 class="movie-title"><?php echo htmlspecialchars($key['title'])?></h2>
+              <h2 class="movie-title"><?php echo htmlspecialchars($next['title'])?></h2>
           </button>
           <?php }?>       
-        </form>
+        </section>
       </div>
 
       <div class="movies-container">
         <h2 class="movie-status">Coming Soon</h2>
-        <form action="movie_info.php" method="get" class="movie-row flex">
-          <?php foreach ($comingResults as $key) {?>
-          <button name="movie-id[]" value="<?php echo htmlspecialchars($key['id'])?>" class="per-movie flex">
-            <input type="hidden" name="poster[]" value="<?php $key['poster']?>">
-            <input type="hidden" name="title[]" value="<?php echo $key['title']?>"> 
-            <div name="coming-results" value="<?php echo htmlspecialchars($key['id']) ?>" class="poster-container">
-                  <img class="movie-poster" src="/public/images/<?php echo htmlspecialchars($key['poster'])?>" alt="<?php echo htmlspecialchars($key['title'])?> Poster">
+        <section class="movie-row flex">
+          <?php foreach ($comingResults as $coming) {?>
+          <button name="movie-id" value="<?php echo htmlspecialchars($coming['id'])?>" class="per-movie flex">
+            <div name="coming-results" value="<?php echo htmlspecialchars($coming['id']) ?>" class="poster-container">
+                  <img class="movie-poster" src="/public/images/<?php echo htmlspecialchars($coming['poster'])?>" alt="<?php echo htmlspecialchars($coming['title'])?> Poster">
                 </div>
-                <h2 class="movie-title"><?php echo htmlspecialchars($key['title']) ?></h2>
+                <h2 class="movie-title"><?php echo htmlspecialchars($coming['title']) ?></h2>
             </button>
           <?php }?>       
-        </form>
+        </section>
       </div>
-    </section>
+    </form>
   </main>
 </body>
 </html>

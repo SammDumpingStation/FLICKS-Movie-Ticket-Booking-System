@@ -57,8 +57,9 @@ if (isset($buttons)) {
             $referenceID = generateReferenceID();
             $cinemaID = $_SESSION['cinema-number'] ?? null;
             $customerID = $customerIDResult['id'];
+            $status = 'pending';
 
-            $reservationQuery = "INSERT INTO reservation (quantity, total_cost, seats_chosen, time_selected, reference_id, customer_id, cinema_id, date_reserved) VALUES (:quantity, :total_cost, :seats_chosen, :time_selected, :reference_id, :customer_id, :cinema_id, NOW())";
+            $reservationQuery = "INSERT INTO reservation (quantity, total_cost, seats_chosen, time_selected, reference_id, customer_id, cinema_id, date_reserved, status) VALUES (:quantity, :total_cost, :seats_chosen, :time_selected, :reference_id, :customer_id, :cinema_id, NOW(), :status)";
             $reservationStmt = $dbhconnect->connection()->prepare($reservationQuery);
             $reservationStmt->bindParam(":quantity", $quantity, PDO::PARAM_INT);
             $reservationStmt->bindParam(":total_cost", $totalCost, PDO::PARAM_INT);
@@ -66,6 +67,7 @@ if (isset($buttons)) {
             $reservationStmt->bindParam(":time_selected", $timeWithoutAMPM, PDO::PARAM_STR);
             $reservationStmt->bindParam(":reference_id", $referenceID, PDO::PARAM_STR);
             $reservationStmt->bindParam(":customer_id", $customerID, PDO::PARAM_INT);
+            $reservationStmt->bindParam(":status", $status, PDO::PARAM_STR);
             $reservationStmt->bindParam(":cinema_id", $cinemaID, PDO::PARAM_INT);
 
             if (!$reservationStmt->execute()) {
@@ -230,7 +232,7 @@ if (isset($buttons)) {
       </section>
 
       <section class="button-operations">
-        <button class="go-back" name="buttons" value="cancel" >Go Back</button>
+        <button class="go-back" name="buttons" value="cancel" >Cancel</button>
         <button class="proceed" name="buttons" value="confirm" >Confirm</button>
       </section>
     </form>

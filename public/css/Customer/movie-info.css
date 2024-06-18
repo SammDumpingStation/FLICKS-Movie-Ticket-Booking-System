@@ -92,6 +92,19 @@
   margin-top: 24px;
 }
 
+.showtime {
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  margin: 0 auto;
+  width: 300px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  cursor: pointer;
+}
+
 .showtimes {
   cursor: pointer;
   align-items: center;
@@ -105,7 +118,7 @@
   max-width: 150px;
 }
 
-.showtimes:hover {
+.showtimes:hover, .showtime:hover {
   background-color: rgba(20, 162, 127, 0.2);
   font-weight: 700;
   font-size: 1.1rem;
